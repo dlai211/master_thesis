@@ -1,0 +1,24 @@
+# Other build files
+latex_files/version_control_commit_number_to_print_on_draft_title_page.tex
+# Latex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.tdo
+*.toc
+*.vrb
+*-eps-converted-to.pdf
+acs-main.bib
+# Editor and OS
+.DS_Store
+*.swp
+*.swo
