@@ -7,15 +7,142 @@
 \renewcommand\thetable{\thechapter.\arabic{table}}
 
 %--- Appendix A ---------------------------------------------------------------%
-\chapter{The First Appendix}
-\section{Appendix One Section One}
-\subsection{Chapter four section one sub-section one}
+\chapter{IRIS-HEP Fellowship Project: Analytical Tracking Validation}
+\section{Overview of the Project}
+\subsection{Motivation and Goals}
+\subsection{A Common Tracking Software (ACTS) framework and Open Data Detector (ODD) Geometry}
+\subsection{Python Tracking Resolution Calculator}
+\section{Methodology}
 
-%--- Appendix B ---------------------------------------------------------------%
-% Restart counting to B.1, B.2...
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\chapter{The Second Appendix}
-\section{Appendix Two Section One}
-\subsection{Chapter two section one sub-section one}
+\subsection{Analytical Resolution Formulation}
+The analytical model computes the uncertainties of the five standard ACTS track
+parameters: $(d_0, z_0, \phi, \theta, q/p)$. The covariance matrix is obtained
+from closed-form expressions derived from linearized track fits in the presence
+of Gaussian measurement errors and small-angle multiple scattering.
+
+\subsection{Measurement and Multiple Scattering Terms}
+The measurement term scales according to the intrinsic hit resolutions and the
+lever arm of the detector. It typically dominates at high momenta where
+multiple scattering is negligible.
+
+The multiple scattering contribution follows the Highland approximation,
+\[
+\theta_{\mathrm{ms}} \simeq \frac{13.6~\mathrm{MeV}}{\beta p}
+\sqrt{\frac{x}{X_0}}
+\left[1 + 0.038 \ln\left(\frac{x}{X_0}\right)\right],
+\]
+where $x/X_0$ is the material thickness. This term becomes dominant at low
+$p_T$ and is sensitive to the accuracy of the material map.
+
+One recurring challenge observed during the project was interpreting the
+material distribution in the ODD geometry. Differences between the analytical
+material assumptions and the more detailed ACTS material description were found
+to contribute significantly to discrepancies in $\sigma(d_0)$ and
+$\sigma(z_0)$ at low $p_T$.
+
+\subsection{Matrix Representation of Track Parameters}
+Track resolutions are determined by inverting the normal-equation matrix
+associated with the linearized track model. The calculator constructs both the
+design matrix and the noise matrix using detector layer positions and
+resolutions, then derives the covariance matrix via:
+\[
+\mathbf{C} = (\mathbf{A}^\top \mathbf{W} \mathbf{A})^{-1},
+\]
+where $\mathbf{W}$ contains both measurement and scattering weights. This
+framework allows the analytical model to remain computationally light while still
+capturing key geometric dependencies.
+
+\section{ACTS Configuration and Simulation Setup}
+The ACTS validation used the full ODD geometry with a $B=2$~T magnetic field and
+default digitization and reconstruction settings. Tracks were generated at fixed
+$p_T$ values ranging from 1~GeV to 200~GeV and at several representative
+pseudorapidity values. The resulting reconstructed track parameters and
+covariance matrices were extracted from \texttt{tracksummary.ckf.root} and
+converted into flat tables for comparison.
+
+This workflow mirrors typical detector performance studies in ATLAS and ensures
+that the results incorporate realistic navigation, material interactions, and
+Kalman filter behavior.
+
+\section{Comparison Strategy}
+For each $(p_T, \eta)$ point, the analytical prediction for each parameter's
+resolution was compared with the RMS width (or Gaussian core width) of the ACTS
+simulation. The comparison was performed for:
+\begin{itemize}
+    \item $\sigma(d_0)$
+    \item $\sigma(z_0)$
+    \item $\sigma(\phi)$
+    \item $\sigma(\theta)$
+    \item $\sigma(p_T)/p_T$
+\end{itemize}
+
+Residual fractional differences were computed to highlight systematic trends,
+and discrepancies were traced back to underlying assumptions such as:  
+material description, hit resolution mapping, and the treatment of scattering
+correlations within the Kalman filter.
+
+% -------------------------------------------------------
+
+\section{Results and Discussion}
+
+\subsection{Resolution vs. $p_T$ and $\eta$}
+Across most $p_T$ values, the analytical model and ACTS simulation show good
+agreement in the high-momentum regime, where measurement errors dominate. The
+$p_T$ dependence follows the expected scaling $\sigma \propto 1/p_T$ for the
+momentum resolution and constant behavior for angular uncertainties.
+
+At central $\eta \approx 0$, the agreement in $\sigma(d_0)$ and $\sigma(z_0)$ is
+excellent above approximately $20$~GeV. However, at low $p_T$, ACTS resolutions
+rise more steeply than predicted, reflecting stronger real-material multiple
+scattering effects.
+
+\subsection{Discrepancies and Model Validation}
+The largest discrepancies appear in regions with significant material
+interactions, particularly the endcap regions and low-momentum regimes. These
+differences were traced to:
+\begin{itemize}
+    \item Simplified analytical treatment of the ODD material map,
+    \item Non-uniform detector layer spacing in the endcaps,
+    \item Additional scattering terms handled automatically by the ACTS Kalman
+          filter but absent in the analytical model,
+    \item Slight differences in hit resolution interpretation between ACTS and
+          the analytical tool.
+\end{itemize}
+
+Despite these differences, the analytical model captures the overall behavior
+and correctly predicts the scale of the resolutions.
+
+\subsection{Implications for Fast Performance Estimation}
+The study confirms that analytical resolution models are highly effective for
+quick performance estimates in the central detector region and in the
+high-momentum regime. However, caution is required when applying these models in
+low-$p_T$ or high-$\eta$ regions where realistic material and scattering effects
+dominate.
+
+This validation provides meaningful guidance for future detector optimization
+workflows, and it highlights the importance of maintaining consistency between
+analytical assumptions and full simulation frameworks such as ACTS.
+
+
+% ================================================================
+\section{Conclusions}
+\subsection{Summary of Findings}
+\subsection{Cross-Project Insights}
+\subsection{Future Work}
+
+% ================================================================
+
+\section{Supplementary Material}
+\subsection{ACTS and \texttt{Traccc} Configuration Files}
+\subsection{Code Snippets and YAML Settings}
+\subsection{Additional Figures}
+
+
+% %--- Appendix B ---------------------------------------------------------------%
+% % Restart counting to B.1, B.2...
+% \setcounter{figure}{0}
+% \setcounter{table}{0}
+% \chapter{The Second Appendix}
+% \section{Appendix Two Section One}
+% \subsection{Chapter two section one sub-section one}
 
