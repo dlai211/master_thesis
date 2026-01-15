@@ -2,18 +2,198 @@
 \chapter{Introduction}
 \section{The Standard Model of particle physics}
 \subsection{Brief Overview of SM particles and interactions}
+
+The Standard Model of particle physics is a relativistic quantum field theory that describes the elementary particles known to us so far and their interactions through the electromagnetic, weak, and strong forces. The most recent particle, the Higgs boson, was discovered in 2012, but the Standard Model accounts for only 5\% of the matter in the universe.
+
+Particles in the Standard Model consist of fermions and bosons, where fermions are building blocks of matter, while bosons are force carriers. Each particle has its own antiparticle, which has opposite charges, while all other properties remain the same. 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Standard_Model_of_Elementary_Particles.svg.png}
+    \caption{Elementary particles of the Standard Model}
+    \label{fig:example}
+\end{figure}
+
+
+Bosons contain gauge bosons with integer intrinsic spin. The gauge bosons mediate the fundamental interactions: the photon for electromagnetism, the W and Z bosons for the weak interaction, and the gluons for the strong interaction. These particles transmit forces through quantum field interactions and are responsible for binding charged particles, inducing particle decays, and confining quarks inside hadrons. Notice that there is no gauge boson for gravitation. Even though theory proposes a massless spin-2 graviton as the force carrier, we have not yet experimentally proven it. In addition to gauge bosons, the Standard Model contains the Higgs boson, a scalar (spin-0) particle associated with the Higgs field, whose nonzero vacuum expectation value gives rise to the masses of elementary fermions and weak gauge bosons through spontaneous electroweak symmetry breaking. A defining feature of bosons is Bose–Einstein condensation, where a large number of bosons occupy the lowest-energy state.
+
+Fermions consist of quarks and leptons with spin one-half. These particles obey Fermi-Dirac statistics and are subject to the Pauli exclusion principle, which explains the atomic structure. The Pauli exclusion principle states that no two fermions can occupy the same quantum state, allowing electrons to occupy higher-energy states. Otherwise, electrons will all collapse into the lowest energy state, and chemistry known to us would no longer exist. 
+
+There are six flavors of quarks - up, down, charm, strange, top, and bottom - organized into three generations with increasing mass. They possess fractional charges (+2/3e or -1/3e) and baryon number (+1/2 for quarks and -1/2 for antiquarks), and a non-Abelian charge known as color charge. A proton is made of two up quarks and one down quark, which is two two-thirds of charge and one negative one-third of charge, making the positive one charge in a proton. The second generation. A neutron is made of one up quark and two down quarks. Quarks interact through all four fundamental forces: they participate in the strong interaction, mediated by gluons; the electromagnetic interaction, due to their electric charge; the weak interaction, responsible for flavor-changing processes and particle decays; and the gravitational interaction. A defining property of quarks is color confinement, which forbids the isolation of individual quarks but allows them to form hadrons, such as baryons (three quarks) and mesons (a quark-antiquark pair). Together with strong coupling, we can observe phenomena such as asymptotic freedom at high energies and tightly bound states at low energies. 
+
+Last but not least, leptons do not carry color charge and thus do not participate in the strong interaction, allowing them to exist as isolated particles. There are six leptons: the charged leptons (electron, muon, and tau), and their electrically neutral partners (the electron neutrino, muon neutrino, and tau neutrino). Charged leptons carry electric charge -e and interact through the electromagnetic, weak, and gravitational interactions, while neutrinos are electrically neutral and interact only via the weak interaction and gravity, making them extremely weakly interacting and difficult to detect. Lepton flavor is conserved in electromagnetic and strong processes, but can change through weak interactions, a phenomenon most strikingly observed in neutrino oscillations, which demonstrate that neutrinos have nonzero but tiny masses. The increasing masses across generations, particularly the large tau mass relative to the electron, reflect a hierarchical structure whose origin remains unexplained within the Standard Model.
+
 \subsection{Role of the Higgs boson}
-\subsection{Experimental validation at the LHC}
+The Higgs boson is a fundamental scalar particle associated with the Higgs field, which is introduced in the Standard Model to explain the origin of mass for elementary particles while preserving gauge invariance. The Higgs field is a complex scalar doublet transforming under the electroweak gauge group \(SU(2)_L \times U(1)_Y\), and its dynamics are governed by the Higgs potential
+\begin{equation}
+V(\Phi) = \mu^2 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2,
+\end{equation}
+where \(\mu^2 < 0\) and \(\lambda > 0\). The negative quadratic term leads to spontaneous symmetry breaking, causing the Higgs field to acquire a nonzero vacuum expectation value.
+
+Minimizing the potential yields
+\begin{equation}
+\langle \Phi \rangle =
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+v
+\end{pmatrix},
+\end{equation}
+where \(v = \sqrt{-\mu^2 / \lambda} \approx 246~\text{GeV}\) is the electroweak vacuum expectation value. This vacuum configuration breaks the electroweak symmetry down to the electromagnetic subgroup \(U(1)_{\mathrm{EM}}\).
+
+As a consequence of electroweak symmetry breaking, the weak gauge bosons acquire mass through their interactions with the Higgs field. The resulting masses are given by
+\begin{equation}
+m_W = \frac{1}{2} g v, \qquad
+m_Z = \frac{1}{2} \sqrt{g^2 + g'^2}\, v,
+\end{equation}
+while the photon remains massless. Fermions acquire mass through Yukawa interactions of the form
+\begin{equation}
+\mathcal{L}_{\mathrm{Yukawa}} = - y_f \bar{\psi}_L \Phi \psi_R + \mathrm{h.c.},
+\end{equation}
+leading to fermion masses
+\begin{equation}
+m_f = \frac{y_f v}{\sqrt{2}},
+\end{equation}
+where \(y_f\) denotes the Yukawa coupling of fermion \(f\).
+
+The Higgs boson itself arises as a physical excitation around the vacuum expectation value of the Higgs field. Its mass is determined by the curvature of the Higgs potential at the minimum,
+\begin{equation}
+m_H = \sqrt{2 \lambda}\, v,
+\end{equation}
+and has been experimentally measured to be approximately \(125~\text{GeV}\). Unlike gauge bosons, the Higgs boson does not mediate a force, but instead plays a central structural role by setting the mass scale of the Standard Model. Its couplings are proportional to particle masses, making it a unique probe of the electroweak symmetry-breaking mechanism and a sensitive window into possible physics beyond the Standard Model.
+
+% \subsection{Experimental validation at the LHC}
 
 \section{Beyond the Standard Model}
 \subsection{Motivations for BSM searches}
-\subsection{Dark photons as a BSM candidate}
+
+The Standard Model of particle physics provides a highly successful description of the known elementary particles and their interactions, and its predictions have been confirmed by numerous precision measurements. Nevertheless, the Standard Model is not a complete theory of fundamental physics. Both theoretical considerations and experimental observations point to several unresolved problems that motivate the search for physics beyond the Standard Model.
+
+One of the most significant shortcomings of the Standard Model is its inability to incorporate gravity. While the electromagnetic, weak, and strong interactions are described within a quantum field theoretical framework, gravity is currently understood only through classical mechanics and general relativity. Even though theory predicts the existence of a force carrier for gravity, it has yet to be experimentally verified. Therefore, the absence of a consistent quantum theory of gravity highlights a fundamental limitation of the Standard Model and suggests that further discoveries are needed. 
+
+The Standard Model also fails to account for the existence and properties of dark matter, which makes up around 27\% of the whole universe. Astrophysical and cosmological observations, including galaxy rotation curves, gravitational lensing, and measurements of the cosmic microwave background, provide compelling evidence for a non-luminous form of matter that constitutes a significant fraction of the energy density of the universe. However, none of the particles contained in the Standard Model possess the necessary properties to serve as a viable dark matter candidate.
+
+Another unresolved issue is the origin of neutrino masses. In the Standard Model, neutrinos are massless due to the absence of right-handed neutrino fields and Yukawa couplings. Experimental observations of neutrino oscillations, however, demonstrate that neutrinos have nonzero masses and oscillate between flavor states. Explaining these masses requires introducing new particles, new interactions, or higher-dimensional operators beyond the Standard Model.
+
+The pattern of fermion masses and mixing angles, commonly referred to as the flavor problem, also remains unexplained. All matter in the Standard Model is organized into three generations, but there is no theoretical reason why it has be exactly three. Secondly, the mass comes from the Higgs coupling. The coupling strength is a free parameter for which the value for the mass comes from nowhere. There is no pattern or formula derived from first principles that predicts these masses. Moreover, particles can change flavor via the weak interaction. Why would quarks stick to their own generation, while neutrinos oscillate between flavors constantly? The Standard Model does not explain why the mixing patterns are so different between the two types of fermions. 
+
+The Higgs sector introduces further theoretical challenges. Radiative corrections to the Higgs boson mass are sensitive to energy scales far above the electroweak scale, leading to the hierarchy or naturalness problem. Stabilizing the Higgs mass without extreme fine-tuning suggests the existence of new physics near the electroweak scale or new mechanisms that protect scalar masses from large quantum corrections.
+
+In addition, the Standard Model does not explain the observed matter--antimatter asymmetry of the universe. Although it contains sources of CP violation in the quark sector, these effects are insufficient to account for the baryon asymmetry generated in the early universe. Additional sources of CP violation or departures from thermal equilibrium are therefore required.
+
+Finally, the Standard Model provides no explanation for the values of its fundamental parameters, including gauge couplings, particle masses, and mixing angles. These parameters must be determined experimentally, limiting the theory's predictive power and suggesting that it may be an effective description of a deeper underlying framework.
+
+Taken together, these open questions provide strong motivation for the study of physics beyond the Standard Model. Addressing these issues requires extending the particle content, symmetries, or interactions of the theory, often leading to new degrees of freedom with weak or indirect couplings to Standard Model particles. Such extensions offer concrete experimental signatures that can be tested at collider experiments and in precision measurements, forming the basis for the investigations discussed in the following section.
 
 \section{ATLAS Run 3 Detector Configuration}
+\subsection{Introduction}
+The A Toroidal LHC ApparatuS (ATLAS) is a general-purpose particle physics experiment located at Interaction Point 1 (IP1) of the Large Hadron Collider (LHC). Designed to exploit the full discovery potential of the LHC, ATLAS is capable of detecting a wide range of physics signatures, from high-precision Standard Model measurements to searches for new particles such as heavy bosons, microscopic black holes, or dark matter candidates.
+
+The detector is forward-backward symmetric with respect to the interaction point. It measures approximately 46 meters in length, 25 meters in diameter, and weighs roughly 7,000 tonnes. ATLAS is composed of concentric layers of sub-detectors, each designed to measure specific properties of particles produced in proton-proton collisions.
+
+\subsection{Coordinate System}
+ATLAS uses a right-handed coordinate system with the origin at the nominal interaction point. The $z$-axis is defined along the beam pipe, the $x$-axis points from the interaction point to the center of the LHC ring, and the $y$-axis points upward. Cylindrical coordinates $(r, \phi)$ are used in the transverse plane, where $\phi$ is the azimuthal angle around the beam pipe. The polar angle $\theta$ is measured from the beam axis. Pseudorapidity, defined as $\eta = -\ln \tan(\theta/2)$, is commonly used instead of $\theta$ as differences in $\eta$ are invariant under Lorentz boosts along the longitudinal axis for massless particles.
+
+\section{The Magnet System}
+The magnetic configuration is a defining feature of the ATLAS design, engineered to bend charged particles for momentum measurement.
+
+\begin{itemize}
+    \item \textbf{Central Solenoid:} A thin superconducting solenoid surrounds the Inner Detector cavity. It generates a 2 Tesla axial magnetic field to bend charged particles in the transverse plane for momentum measurement within the tracking volume.
+    \item \textbf{Toroid Magnets:} The characteristic structural feature of ATLAS is its air-core toroid system. This consists of one Barrel Toroid and two End-Cap Toroids. These magnets generate a toroidal magnetic field of approximately 0.5-1 T in the muon spectrometer region, providing bending power for high-momentum muons independent of the inner tracking system.
+\end{itemize}
+
+\section{The Inner Detector (ID)}
+The innermost part of ATLAS is the Inner Detector, designed to reconstruct charged-particle trajectories with high precision and to identify primary and secondary interaction vertices. Immersed in the 2 T solenoidal field, it covers the pseudorapidity range $|\eta| < 2.5$.
+
+\begin{itemize}
+    \item \textbf{Pixel Detector:} The layer closest to the beam pipe is a high-granularity silicon pixel detector. It includes the Insertable B-Layer (IBL) as the innermost sensing layer. This system provides critical tracking and vertexing, essential for identifying $b$-hadrons ($b$-tagging) and short-lived particles.
+    \item \textbf{Semiconductor Tracker (SCT):} Surrounding the pixels is the SCT, composed of silicon microstrip sensors. It provides multiple space-points per track, contributing significantly to momentum resolution.
+    \item \textbf{Transition Radiation Tracker (TRT):} The outermost component of the ID is the TRT, a straw-tube tracker comprising roughly 300,000 gas-filled drift tubes. It provides continuous tracking (typically 30 hits per track) and electron identification via transition radiation detection.
+\end{itemize}
+
+\section{Calorimetry}
+Outside the solenoid, the calorimeters measure the energy of neutral and charged particles.
+
+\begin{itemize}
+    \item \textbf{Electromagnetic (EM) Calorimeter:} This is a sampling calorimeter using lead as the absorber and liquid argon (LAr) as the active medium. It features an ``accordion'' geometry that provides complete $\phi$ symmetry without azimuthal cracks. It is designed for precision measurements of electrons and photons.
+    \item \textbf{Hadronic Calorimeter:} Surrounding the EM envelope is the hadronic calorimeter. In the central barrel region ($|\eta| < 1.7$), it uses steel absorbers and scintillating tiles (TileCal). In the end-caps, where radiation levels are higher, LAr technology is used with copper absorbers.
+\end{itemize}
+
+\section{The Muon Spectrometer (MS)}
+The Muon Spectrometer defines the overall volume of the ATLAS detector. Its primary function is to trigger on and measure the momentum of muons, the only charged particles capable of penetrating the calorimeters. The MS relies on the magnetic deflection provided by the air-core toroids.
+
+\subsection{Precision Tracking Chambers}
+\begin{itemize}
+    \item \textbf{Monitored Drift Tubes (MDT):} These pressurized drift tubes provide high-precision coordinate measurements in the bending plane over most of the detector acceptance.
+    \item \textbf{Cathode Strip Chambers (CSC):} Located in the innermost region of the forward end-caps ($2.0 < |\eta| < 2.7$), these multi-wire proportional chambers are used for their high spatial resolution and ability to withstand high rates.
+    \item \textbf{Micromegas (MM):} Part of the New Small Wheel (NSW) in the inner end-cap region, these micro-pattern gaseous detectors provide precision tracking capabilities at very high particle rates.
+\end{itemize}
+
+\subsection{Trigger Chambers}
+\begin{itemize}
+    \item \textbf{Resistive Plate Chambers (RPC):} Located in the barrel, RPCs provide fast timing signals for the Level-1 trigger and measure the non-bending coordinate.
+    \item \textbf{Thin Gap Chambers (TGC):} Used in the end-caps, TGCs provide the trigger signal in the forward region.
+    \item \textbf{Small-strip Thin Gap Chambers (sTGC):} Also part of the NSW system, these provide both fast triggering and precision tracking in the high-rate forward environment.
+\end{itemize}
+
+\section{Trigger and Data Acquisition (TDAQ)}
+The LHC bunch-crossing rate of \SI{40}{MHz} produces far more data than can be stored. ATLAS utilizes a two-level trigger system to select events of interest.
+
+\begin{enumerate}
+    \item \textbf{Level-1 (L1) Trigger:} A hardware-based system using custom electronics (ASICs and FPGAs). It uses coarse-granularity information from the calorimeters and muon trigger chambers to identify regions of interest (RoIs). It reduces the event rate from \SI{40}{MHz} to approximately \SI{100}{kHz}.
+    \item \textbf{High-Level Trigger (HLT):} A software-based system running on a large computer farm. It accesses full-granularity detector data within the RoIs identified by L1. It performs sophisticated reconstruction similar to offline analysis to make the final decision, reducing the recording rate to approximately \SI{1}{kHz} -- \SI{3}{kHz} for offline storage and analysis.
+\end{enumerate}
 
 \section{ATLAS Run 4 and the Inner Tracker (ITk) Trigger and Data Acquisition (TDAQ) Upgrade}
-\subsection{Motivation for the upgrade}
-\subsection{Detector redesign}
+
+\subsection{The High-Luminosity LHC (HL-LHC) Context}
+Following the completion of Run 3, the LHC will enter Long Shutdown 3 (LS3), currently scheduled to last from 2026 to 2029. During this period, the accelerator will undergo a major upgrade to become the High-Luminosity LHC (HL-LHC). The primary objective of the HL-LHC is to increase the integrated luminosity by a factor of ten compared to the original LHC design, targeting a total dataset of 3000~fb$^{-1}$ or 4000~fb$^{-1}$ over approximately a decade of operation.
+
+To achieve this, the instantaneous luminosity will be leveled at $\mathcal{L} \approx 5.0 - 7.5 \times 10^{34} \text{ cm}^{-2}\text{s}^{-1}$. While this massive increase in collision rate enhances the potential for observing rare processes (such as Di-Higgs production), it introduces a severe experimental challenge: pile-up. The average number of proton-proton interactions per bunch crossing is expected to rise to $\langle \mu \rangle \approx 140$ (baseline) or even up to $\langle \mu \rangle \approx 200$ (ultimate scenario). To maintain performance in this dense environment, the ATLAS detector requires a ``Phase-II'' upgrade, the cornerstone of which is the complete replacement of the inner tracking system.
+
+\subsection{The Inner Tracker (ITk)}
+The current Inner Detector was designed for a maximum pile-up of $\langle \mu \rangle \approx 50$ and an integrated radiation dose consistent with $400 - 500 \text{ fb}^{-1}$. It will reach its end of life by the end of Run 3 due to radiation damage and occupancy limits. For Run 4, it will be replaced entirely by the \textbf{Inner Tracker (ITk)}, an all-silicon system designed to provide robust tracking with high granularity and radiation hardness.
+
+\subsubsection{Layout and Coverage}
+The ITk utilizes an all-silicon design, eliminating the transition radiation tracker (straw tubes) used in previous runs. This allows for a significant extension of the forward tracking acceptance from $|\eta| < 2.5$ to $|\eta| < 4.0$. The detector is divided into two sub-systems:
+\begin{enumerate}
+    \item \textbf{Pixel Detector:} The innermost five layers (in the barrel) are composed of silicon pixel sensors to provide precision vertexing in the highest density region.
+    \item \textbf{Strip Detector:} Surrounding the pixels are four layers of silicon microstrip sensors in the barrel and six disks in the end-caps, providing precision tracking over a large volume.
+\end{enumerate}
+
+\subsubsection{Performance Improvements}
+The ITk is designed to significantly reduce the material budget compared to the original Inner Detector, minimizing multiple scattering and photon conversions. Despite the harsher environment, the ITk aims to maintain or improve upon the tracking efficiency and momentum resolution of Run 2/3. The inclusion of tracking up to $|\eta| = 4.0$ also significantly enhances the identification of forward jets and the missing transverse momentum ($E_T^{\text{miss}}$) resolution.
+
+\subsection{The High-Granularity Timing Detector (HGTD)}
+One of the most innovative additions for Run 4 is the High-Granularity Timing Detector (HGTD). As pile-up increases, the spatial separation of vertices along the beam axis ($z$) becomes insufficient to distinguish between the hard-scatter interaction and pile-up collisions. The HGTD introduces time as a fourth dimension for track reconstruction.
+
+\begin{figure}[htbp]
+    \centering
+    % \includegraphics[width=0.9\textwidth]{path/to/hgtd_diagram.png}
+    \caption{Schematic of the High Granularity Timing Detector (HGTD).}
+    \label{fig:hgtd_diagram}
+\end{figure}
+
+\subsubsection{Working Principle}
+Located in the forward region ($2.4 < |\eta| < 4.0$), just outside the ITk acceptance, the HGTD is designed to measure the time-of-arrival of minimum ionizing particles (MIPs) with a resolution of $\sigma_t \approx 30 \text{ ps}$ per track. It utilizes \textbf{Low Gain Avalanche Detector (LGAD)} technology—silicon sensors with an internal gain layer that improves the signal-to-noise ratio, enabling fast timing measurements.
+
+\subsubsection{Physics Impact}
+By associating a precise time with forward tracks, the HGTD allows the reconstruction software to distinguish between vertices that are spatially overlapping but separated in time (the ``time spread'' of the LHC luminous region is approximately 180~ps). This capability is critical for:
+\begin{itemize}
+    \item \textbf{Pile-up Rejection:} Suppressing tracks from pile-up vertices that contaminate forward jets.
+    \item \textbf{Luminosity Measurement:} Providing a highly precise, bunch-by-bunch luminosity measurement.
+\end{itemize}
+
+\subsection{Electronics and Trigger Upgrades}
+To cope with the increased data rates, the readout electronics for the Calorimeters and Muon Spectrometer will be upgraded to support a full-granularity readout at the Level-0 trigger rate of 1~MHz (up from 100~kHz in Run 2/3).
+
+\begin{itemize}
+    \item \textbf{TDAQ System:} The trigger architecture will evolve to a single-level hardware trigger (Level-0) followed by a software-based Event Filter. This allows more complex algorithms (including tracking information) to be run earlier in the selection process.
+    \item \textbf{Muon Spectrometer:} In addition to electronics upgrades, the inner barrel layer will be reinforced with new RPCs (Resistive Plate Chambers) and small-diameter MDTs (sMDTs) to increase the trigger acceptance and redundancy in the region where rates are highest.
+\end{itemize}
+
+\subsection{Conclusion}
+The Phase-II upgrades represent a transformation of the ATLAS detector. With the installation of the ITk and HGTD, along with the modernization of the trigger and readout electronics, ATLAS will be equipped to handle the extreme pile-up of the HL-LHC. These upgrades ensure that the experiment can continue to perform precision measurements of the Higgs boson and search for new physics in the decade-long Run 4 era.
+
 
 
 %--- Chapter 2 ----------------------------------------------------------------%
