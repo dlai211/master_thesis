@@ -56,6 +56,7 @@
 \newif\ifbound
 %\newif\ifnatbib
 \newif\ifapacite
+\newif\ifatlas
 \newif\ifnotables
 \newif\ifnofigures
 \newif\iflistings
@@ -91,6 +92,7 @@
 \DeclareOption{lipsum}{\lipsumtrue}
 \DeclareOption{bound}{\boundtrue}
 \DeclareOption{apacite}{\apacitetrue}
+\DeclareOption{atlas}{\atlastrue}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{apacite}}
 \ProcessOptions
 \ifthesis\else
@@ -142,6 +144,10 @@
 \RequirePackage[natbibapa]{apacite}
 \bibliographystyle{apacite}
 \fi
+\ifatlas
+\RequirePackage{atlasphysics}
+\bibliographystyle{atlasnote}
+\fi
 
 \ifdraft
 \RequirePackage{draftwatermark}
@@ -176,15 +182,15 @@
 \fi
 \newcommand*{\cst@xspace}{\expandafter\xspace}
 \newcommand*{\cst@latin}{\expandafter}
-\newcommand*{\etc}{\@ifnextchar.{\cst@etc}{\cst@etc.\cst@xspace}}
-\newcommand*{\invacuo}{\cst@latin{in vacuo}\cst@xspace}
-\newcommand*{\etal}{\@ifnextchar.{\cst@etal}{\cst@etal.\cst@xspace}}
-\newcommand*{\eg}{\cst@eg.}
-\newcommand*{\ie}{\cst@ie.}
-\newcommand*{\cst@etal}{\cst@latin{et~al}}
-\newcommand*{\cst@etc}{\cst@latin{etc}}
-\newcommand*{\cst@ie}{\cst@latin{i.e\spacefactor999\relax}}
-\newcommand*{\cst@eg}{\cst@latin{e.g\spacefactor999\relax}}
+%\newcommand*{\etc}{\@ifnextchar.{\cst@etc}{\cst@etc.\cst@xspace}}
+%\newcommand*{\invacuo}{\cst@latin{in vacuo}\cst@xspace}
+%\newcommand*{\etal}{\@ifnextchar.{\cst@etal}{\cst@etal.\cst@xspace}}
+%\newcommand*{\eg}{\cst@eg.}
+%\newcommand*{\ie}{\cst@ie.}
+%\newcommand*{\cst@etal}{\cst@latin{et~al}}
+%\newcommand*{\cst@etc}{\cst@latin{etc}}
+%\newcommand*{\cst@ie}{\cst@latin{i.e\spacefactor999\relax}}
+%\newcommand*{\cst@eg}{\cst@latin{e.g\spacefactor999\relax}}
 
 \newenvironment{normalspace}{\begin{singlespacing}}{\end{singlespacing}}
 \def\@mydouble{\endsinglespace\large\normalsize\setstretch{1.7}}

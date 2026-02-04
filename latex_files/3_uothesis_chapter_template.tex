@@ -3,27 +3,64 @@
 \section{The Standard Model of particle physics}
 \subsection{Brief Overview of SM particles and interactions}
 
-The Standard Model of particle physics is a relativistic quantum field theory that describes the elementary particles known to us so far and their interactions through the electromagnetic, weak, and strong forces. The most recent particle, the Higgs boson, was discovered in 2012, but the Standard Model accounts for only 5\% of the matter in the universe.
+The Standard Model of particle physics is a relativistic quantum field theory that describes the elementary particles known to date that constitute matter and the four fundamental forces of nature (except gravity). At the Large Hadron Collider (LHC) in 2012, the latest particle discovery was the Higgs boson, which is responsible for electroweak symmetry breaking and mass generation. ~\cite{ATLAS:2023oaq}
 
-Particles in the Standard Model consist of fermions and bosons, where fermions are building blocks of matter, while bosons are force carriers. Each particle has its own antiparticle, which has opposite charges, while all other properties remain the same. 
-\begin{figure}[htbp]
+This chapter will introduce the components and their significance in the Standard Model, while the next section, beyond the Standard Model, will explain the limitations of the current model. 
+
+\begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Standard_Model_of_Elementary_Particles.svg.png}
-    \caption{Elementary particles of the Standard Model}
+    \caption{Elementary particles of the Standard Model \cite{WikiSM2018}}
     \label{fig:example}
 \end{figure}
 
 
-Bosons contain gauge bosons with integer intrinsic spin. The gauge bosons mediate the fundamental interactions: the photon for electromagnetism, the W and Z bosons for the weak interaction, and the gluons for the strong interaction. These particles transmit forces through quantum field interactions and are responsible for binding charged particles, inducing particle decays, and confining quarks inside hadrons. Notice that there is no gauge boson for gravitation. Even though theory proposes a massless spin-2 graviton as the force carrier, we have not yet experimentally proven it. In addition to gauge bosons, the Standard Model contains the Higgs boson, a scalar (spin-0) particle associated with the Higgs field, whose nonzero vacuum expectation value gives rise to the masses of elementary fermions and weak gauge bosons through spontaneous electroweak symmetry breaking. A defining feature of bosons is Bose–Einstein condensation, where a large number of bosons occupy the lowest-energy state.
+The Standard Model is based on the quantum field theory described by the symmetry group of
+\[
+SU(3)_C \times SU(2)_L \times U(1)_Y.
+\]
 
-Fermions consist of quarks and leptons with spin one-half. These particles obey Fermi-Dirac statistics and are subject to the Pauli exclusion principle, which explains the atomic structure. The Pauli exclusion principle states that no two fermions can occupy the same quantum state, allowing electrons to occupy higher-energy states. Otherwise, electrons will all collapse into the lowest energy state, and chemistry known to us would no longer exist. 
 
-There are six flavors of quarks - up, down, charm, strange, top, and bottom - organized into three generations with increasing mass. They possess fractional charges (+2/3e or -1/3e) and baryon number (+1/2 for quarks and -1/2 for antiquarks), and a non-Abelian charge known as color charge. A proton is made of two up quarks and one down quark, which is two two-thirds of charge and one negative one-third of charge, making the positive one charge in a proton. The second generation. A neutron is made of one up quark and two down quarks. Quarks interact through all four fundamental forces: they participate in the strong interaction, mediated by gluons; the electromagnetic interaction, due to their electric charge; the weak interaction, responsible for flavor-changing processes and particle decays; and the gravitational interaction. A defining property of quarks is color confinement, which forbids the isolation of individual quarks but allows them to form hadrons, such as baryons (three quarks) and mesons (a quark-antiquark pair). Together with strong coupling, we can observe phenomena such as asymptotic freedom at high energies and tightly bound states at low energies. 
+Particles in the Standard Model are categorized into fermions and bosons. Each particle has its own antiparticle with opposite charges, while all other properties remain the same. ~\cite{Griffiths_EPP} ~\cite{Thomson_MPP}
 
-Last but not least, leptons do not carry color charge and thus do not participate in the strong interaction, allowing them to exist as isolated particles. There are six leptons: the charged leptons (electron, muon, and tau), and their electrically neutral partners (the electron neutrino, muon neutrino, and tau neutrino). Charged leptons carry electric charge -e and interact through the electromagnetic, weak, and gravitational interactions, while neutrinos are electrically neutral and interact only via the weak interaction and gravity, making them extremely weakly interacting and difficult to detect. Lepton flavor is conserved in electromagnetic and strong processes, but can change through weak interactions, a phenomenon most strikingly observed in neutrino oscillations, which demonstrate that neutrinos have nonzero but tiny masses. The increasing masses across generations, particularly the large tau mass relative to the electron, reflect a hierarchical structure whose origin remains unexplained within the Standard Model.
+Fermions are building blocks of matter that have $\frac{1}{2}$ spin and consist of three generations of quarks and leptons. These particles obey Fermi-Dirac statistics and are subject to the Pauli exclusion principle, which states that no two fermions can occupy the same quantum state. It explains that electrons move to higher-energy states when lower-energy states are occupied, thereby forming the atomic structure we know today. 
+The six flavors of quarks are up, down, charm, strange, top, and bottom quarks. Organized by generations, and the increasing mass from left to right represents 
+\[
+\begin{pmatrix} u \\ d \end{pmatrix},
+\begin{pmatrix} c \\ s \end{pmatrix},
+\begin{pmatrix} t \\ b \end{pmatrix}
+\]
+First row of the quarks possess a fractional charges of +$\frac{2}{3}$; second row has -$\frac{1}{3}$. Their corresponding antiparticles are
+\[
+\begin{pmatrix} \bar{u} \\ \bar{d} \end{pmatrix},
+\begin{pmatrix} \bar{c} \\ \bar{s} \end{pmatrix},
+\begin{pmatrix} \bar{t} \\ \bar{b} \end{pmatrix}
+\]
+All these quarks have a non-Abelian charge called color charge from the local gauge symmetry $SU(3)_c$ of quantum chromodynamics (QCD). Due to color confinement, they cannot exist by themselves, leaving them in the form of color-neutral particles, known as hadrons. Hadrons are further categorized into mesons (two quarks) and baryons (three quarks). Mesons consist of a quark-antiquark pair, like the triplets of pions ($\pi^+$ , $\pi^0$ , $\pi^-$), where the color cancels out a color from the quark and its corresponding anti-color from the antiquark. Examples of baryons are protons (p) and neutrons (n), where the color-neutral raised from the balance of the three colors of each quark, commonly denoted as red, green, and blue.  Quarks interact through all four fundamental forces. Strong force mediated by gluons binds quarks into hadrons; the electromagnetic and weak interactions are responsible for charge and flavor change; the gravitational force, due to its force magnitude, is irrelevant compared to the other three forces. 
+
+The leptons are the electron, muon, tau, electron neutrino, muon neutrino, and tau neutrino. Organized by generations and increasing mass from left to right represents 
+\[
+\begin{pmatrix} e^- \\ \nu_{e} \end{pmatrix},
+\begin{pmatrix} \mu^- \\ \nu_{\mu} \end{pmatrix},
+\begin{pmatrix} \tau^- \\ \nu_{\tau} \end{pmatrix},
+\]
+The first row of leptons has a charge of -1, and neutrinos are charge-neutral and left-handed. Their corresponding anti-particles are 
+\[
+\begin{pmatrix} e^+ \\ \bar{\nu_{e}} \end{pmatrix},
+\begin{pmatrix} \mu^+ \\ \bar{\nu_{\mu}} \end{pmatrix},
+\begin{pmatrix} \tau^+ \\ \bar{\nu_{\tau}} \end{pmatrix},
+\]
+The first row of anti-leptons becomes +1 charge, and anti-neutrinos are right-handed.
+
+Charged leptons interact via the electromagnetic, weak, and gravitational interactions, whereas neutrinos interact only via the weak interaction and gravity, making them weakly interacting and difficult to detect. Lepton flavor is conserved in electromagnetic and strong processes, but can change through weak interactions, a phenomenon most strikingly observed in neutrino oscillations, which demonstrate that neutrinos have nonzero but tiny masses. The increasing masses across generations, particularly the large tau mass relative to the electron, reflect a hierarchical structure whose origin remains unexplained within the Standard Model.
+
+Bosons comprise four spin-1 gauge bosons and one spin-0 Higgs Boson. The gauge bosons are fundamental force mediators: the photon for electromagnetism, the W and Z bosons for weak interaction, and the gluons for the strong interaction. A defining feature of bosons is Bose–Einstein condensation, where numerous identical bosons can all occupy the lowest-energy state. These particles transmit forces through quantum field interactions and are responsible for binding charged particles, inducing particle decays, and confining quarks inside hadrons. Notice that there is no gauge boson for gravitation. Even though theory proposes a massless spin-2 graviton as the force carrier, we have not yet experimentally proven it. In addition to gauge bosons, the Standard Model contains the Higgs boson, a scalar (spin-0) particle associated with the Higgs field, whose nonzero vacuum expectation value gives rise to the masses of elementary fermions and weak gauge bosons through spontaneous electroweak symmetry breaking. 
+
+
+---
 
 \subsection{Role of the Higgs boson}
-The Higgs boson is a fundamental scalar particle associated with the Higgs field, which is introduced in the Standard Model to explain the origin of mass for elementary particles while preserving gauge invariance. The Higgs field is a complex scalar doublet transforming under the electroweak gauge group \(SU(2)_L \times U(1)_Y\), and its dynamics are governed by the Higgs potential
+The Higgs boson is a fundamental scalar particle associated with the Higgs field, which is introduced in the Standard Model to explain the origin of mass for elementary particles while preserving gauge invariance. ~\cite{Thomson_MPP} The Higgs field is a complex scalar doublet transforming under the electroweak gauge group \(SU(2)_L \times U(1)_Y\), and its dynamics are governed by the Higgs potential
 \begin{equation}
 V(\Phi) = \mu^2 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2,
 \end{equation}
@@ -63,10 +100,12 @@ and has been experimentally measured to be approximately \(125~\text{GeV}\). Unl
 
 % \subsection{Experimental validation at the LHC}
 
+---
+
 \section{Beyond the Standard Model}
 \subsection{Motivations for BSM searches}
 
-The Standard Model of particle physics provides a highly successful description of the known elementary particles and their interactions, and its predictions have been confirmed by numerous precision measurements. Nevertheless, the Standard Model is not a complete theory of fundamental physics. Both theoretical considerations and experimental observations point to several unresolved problems that motivate the search for physics beyond the Standard Model.
+The Standard Model of particle physics provides a highly successful description of the known elementary particles and their interactions, and its predictions have been confirmed by numerous precision measurements. Nevertheless, the Standard Model is not a complete theory of fundamental physics. Both theoretical considerations and experimental observations point to several unresolved problems that motivate the search for physics beyond the Standard Model. ~\cite{PDG2024} ~\cite{Thomson_MPP}
 
 One of the most significant shortcomings of the Standard Model is its inability to incorporate gravity. While the electromagnetic, weak, and strong interactions are described within a quantum field theoretical framework, gravity is currently understood only through classical mechanics and general relativity. Even though theory predicts the existence of a force carrier for gravity, it has yet to be experimentally verified. Therefore, the absence of a consistent quantum theory of gravity highlights a fundamental limitation of the Standard Model and suggests that further discoveries are needed. 
 
@@ -84,123 +123,165 @@ Finally, the Standard Model provides no explanation for the values of its fundam
 
 Taken together, these open questions provide strong motivation for the study of physics beyond the Standard Model. Addressing these issues requires extending the particle content, symmetries, or interactions of the theory, often leading to new degrees of freedom with weak or indirect couplings to Standard Model particles. Such extensions offer concrete experimental signatures that can be tested at collider experiments and in precision measurements, forming the basis for the investigations discussed in the following section.
 
+---
+
 \section{ATLAS Run 3 Detector Configuration}
 \subsection{Introduction}
+
 The A Toroidal LHC ApparatuS (ATLAS) is a general-purpose particle physics experiment located at Interaction Point 1 (IP1) of the Large Hadron Collider (LHC). Designed to exploit the full discovery potential of the LHC, ATLAS is capable of detecting a wide range of physics signatures, from high-precision Standard Model measurements to searches for new particles such as heavy bosons, microscopic black holes, or dark matter candidates.
 
 The detector is forward-backward symmetric with respect to the interaction point. It measures approximately 46 meters in length, 25 meters in diameter, and weighs roughly 7,000 tonnes. ATLAS is composed of concentric layers of sub-detectors, each designed to measure specific properties of particles produced in proton-proton collisions.
 
-\subsection{Coordinate System}
-ATLAS uses a right-handed coordinate system with the origin at the nominal interaction point. The $z$-axis is defined along the beam pipe, the $x$-axis points from the interaction point to the center of the LHC ring, and the $y$-axis points upward. Cylindrical coordinates $(r, \phi)$ are used in the transverse plane, where $\phi$ is the azimuthal angle around the beam pipe. The polar angle $\theta$ is measured from the beam axis. Pseudorapidity, defined as $\eta = -\ln \tan(\theta/2)$, is commonly used instead of $\theta$ as differences in $\eta$ are invariant under Lorentz boosts along the longitudinal axis for massless particles.
+---
 
-\section{The Magnet System}
-The magnetic configuration is a defining feature of the ATLAS design, engineered to bend charged particles for momentum measurement.
+\subsection{Timeline of LHC and ATLAS Data-Taking Runs}
 
-\begin{itemize}
-    \item \textbf{Central Solenoid:} A thin superconducting solenoid surrounds the Inner Detector cavity. It generates a 2 Tesla axial magnetic field to bend charged particles in the transverse plane for momentum measurement within the tracking volume.
-    \item \textbf{Toroid Magnets:} The characteristic structural feature of ATLAS is its air-core toroid system. This consists of one Barrel Toroid and two End-Cap Toroids. These magnets generate a toroidal magnetic field of approximately 0.5-1 T in the muon spectrometer region, providing bending power for high-momentum muons independent of the inner tracking system.
-\end{itemize}
+The physics program of the ATLAS experiment is organized into successive operational periods of the Large Hadron Collider (LHC), known as runs, which are separated by long shutdowns dedicated to accelerator consolidation and detector upgrades. These runs---Run~1, Run~2, Run~3, and the coming Run~4---correspond to distinct experimental eras with progressively increasing collision energy, luminosity, and detector performance requirements.
 
-\section{The Inner Detector (ID)}
-The innermost part of ATLAS is the Inner Detector, designed to reconstruct charged-particle trajectories with high precision and to identify primary and secondary interaction vertices. Immersed in the 2 T solenoidal field, it covers the pseudorapidity range $|\eta| < 2.5$.
+---
 
-\begin{itemize}
-    \item \textbf{Pixel Detector:} The layer closest to the beam pipe is a high-granularity silicon pixel detector. It includes the Insertable B-Layer (IBL) as the innermost sensing layer. This system provides critical tracking and vertexing, essential for identifying $b$-hadrons ($b$-tagging) and short-lived particles.
-    \item \textbf{Semiconductor Tracker (SCT):} Surrounding the pixels is the SCT, composed of silicon microstrip sensors. It provides multiple space-points per track, contributing significantly to momentum resolution.
-    \item \textbf{Transition Radiation Tracker (TRT):} The outermost component of the ID is the TRT, a straw-tube tracker comprising roughly 300,000 gas-filled drift tubes. It provides continuous tracking (typically 30 hits per track) and electron identification via transition radiation detection.
-\end{itemize}
+\subsubsection{Run 1 (2010--2012): }
 
-\section{Calorimetry}
-Outside the solenoid, the calorimeters measure the energy of neutral and charged particles.
+Run~1 marked the first physics operation of the LHC, delivering proton--proton collisions at center-of-mass energies of $\sqrt{s}=7~\mathrm{TeV}$ (2010--2011) and $8~\mathrm{TeV}$ (2012). During this period, the ATLAS detector was fully commissioned, and baseline performance for tracking, calorimetry, muon reconstruction, and triggering was established.
 
-\begin{itemize}
-    \item \textbf{Electromagnetic (EM) Calorimeter:} This is a sampling calorimeter using lead as the absorber and liquid argon (LAr) as the active medium. It features an ``accordion'' geometry that provides complete $\phi$ symmetry without azimuthal cracks. It is designed for precision measurements of electrons and photons.
-    \item \textbf{Hadronic Calorimeter:} Surrounding the EM envelope is the hadronic calorimeter. In the central barrel region ($|\eta| < 1.7$), it uses steel absorbers and scintillating tiles (TileCal). In the end-caps, where radiation levels are higher, LAr technology is used with copper absorbers.
-\end{itemize}
+The most significant scientific achievement of Run~1 was the discovery of the Higgs boson in 2012 by the ATLAS and CMS collaborations. From an experimental perspective, Run~1 validated the overall detector design while highlighting limitations in radiation tolerance, trigger bandwidth, and tracking performance that informed later upgrades.
 
-\section{The Muon Spectrometer (MS)}
-The Muon Spectrometer defines the overall volume of the ATLAS detector. Its primary function is to trigger on and measure the momentum of muons, the only charged particles capable of penetrating the calorimeters. The MS relies on the magnetic deflection provided by the air-core toroids.
+---
 
-\subsection{Precision Tracking Chambers}
-\begin{itemize}
-    \item \textbf{Monitored Drift Tubes (MDT):} These pressurized drift tubes provide high-precision coordinate measurements in the bending plane over most of the detector acceptance.
-    \item \textbf{Cathode Strip Chambers (CSC):} Located in the innermost region of the forward end-caps ($2.0 < |\eta| < 2.7$), these multi-wire proportional chambers are used for their high spatial resolution and ability to withstand high rates.
-    \item \textbf{Micromegas (MM):} Part of the New Small Wheel (NSW) in the inner end-cap region, these micro-pattern gaseous detectors provide precision tracking capabilities at very high particle rates.
-\end{itemize}
+\subsubsection{Run 2 (2015--2018): }
 
-\subsection{Trigger Chambers}
-\begin{itemize}
-    \item \textbf{Resistive Plate Chambers (RPC):} Located in the barrel, RPCs provide fast timing signals for the Level-1 trigger and measure the non-bending coordinate.
-    \item \textbf{Thin Gap Chambers (TGC):} Used in the end-caps, TGCs provide the trigger signal in the forward region.
-    \item \textbf{Small-strip Thin Gap Chambers (sTGC):} Also part of the NSW system, these provide both fast triggering and precision tracking in the high-rate forward environment.
-\end{itemize}
+Run~2 saw the LHC operate at a center-of-mass energy of $\sqrt{s}=13~\mathrm{TeV}$, nearly doubling the energy available in Run~1. This enabled precision measurements of Higgs boson properties, detailed studies of top-quark and electroweak processes, and extensive searches for physics beyond the Standard Model.
 
-\section{Trigger and Data Acquisition (TDAQ)}
-The LHC bunch-crossing rate of \SI{40}{MHz} produces far more data than can be stored. ATLAS utilizes a two-level trigger system to select events of interest.
+A major ATLAS upgrade for Run~2 was the installation of the Insertable B-Layer (IBL), which significantly improved vertex reconstruction and impact-parameter resolution. Increased pile-up and higher trigger rates motivated substantial advances in reconstruction software and trigger strategies.
 
-\begin{enumerate}
-    \item \textbf{Level-1 (L1) Trigger:} A hardware-based system using custom electronics (ASICs and FPGAs). It uses coarse-granularity information from the calorimeters and muon trigger chambers to identify regions of interest (RoIs). It reduces the event rate from \SI{40}{MHz} to approximately \SI{100}{kHz}.
-    \item \textbf{High-Level Trigger (HLT):} A software-based system running on a large computer farm. It accesses full-granularity detector data within the RoIs identified by L1. It performs sophisticated reconstruction similar to offline analysis to make the final decision, reducing the recording rate to approximately \SI{1}{kHz} -- \SI{3}{kHz} for offline storage and analysis.
-\end{enumerate}
+---
 
-\section{ATLAS Run 4 and the Inner Tracker (ITk) Trigger and Data Acquisition (TDAQ) Upgrade}
+\subsubsection{Run 3 (2022--2025): }
 
-\subsection{The High-Luminosity LHC (HL-LHC) Context}
-Following the completion of Run 3, the LHC will enter Long Shutdown 3 (LS3), currently scheduled to last from 2026 to 2029. During this period, the accelerator will undergo a major upgrade to become the High-Luminosity LHC (HL-LHC). The primary objective of the HL-LHC is to increase the integrated luminosity by a factor of ten compared to the original LHC design, targeting a total dataset of 3000~fb$^{-1}$ or 4000~fb$^{-1}$ over approximately a decade of operation.
+Run~3 operates at a center-of-mass energy of $\sqrt{s}=13.6~\mathrm{TeV}$, the highest achieved at the LHC to date. \cite{LHCRun3} Although the energy increase relative to Run~2 is modest, Run~3 is characterized by higher luminosity and more challenging pile-up conditions.
 
-To achieve this, the instantaneous luminosity will be leveled at $\mathcal{L} \approx 5.0 - 7.5 \times 10^{34} \text{ cm}^{-2}\text{s}^{-1}$. While this massive increase in collision rate enhances the potential for observing rare processes (such as Di-Higgs production), it introduces a severe experimental challenge: pile-up. The average number of proton-proton interactions per bunch crossing is expected to rise to $\langle \mu \rangle \approx 140$ (baseline) or even up to $\langle \mu \rangle \approx 200$ (ultimate scenario). To maintain performance in this dense environment, the ATLAS detector requires a ``Phase-II'' upgrade, the cornerstone of which is the complete replacement of the inner tracking system.
+This run serves as a critical transition period toward the High-Luminosity LHC (HL-LHC). Upgraded trigger architectures, real-time reconstruction techniques, and improved tracking algorithms are validated under realistic conditions, preparing for Run~4. \cite{ATLASRun3Overview}
 
-\subsection{The Inner Tracker (ITk)}
-The current Inner Detector was designed for a maximum pile-up of $\langle \mu \rangle \approx 50$ and an integrated radiation dose consistent with $400 - 500 \text{ fb}^{-1}$. It will reach its end of life by the end of Run 3 due to radiation damage and occupancy limits. For Run 4, it will be replaced entirely by the \textbf{Inner Tracker (ITk)}, an all-silicon system designed to provide robust tracking with high granularity and radiation hardness.
+---
 
-\subsubsection{Layout and Coverage}
-The ITk utilizes an all-silicon design, eliminating the transition radiation tracker (straw tubes) used in previous runs. This allows for a significant extension of the forward tracking acceptance from $|\eta| < 2.5$ to $|\eta| < 4.0$. The detector is divided into two sub-systems:
-\begin{enumerate}
-    \item \textbf{Pixel Detector:} The innermost five layers (in the barrel) are composed of silicon pixel sensors to provide precision vertexing in the highest density region.
-    \item \textbf{Strip Detector:} Surrounding the pixels are four layers of silicon microstrip sensors in the barrel and six disks in the end-caps, providing precision tracking over a large volume.
-\end{enumerate}
+\subsubsection{Long Shutdown 3 and Run 4 (HL-LHC Era)}
 
-\subsubsection{Performance Improvements}
-The ITk is designed to significantly reduce the material budget compared to the original Inner Detector, minimizing multiple scattering and photon conversions. Despite the harsher environment, the ITk aims to maintain or improve upon the tracking efficiency and momentum resolution of Run 2/3. The inclusion of tracking up to $|\eta| = 4.0$ also significantly enhances the identification of forward jets and the missing transverse momentum ($E_T^{\text{miss}}$) resolution.
+Long Shutdown~3 (LS3) will enable the transformation of the LHC into the High-Luminosity LHC, with the goal of delivering an integrated luminosity of approximately $3$--$4~\mathrm{ab}^{-1}$. \cite{HLLHCDesign} ATLAS will undergo major Phase-II upgrades, including the complete replacement of the Inner Detector with the all-silicon Inner Tracker (ITk). \cite{ATLASITkTDR}
 
-\subsection{The High-Granularity Timing Detector (HGTD)}
-One of the most innovative additions for Run 4 is the High-Granularity Timing Detector (HGTD). As pile-up increases, the spatial separation of vertices along the beam axis ($z$) becomes insufficient to distinguish between the hard-scatter interaction and pile-up collisions. The HGTD introduces time as a fourth dimension for track reconstruction.
+Run~4 will define the HL-LHC era, characterized by unprecedented pile-up levels and data volumes. These conditions require fundamentally new approaches to tracking, triggering, and data processing, including increased parallelization and hardware acceleration. Physics goals include percent-level measurements of the Higgs coupling, rare Standard Model processes, and enhanced sensitivity to new physics phenomena.
 
-\begin{figure}[htbp]
+---
+
+\subsection{The ATLAS Experimental Complex}
+
+The ATLAS experiment is one of the four major detectors located at interaction points along the Large Hadron Collider (LHC) ring at CERN as in figure ~\ref{fig:cern}. It is designed as a general-purpose detector capable of recording the products of high-energy proton--proton collisions over a wide range of final states. The detector surrounds the interaction point and provides sufficient angular coverage for particle reconstruction.
+
+The overall experimental setup integrates the detector with the LHC accelerator infrastructure, allowing proton beams circulating in opposite directions to collide at the center of ATLAS. The detector layout is optimized to measure charged-particle trajectories, electromagnetic and hadronic energy deposits, and muon momenta, enabling precise reconstruction of collision events. This integrated design supports stable detector operation during extended data-taking periods and accommodates progressively higher collision rates across successive LHC runs.
+
+\begin{figure}[htb]
     \centering
-    % \includegraphics[width=0.9\textwidth]{path/to/hgtd_diagram.png}
-    \caption{Schematic of the High Granularity Timing Detector (HGTD).}
-    \label{fig:hgtd_diagram}
+    \includegraphics[width=0.8\textwidth]{figures/CCC-v2019-final-white.png}
+    \caption{Schematic of CERN accelerator complex \cite{Mobs2019CERN}}
+    \label{fig:cern}
 \end{figure}
 
-\subsubsection{Working Principle}
-Located in the forward region ($2.4 < |\eta| < 4.0$), just outside the ITk acceptance, the HGTD is designed to measure the time-of-arrival of minimum ionizing particles (MIPs) with a resolution of $\sigma_t \approx 30 \text{ ps}$ per track. It utilizes \textbf{Low Gain Avalanche Detector (LGAD)} technology—silicon sensors with an internal gain layer that improves the signal-to-noise ratio, enabling fast timing measurements.
+---
 
-\subsubsection{Physics Impact}
-By associating a precise time with forward tracks, the HGTD allows the reconstruction software to distinguish between vertices that are spatially overlapping but separated in time (the ``time spread'' of the LHC luminous region is approximately 180~ps). This capability is critical for:
-\begin{itemize}
-    \item \textbf{Pile-up Rejection:} Suppressing tracks from pile-up vertices that contaminate forward jets.
-    \item \textbf{Luminosity Measurement:} Providing a highly precise, bunch-by-bunch luminosity measurement.
-\end{itemize}
+\subsubsection{Luminosity}
 
-\subsection{Electronics and Trigger Upgrades}
-To cope with the increased data rates, the readout electronics for the Calorimeters and Muon Spectrometer will be upgraded to support a full-granularity readout at the Level-0 trigger rate of 1~MHz (up from 100~kHz in Run 2/3).
+The physics reach of the ATLAS experiment is strongly influenced by the LHC's delivered luminosity. Luminosity characterizes the rate at which proton--proton collisions occur and determines the expected number of events for a given process with a known cross section. It is defined as
+\begin{equation}
+\mathcal{L} = \frac{N}{\sigma},
+\end{equation}
+where $N$ is the number of observed events and $\sigma$ is the corresponding production cross section.
 
-\begin{itemize}
-    \item \textbf{TDAQ System:} The trigger architecture will evolve to a single-level hardware trigger (Level-0) followed by a software-based Event Filter. This allows more complex algorithms (including tracking information) to be run earlier in the selection process.
-    \item \textbf{Muon Spectrometer:} In addition to electronics upgrades, the inner barrel layer will be reinforced with new RPCs (Resistive Plate Chambers) and small-diameter MDTs (sMDTs) to increase the trigger acceptance and redundancy in the region where rates are highest.
-\end{itemize}
+The instantaneous luminosity depends on accelerator parameters such as the number of protons per bunch, the number of colliding bunches, and the transverse beam profiles at the interaction point. The total dataset collected by ATLAS is described by the integrated luminosity, obtained by integrating the instantaneous luminosity over time. Integrated luminosity is typically expressed in inverse femtobarns ($\mathrm{fb}^{-1}$) and represents the cumulative data available for physics analyses.
 
-\subsection{Conclusion}
-The Phase-II upgrades represent a transformation of the ATLAS detector. With the installation of the ITk and HGTD, along with the modernization of the trigger and readout electronics, ATLAS will be equipped to handle the extreme pile-up of the HL-LHC. These upgrades ensure that the experiment can continue to perform precision measurements of the Higgs boson and search for new physics in the decade-long Run 4 era.
+As the LHC has progressed through successive operational periods, improvements in accelerator performance have resulted in significant increases in delivered luminosity. While higher luminosity enhances sensitivity to rare processes, it also increases detector occupancy and makes reconstruction more challenging, leading to physics analysis.
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/intlumivstimeRun3.png}
+    \caption{Cumulative integrated luminosity recorded by ATLAS during Run 3 \cite{ATLASRun3Luminosity}}
+    \label{fig:lumi}
+\end{figure}
+
+---
+
+\subsubsection{Pile-up}
+
+Pile-up refers to multiple proton-proton interactions occurring within a single bunch crossing. It is commonly quantified by the parameter $\mu$, which represents the average number of inelastic interactions per bunch crossing. Higher luminosity operation of the LHC directly leads to increased pile-up.
+
+Pile-up interactions contribute additional charged particles and energy deposits that are unrelated to the primary hard-scatter process and to the secondary vertex from b-quark decays. These additional interactions can affect track reconstruction, vertex identification, jet energy measurements, and missing transverse momentum reconstruction. As a result, pile-up represents a major experimental challenge, particularly in later LHC runs where luminosity is substantially higher.
+
+To mitigate the impact of pile-up, ATLAS employs a combination of detector design features and reconstruction techniques, including precise vertex reconstruction and pile-up-aware object definitions. Accurate modeling of pile-up in Monte Carlo simulations is also essential, requiring simulated events to be reweighted to reproduce the pile-up conditions observed in data.
+
+---
+
+\subsection{The ATLAS Detector}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ATLAS Detector Schematic black particles.png}
+    \caption{ATLAS detector slice with labeled subdetectors and particle visualizations \cite{Mehlhase:2770815}}
+    \label{fig:detector}
+\end{figure}
+
+\subsubsection{Inner Detector}
+
+The Inner Detector is the innermost tracking system in ATLAS and reconstructs the trajectories of charged particles produced in proton--proton collisions, which consists of pixel and strip detectors and Transition Radiation Tracker (TRT, and will be removed in Run 4). It operates in a uniform solenoidal magnetic field, enabling precise measurements of charged-particle momenta via curvature. The Inner Detector provides accurate measurements of track parameters, including transverse momentum, impact parameters, and vertex positions.
+
+By combining information from multiple tracking layers, the Inner Detector achieves high efficiency for charged-particle reconstruction over a wide pseudorapidity range. Precise vertex reconstruction enables the identification of primary interaction vertices and the separation of tracks originating from pile-up interactions. The Inner Detector plays a central role in object identification, including electrons, charged hadrons, and tracks associated with jets.
+
+---
+
+\subsubsection{Calorimeter System}
+
+The calorimeter system surrounds the Inner Detector and is designed to measure particle energies through interactions with dense absorber materials. It is divided into electromagnetic and hadronic calorimeters, each optimized for different particle types. The electromagnetic calorimeter provides high-resolution energy measurements for electrons and photons, while the hadronic calorimeter measures the energies of hadrons and jets.
+
+The calorimeter system provides nearly full angular coverage and is essential for jet reconstruction, electron and photon identification, and missing transverse momentum determination. In addition to energy measurements, calorimeter information is used for particle identification and plays a key role in the trigger system.
+
+---
+
+\subsubsection{Muon Spectrometer}
+
+The Muon Spectrometer forms the outermost detector system of ATLAS and is dedicated to the identification and momentum measurement of muons. Muons traverse the inner detector and calorimeters with minimal energy loss, allowing them to be measured in a large volume surrounding the calorimeter system.
+
+The Muon Spectrometer employs large magnetic fields and multiple detector technologies to independently reconstruct muon trajectories. Momentum measurements from the Muon Spectrometer are combined with those from the Inner Detector to achieve improved resolution across a broad momentum range. The system provides robust muon identification and triggering capabilities, which are essential for many physics analyses.
+
+---
+
+\subsection{Trigger and Data Acquisition System}
+
+The high collision rate delivered by the LHC far exceeds the rate at which events can be recorded for offline analysis. To address this challenge, ATLAS employs a trigger and data acquisition system that selects potentially interesting events in real time while rejecting the majority of collisions.
+
+The trigger system reduces the event rate through a multi-level selection process based on information from the detector subsystems. Trigger decisions are designed to maintain high efficiency in the physics processes of interest while operating within strict latency and bandwidth constraints. The data acquisition system then records the selected events for further processing and offline reconstruction. Together, the trigger and data acquisition systems enable ATLAS to efficiently exploit the physics potential of the LHC.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/tdaq.pdf}
+    \caption{ATLAS Trigger and Data Acquisition System in Run 3 \cite{ATLASTriggerRun3}}
+    \label{fig:Trigger}
+\end{figure}
+
+\section{ATLAS Run 4 Upgrade}
+
+In Run 4, the Large Hadron Collider will enter the High-Luminosity LHC (HL-LHC) phase, which is designed to significantly extend the physics reach of the ATLAS experiment. The HL-LHC aims to deliver an integrated luminosity of approximately $3$--$4~\mathrm{ab}^{-1}$ over its operational lifetime, corresponding to more than an order-of-magnitude increase relative to the datasets collected in earlier runs. This increase will enable precise measurements of rare Standard Model processes and enhance sensitivity to physics beyond the Standard Model.
+
+The higher luminosity of the HL-LHC will result in substantially more challenging experimental conditions. The instantaneous luminosity increases to an average pile-up level of up to $\langle\mu\rangle \sim 200$ interactions per bunch crossing. Such conditions will significantly increase detector occupancies, radiation exposure, and the complexity of event reconstruction. Maintaining the performance of tracking, vertexing, and triggering under these conditions requires major upgrades to the ATLAS detector systems.
+
+A key component of the Phase-II upgrade program is the complete replacement of the current Inner Detector with a new all-silicon Inner Tracker (ITk). The ITk is designed to provide increased granularity, improved radiation tolerance, and extended pseudorapidity coverage compared to the existing detector. These improvements are essential for preserving tracking efficiency, momentum resolution, and vertex reconstruction performance in the high-pile-up environment of the HL-LHC.
+
+In parallel, the ATLAS trigger and data acquisition system will be upgraded to cope with the increased event rates and data volumes expected during HL-LHC operation. The upgraded trigger system is designed to support higher output rates and more sophisticated real-time reconstruction algorithms, enabling efficient selection of physics events while operating within strict latency constraints.
+
+The ATLAS Phase-II upgrade program is therefore essential for sustaining detector performance and physics sensitivity throughout the HL-LHC era. The design choices and technological developments implemented during this upgrade phase directly address the challenges posed by high luminosity and pile-up. \cite{HLLHCTDR} \cite{ATLASPhaseIITDR}
 
 
 %--- Chapter 2 ----------------------------------------------------------------%
-\chapter{ATLAS Event Filter (EF) Tracking: Strip Clustering on Traccc}
+\chapter{ATLAS Event Filter (EF) Tracking: Strip Clustering}
 \section{Background and motivation}
 \subsection{Previous work and motivation}
-\subsection{\testtt{Traccc} framework}
+\subsection{Overview of GPU-based Pipelines}
+\subsection{\testtt{Traccc} and Athena framework}
 \subsection{Strip clustering algorithm}
 
 \section{Methodology}
@@ -208,18 +289,254 @@ The Phase-II upgrades represent a transformation of the ATLAS detector. With the
 \subsection{Integration with the \texttt{Traccc} framework}
 
 \section{Results and Discussion}
-\subsection{Cluster comparison with CPU reuslt}
+\subsection{Cluster comparison with CPU}
 \subsection{Efficiency}
 \subsection{Summary of EF Tracking validation}
 
 %%--- Chapter 3 ---------------------------------------------------------------%
-\chapter{ATLAS: Run 3 Dark Photon Analysis ($\mathrm{ggH} \to \gamma\gamma_D$) - Signal Optimization}
+\chapter{ATLAS: Signal Optimization of A Search for Higgs Decays to Dark Photons using ATLAS Run 3 Data}
 \section{Introduction}
+
+\subsection{Motivation for Hidden Sectors}
+
+Despite the success of the Standard Model (SM) in describing particle interactions up to the electroweak scale, several observations indicate the existence of physics beyond the Standard Model. Astrophysical and cosmological measurements provide overwhelming evidence for dark matter, which constitutes approximately 27\% of the energy density of the Universe, yet does not participate in electromagnetic, strong, or weak interactions \cite{Planck2018}. This motivates the possibility that dark matter resides in a hidden sector containing new particles and forces that are weakly coupled to the SM.
+
+A minimal and well-motivated extension of the SM introduces an additional Abelian gauge symmetry, $U(1)_D$, associated with a new gauge boson commonly referred to as the \emph{dark photon}. Such hidden-sector gauge fields naturally arise in many ultraviolet-complete theories, including string-inspired models and grand unified frameworks. \cite{Holdom1986,ArkaniHamed2009}
+
+---
+
+\subsection{Kinetic Mixing and the Dark Photon}
+
+The dark photon, denoted $A'_\mu$, is associated with a new $U(1)_D$ gauge symmetry. The most general renormalizable Lagrangian describing the interaction between the SM hypercharge gauge field $B_\mu$ and the dark photon includes a kinetic mixing term \cite{Holdom1986}:
+\begin{equation}
+\mathcal{L} \supset -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}
+- \frac{1}{4} F'_{\mu\nu} F'^{\mu\nu}
+- \frac{\epsilon}{2} F_{\mu\nu} F'^{\mu\nu},
+\end{equation}
+where $F_{\mu\nu}$ and $F'_{\mu\nu}$ are the field strength tensors of the SM electromagnetic field and the dark photon field, respectively, and $\epsilon$ is the kinetic mixing parameter.
+
+This interaction is gauge invariant and can be generated radiatively through loops of heavy particles charged under both $U(1)_Y$ and $U(1)_D$. Natural values of $\epsilon$ span a wide range, typically $10^{-12} \lesssim \epsilon \lesssim 10^{-2}$, depending on the ultraviolet completion of the theory \cite{Essig2013}.
+
+After diagonalizing the kinetic terms and performing electroweak symmetry breaking, the dark photon acquires an effective coupling to the electromagnetic current:
+\begin{equation}
+\mathcal{L}_{\text{int}} = \epsilon e A'_\mu J^\mu_{\text{EM}},
+\end{equation}
+allowing the dark photon to interact weakly with electrically charged SM particles.
+
+---
+
+\subsection{Massless and Massive Dark Photons}
+
+The phenomenology of the dark photon depends critically on whether it is massless or massive.
+
+\subsubsection{Massless Dark Photon}
+
+If the $U(1)_D$ symmetry remains unbroken, the dark photon is massless. In this case, the kinetic mixing can be absorbed into a redefinition of the electric charge for particles charged under both gauge groups. As a result, a massless dark photon does not lead to observable effects in purely SM processes and is tightly constrained by charge quantization and precision measurements. \cite{Fabbrichesi2020}
+
+
+\subsubsection{Massive Dark Photon}
+
+If the $U(1)_D$ symmetry is broken, the dark photon acquires a mass $m_{A'}$ through either the Higgs mechanism or the Stueckelberg mechanism. In this case, the kinetic mixing term cannot be rotated away, and the dark photon becomes a physically observable particle. \cite{Holdom1986}
+
+The effective Lagrangian for a massive dark photon is given by:
+\begin{equation}
+\mathcal{L} \supset \frac{1}{2} m_{A'}^2 A'_\mu A'^\mu + \epsilon e A'_\mu J^\mu_{\text{EM}}.
+\end{equation}
+
+The massive dark photon can decay into SM fermion pairs if kinematically allowed, with a decay width proportional to $\epsilon^2$.
+
+\subsection{Dark Photons at the LHC}
+
+At the Large Hadron Collider (LHC), dark photons can be produced through several mechanisms, including exotic Higgs decays, Drell--Yan processes, and meson decays. This thesis focuses on scenarios in which the dark photon is produced in association with a photon through Higgs boson decay from gluon gluon fusion
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/Feynman_ggF.png}
+    \caption{Feynman diagram of gluon-gluon fusion Higgs boson, following decay into a SM photon and a dark photon ($gg \rightarrow H \rightarrow \gamma \gamma_D$).}
+\label{fig:ggh_f}
+
+\end{figure}
+where $\gamma_D$ denotes a dark photon that decays invisibly or escapes detection.
+
+Such processes arise naturally in models where the Higgs boson couples to both the SM photon and the dark photon via higher-dimensional operators or loop-induced interactions. \cite{Curtin2015} The experimental signature is characterized by a high-energy photon recoiling against missing transverse momentum.
+
+Using the ATLAS detectors, we target events with a SM photon, missing transverse energy, and jets from initial gluon fusion. This thesis presents a detailed study of the sensitivity to the dark photon signal in the Run 3 environment of the LHC. 
+
 \section{Data and MC samples}
 \subsection{Data samples}
+
+The data used in this analysis was collected in 2023 and 2024.
+The used Good Run List are 
+\begin{itemize}
+    \item \texttt{data23\_13p6TeV.periodAllYear\_DetStatus-v133-pro31-11\_MERGED\_PHYS\_StandardGRL\_All\_Good\_25ns} for 2023 (25.204 \fbinv)
+    \item \texttt{data24\_13p6TeV.periodsEtoO\_DetStatus-v130-pro36-08\_MERGED\_PHYS\_StandardGRL\_All\_Good\_25ns} for 2024 (109.40 \fbinv)
+\end{itemize}
+
+for a total integrated luminosity of 134.6 \fbinv, with an uncertainty of 2\%~\cite{lumi}. 
+
 \subsection{MC samples}
 
-\section{Physics objects reconstruction and identification}
+The MC samples were processed with p-tag p6697.
+
+The signal samples were showered from common Higgs LHE samples generated using Powheg. The decay process used in the shower was implemented with Pythia. The relevant JIRA tickets can be found at: \href{https://its.cern.ch/jira/browse/ATLMCPROD-10773}{ATLMCPROD-10733}, \href{https://its.cern.ch/jira/browse/ATLMCPROD-10819}{ATLMCPROD-10819}, \href{https://its.cern.ch/jira/browse/ATLMCPROD-10916}{ATLMCPROD-10916} and the sample validation at: \href{https://twiki.cern.ch/twiki/bin/view/AtlasProtected/MC23HLRSHyydValidation}{MC23HLRSHyydValidation}. The signal sample paths are shown in table~\ref{tab:signal-samples}. 
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{List of signal MCd samples used in this analysis.}
+\label{tab:signal-samples}
+\begin{tabular}{l}
+\toprule
+mc23\_13p6TeV.602403.PhPy8EG\_VBF\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.602913.PhPy8EG\_qqZH\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.602914.PhPy8EG\_WpH\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.602915.PhPy8EG\_WmH\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.602402.PhPy8EG\_ggH\_H125yyd.deriv.DAOD\_PHYS.e8537\_e8528\_s4159\_s4114\_r15224\_r15225\_p6320\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The primary backgrounds for the analysis include processes with a true photon in the final states and genuine \ETmiss. These samples include: $Z\gamma$ and $W\gamma$, where the vector boson can decay to a lepton that is not reconstructed or to neutrinos.
+Additional background processes originate from a fake photon due to misidentified jets or electrons, and/or fake $\ETmiss$. 
+The background due to jets or electrons misidentified as photons is mainly given by $Zjets$, $Wjets$, di-jets and $\gamma jets$ with fragmentation photon. The $Zjets$, di-jets and $\gamma(frag) jets$ events are also characterized by fake $\ETmiss$ due to mismeaured or not reconstructed jets. Finally, $\gamma jets$ with direct photon ($\gamma (direct)jets$) enter the analysis regions exclusively due to the presence of fake $\ETmiss$. \\
+The list of MC samples used in this analysis is shown in table~\ref{tab:gammajet-samples} for $\gamma(direct) jets$ and table~\ref{tab:Vy-samples} for $W\gamma/Z\gamma$, table~\ref{tab:V-samples} for $W/Z$. As detailed later, in section \ref{sec:bkg}, MC simulations are eventually employed only for true photon backgrounds (including the $\gamma(direct) jets$), while the contribution from events with fake photons are estimated through data-driven methods. The $W/Z$ MC samples are used as part of the \jfakey method and therefore listed in the following tables, while $\gamma(direct) jets$ and di-jets have been used exclusively for preliminary studies and initial optimization of the analysis selection and are not reported here.  
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{List of $\gamma jets$ MC23d and MC23e samples used in this analysis.}
+\label{tab:gammajet-samples}
+\begin{tabular}{l}
+\toprule
+MC23d \\
+\midrule
+mc23\_13p6TeV.801663.Py8\_gammajet\_direct\_DP8\_17\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801664.Py8\_gammajet\_direct\_DP17\_35\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801665.Py8\_gammajet\_direct\_DP35\_50\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801666.Py8\_gammajet\_direct\_DP50\_70\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801667.Py8\_gammajet\_direct\_DP70\_140\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801668.Py8\_gammajet\_direct\_DP140\_280\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801669.Py8\_gammajet\_direct\_DP280\_500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801670.Py8\_gammajet\_direct\_DP500\_800\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801671.Py8\_gammajet\_direct\_DP800\_1000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801672.Py8\_gammajet\_direct\_DP1000\_1500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801673.Py8\_gammajet\_direct\_DP1500\_2000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801674.Py8\_gammajet\_direct\_DP2000\_2500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801675.Py8\_gammajet\_direct\_DP2500\_3000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.801676.Py8\_gammajet\_direct\_DP3000\_inf\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+\midrule
+MC23e \\
+\midrule
+mc23\_13p6TeV.801663.Py8\_gammajet\_direct\_DP8\_17\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801664.Py8\_gammajet\_direct\_DP17\_35\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801665.Py8\_gammajet\_direct\_DP35\_50\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801666.Py8\_gammajet\_direct\_DP50\_70\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801667.Py8\_gammajet\_direct\_DP70\_140\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801668.Py8\_gammajet\_direct\_DP140\_280\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801669.Py8\_gammajet\_direct\_DP280\_500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801670.Py8\_gammajet\_direct\_DP500\_800\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801671.Py8\_gammajet\_direct\_DP800\_1000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801672.Py8\_gammajet\_direct\_DP1000\_1500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801673.Py8\_gammajet\_direct\_DP1500\_2000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801674.Py8\_gammajet\_direct\_DP2000\_2500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801675.Py8\_gammajet\_direct\_DP2500\_3000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.801676.Py8\_gammajet\_direct\_DP3000\_inf\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{List of $W\gamma/Z\gamma$ MC23d and MC23e samples used in this analysis}
+\label{tab:Vy-samples}
+\begin{tabular}{l}
+\toprule
+MC23d \\
+\midrule
+mc23\_13p6TeV.700770.Sh\_2214\_eegamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.700771.Sh\_2214\_mumugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.700772.Sh\_2214\_tautaugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.700773.Sh\_2214\_enugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.700774.Sh\_2214\_munugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.700775.Sh\_2214\_taunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+mc23\_13p6TeV.700776.Sh\_2214\_nunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
+\midrule
+MC23e \\
+\midrule
+mc23\_13p6TeV.700770.Sh\_2214\_eegamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.700771.Sh\_2214\_mumugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.700772.Sh\_2214\_tautaugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.700773.Sh\_2214\_enugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.700774.Sh\_2214\_munugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.700775.Sh\_2214\_taunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+mc23\_13p6TeV.700776.Sh\_2214\_nunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{List of $W/Z$ MC23d and MC23e samples used in this analysis.}
+\label{tab:V-samples}
+\begin{tabular}{l}
+\toprule
+MC23d \\
+\midrule
+mc23\_13p6TeV.700777.Sh\_2214\_Wenu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700778.Sh\_2214\_Wenu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700779.Sh\_2214\_Wenu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700780.Sh\_2214\_Wmunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700781.Sh\_2214\_Wmunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700782.Sh\_2214\_Wmunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700783.Sh\_2214\_Wtaunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700784.Sh\_2214\_Wtaunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700785.Sh\_2214\_Wtaunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700786.Sh\_2214\_Zee\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700787.Sh\_2214\_Zee\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700788.Sh\_2214\_Zee\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700789.Sh\_2214\_Zmumu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700790.Sh\_2214\_Zmumu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700791.Sh\_2214\_Zmumu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700792.Sh\_2214\_Ztautau\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700793.Sh\_2214\_Ztautau\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700794.Sh\_2214\_Ztautau\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700795.Sh\_2214\_Znunu\_pTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700796.Sh\_2214\_Znunu\_pTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
+mc23\_13p6TeV.700797.Sh\_2214\_Znunu\_pTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+\midrule
+MC23e \\
+\midrule
+mc23\_13p6TeV.700777.Sh\_2214\_Wenu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700778.Sh\_2214\_Wenu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700779.Sh\_2214\_Wenu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700780.Sh\_2214\_Wmunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700781.Sh\_2214\_Wmunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700782.Sh\_2214\_Wmunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700783.Sh\_2214\_Wtaunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700784.Sh\_2214\_Wtaunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700785.Sh\_2214\_Wtaunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700786.Sh\_2214\_Zee\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700787.Sh\_2214\_Zee\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700788.Sh\_2214\_Zee\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700789.Sh\_2214\_Zmumu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700790.Sh\_2214\_Zmumu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700791.Sh\_2214\_Zmumu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700792.Sh\_2214\_Ztautau\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700793.Sh\_2214\_Ztautau\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700794.Sh\_2214\_Ztautau\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+mc23\_13p6TeV.700795.Sh\_2214\_Znunu\_pTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700796.Sh\_2214\_Znunu\_pTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
+mc23\_13p6TeV.700797.Sh\_2214\_Znunu\_pTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+\section{Physics object reconstruction and identification}
 \subsection{Photons}
 \subsection{Muons}
 \subsection{Electrons}
@@ -229,7 +546,7 @@ The Phase-II upgrades represent a transformation of the ATLAS detector. With the
 
 \section{Event selection}
 \subsection{Trigger}
-\subsection{Pre-selections}
+\subsection{Pre-selection}
 \subsection{Signal region}
 
 \section{Background modeling and estimation}
@@ -240,9 +557,190 @@ The Phase-II upgrades represent a transformation of the ATLAS detector. With the
 
 \section{Signal region optimization}
 \subsection{N-1 iteration method}
+
+The set of rectangular cuts resulting from the previous optimization is the following:
+
+\noindent\textbf{Preselections:}
+\begin{itemize}[topsep=2pt, itemsep=2pt, parsep=0pt]
+    \item Analysis trigger: \texttt{HLT\_50ight\allowbreak
+z40\_eLL\allowbreak
+z70\_fopupfit8\allowbreak
+\_mTAC\_LeEM26M}
+    \item $N_{\gamma} = 1$, with $N_{\gamma}$ the number of selected photons;
+    \item $N_{\text{leptons}} = 0$, for baseline leptons;
+    \item $N_{\text{jet, central}} \leq 3$;
+    \item $p_{T}^{\gamma} > 50~\text{GeV}$;
+    \item $E_{T}^{\text{miss}} > 100~\text{GeV}$;
+    \item $m_T(E_{T}^{\text{miss}}, \gamma) > 80~\text{GeV}$;
+\end{itemize}
+\noindent\textbf{Additional selections:}
+\begin{itemize}[topsep=2pt, itemsep=2pt, parsep=0pt]
+    \item $\mathrm{BDT}^{\text{vertex}}_{\text{score}} > 0.1$;
+    \item $E_{T}^{\text{miss}}$ significance $> 6$;
+    \item $\Delta E_{T}^{\text{miss}} > -10~\text{GeV}$;
+    \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\gamma}) > 1.25$;
+    \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\text{jet}}) < 0.75$;
+    \item $\Delta \phi(j_1, j_2) < 2.5$;
+    \item $|\eta_{\gamma}| < 1.75$;
+\end{itemize}
+
+After checking n-1 plots of each variable, we optimized the cuts to:
+\noindent\textbf{Preselections:}
+\begin{itemize}[topsep=2pt, itemsep=2pt, parsep=0pt]
+    \item Analysis trigger: \texttt{HLT\_50ight\allowbreak
+z40\_eLL\allowbreak
+z70\_fopupfit8\allowbreak
+\_mTAC\_LeEM26M}
+    \item $N_{\gamma} = 1$, with $N_{\gamma}$ the number of selected photons;
+    \item $N_{\text{leptons}} = 0$, for baseline leptons;
+    \item $N_{\text{jet, central}} \leq 3$;
+    \item $p_{T}^{\gamma} > 50~\text{GeV}$;
+    \item $E_{T}^{\text{miss}} > 100~\text{GeV}$;
+    \item $140~\text{GeV} > m_T(E_{T}^{\text{miss}}, \gamma) > 100~\text{GeV}$;
+\end{itemize}
+\noindent\textbf{Additional selections:}
+\begin{itemize}[topsep=2pt, itemsep=2pt, parsep=0pt]
+    \item $\mathrm{BDT}^{\text{vertex}}_{\text{score}} > 0.1$;
+    \item $E_{T}^{\text{miss}}$ significance $> 7$;
+    \item $\Delta E_{T}^{\text{miss}} > -25~\text{GeV}$;
+    \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\gamma}) > 1.25$;
+    \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\text{jet}}) < 0.75$;
+    \item $\Delta \phi(j_1, j_2) < 2.5$;
+    \item $|\eta_{\gamma}| < 1.75$;
+    \item $balance > 0.9$;
+\end{itemize}
+
+With the improved optimized cuts, we increased the simple significance $ \frac{S}{\sqrt{B}} $ from 2.475 to 2.701. 
+
+\begin{figure}[htbp]
+  \centering
+
+  % Row 1
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/VertexBDTScore.png}
+    \caption{$\mathrm{BDT}^{\text{vertex}}_{\text{score}}$}
+    \label{fig:n1-vertexbdt}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/ph_eta.png}
+    \caption{$|\eta_{\gamma}|$}
+    \label{fig:n1-ph-eta}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/metsig.png}
+    \caption{$E_{T}^{\text{miss}}$ significance}
+    \label{fig:n1-metsig}
+  \end{subfigure}
+
+  \par\medskip
+
+  % Row 2
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/balance.png}
+    \caption{Balance}
+    \label{fig:n1-balance}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/dphi_met_phterm.png}
+    \caption{$\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\gamma})$}
+    \label{fig:n1-dphi-met-phterm}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/dphi_met_jetterm.png}
+    \caption{$\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\text{jet}})$}
+    \label{fig:n1-dphi-met-jetterm}
+  \end{subfigure}
+
+  \par\medskip
+
+  % Row 3
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/dphi_jj.png}
+    \caption{$\Delta \phi(j_1, j_2)$}
+    \label{fig:n1-dphi-jj}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/performance_plot/dmet.png}
+    \caption{$\Delta E_{T}^{\text{miss}}$}
+    \label{fig:n1-dmet}
+  \end{subfigure}\hfill
+
+  \par\medskip
+
+
+
+  \caption{Additional Selection variables distributions after the optimized rectangular cuts for the ggF $H \to \gamma\gamma_D$ analysis.}
+  \label{fig:n1-all}
+\end{figure}
+
+
+\begin{figure}[htbp]
+  \centering
+
+  % Row 1
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/VertexBDTScore.png}
+    \caption{$\mathrm{BDT}^{\text{vertex}}_{\text{score}}$}
+    \label{fig:n1-vertexbdt}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/ph_eta.png}
+    \caption{$|\eta_{\gamma}|$}
+    \label{fig:n1-ph-eta}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/metsig.png}
+    \caption{$E_{T}^{\text{miss}}$ significance}
+    \label{fig:n1-metsig}
+  \end{subfigure}
+
+  \par\medskip
+
+  % Row 2
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/balance.png}
+    \caption{Balance}
+    \label{fig:n1-balance}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/dphi_met_phterm.png}
+    \caption{$\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\gamma})$}
+    \label{fig:n1-dphi-met-phterm}
+  \end{subfigure}\hfill
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/dphi_met_jetterm.png}
+    \caption{$\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\text{jet}})$}
+    \label{fig:n1-dphi-met-jetterm}
+  \end{subfigure}
+
+  \par\medskip
+
+  % Row 3
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/dphi_jj.png}
+    \caption{$\Delta \phi(j_1, j_2)$}
+    \label{fig:n1-dphi-jj}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.32\textwidth}
+    \centering\includegraphics[width=\linewidth]{figures/n-1_plot/dmet.png}
+    \caption{$\Delta E_{T}^{\text{miss}}$}
+    \label{fig:n1-dmet}
+  \end{subfigure}\hfill
+
+  \par\medskip
+
+
+  \caption{N$-1$ distributions for the ggF $H \to \gamma\gamma_D$ analysis.}
+  \label{fig:n1-all}
+\end{figure}
+  
+
+
+ 
 \subsection{Machine Learning approach}
 \subsubsection{Boosted Decision Trees (BDT)}
 \subsubsection{Neural Networks (NN)}
 
 \section{Results and discussion}
+\section{Conclusions and Outlook}
 
