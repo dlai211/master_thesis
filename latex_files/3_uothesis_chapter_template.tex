@@ -264,6 +264,7 @@ The trigger system reduces the event rate through a multi-level selection proces
 \end{figure}
 
 \section{ATLAS Run 4 Upgrade}
+\label{sec:run4}
 
 In Run 4, the Large Hadron Collider will enter the High-Luminosity LHC (HL-LHC) phase, which is designed to significantly extend the physics reach of the ATLAS experiment. The HL-LHC aims to deliver an integrated luminosity of approximately $3$--$4~\mathrm{ab}^{-1}$ over its operational lifetime, corresponding to more than an order-of-magnitude increase relative to the datasets collected in earlier runs. This increase will enable precise measurements of rare Standard Model processes and enhance sensitivity to physics beyond the Standard Model.
 
@@ -279,6 +280,39 @@ The ATLAS Phase-II upgrade program is therefore essential for sustaining detecto
 %--- Chapter 2 ----------------------------------------------------------------%
 \chapter{ATLAS Event Filter (EF) Tracking: Strip Clustering}
 \section{Background and motivation}
+
+The framework known as A Common Tracking Software (ACTS) represents a robust, high-performance solution for track reconstruction in particle physics and has been integrated into the ATHENA software framework of the ATLAS experiment. It is currently slated to replace the existing offline tracking software for LHC Run 4 and subsequent operations. ~\ref{Gumpert:2017ACTS}
+Traccc is a GPU-accelerated tracking toolkit served as an extension of ACTS, independently developed to address the high-rate detector environment in online track reconstruction, as addressed in Section~\ref{sec:run4}
+
+The \texttt{traccc} framework reimplements key components of the tracking chain using data-parallel algorithms and modern C++ abstractions compatible with heterogeneous backends. A central objective of the project is to evaluate whether critical tracking stages can be executed efficiently on GPUs while maintaining physics performance equivalent to the established CPU-based Athena reconstruction.
+
+Within the tracking chain, strip clusterization represents one of the earliest reconstruction steps. Raw strip hit information must be grouped into clusters, and cluster properties must be computed before subsequent stages, such as space-point formation and track finding, can proceed. Because this operation must be performed for every event and for all strip modules, it is a throughput-critical component of the reconstruction workflow.
+
+This project focuses on the design, implementation, and validation of a GPU-accelerated strip clusterization algorithm within the \texttt{traccc} framework.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/eftracking/G_pipeline.png}
+    \caption{Overview of the reconstruction pipelines, including the G-050, G-130, and G-200 pipelines discussed in this thesis.}
+    \label{fig:pipeline}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{Motivation for GPU Implementation}
+
+Silicon strip clustering exhibits intrinsic parallelism. Clusters are formed independently within each detector module, and individual strip hits can be processed concurrently when searching for neighboring channels above threshold. This structure makes the algorithm well-suited for GPU execution, where thousands of lightweight threads can operate simultaneously.
+
+However, achieving efficient GPU performance requires more than simply parallelizing loops. Memory layout, coalesced access patterns, thread mapping strategies, and synchronization between neighboring strips must be carefully designed to avoid performance bottlenecks. Additionally, the algorithm must reproduce the clustering behavior of the reference Athena implementation to ensure consistency in downstream tracking performance.
+
+The motivation for implementing strip clusterization on GPUs within \texttt{traccc} is therefore twofold:
+
+\begin{itemize}
+    \item To reduce the computational latency of clustering in high-occupancy environments.
+    \item To establish a validated GPU-based tracking workflow compatible with ATLAS software standards.
+\end{itemize}
+
+Demonstrating physics equivalence while achieving computational gains is essential for future integration into trigger or offline reconstruction chains.
+
 \subsection{Previous work and motivation}
 \subsection{Overview of GPU-based Pipelines}
 \subsection{\testtt{Traccc} and Athena framework}
@@ -290,6 +324,41 @@ The ATLAS Phase-II upgrade program is therefore essential for sustaining detecto
 
 \section{Results and Discussion}
 \subsection{Cluster comparison with CPU}
+\begin{table}[htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Generic Step} & \textbf{Step} &
+\multicolumn{2}{c}{$\mu = 140$} &
+\multicolumn{2}{c}{$\mu = 200$} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+ &  & Timing [ms] & [HS23.s] & Timing [ms] & [HS23.s] \\
+\midrule
+
+RDO Conversion & RDO to traccc & 121 & 4.2 & 159.0 & 5.6 \\
+GPU Transfer & Host to Device Transfer & 1.1 & 0.0 & 1.2 & 0.0 \\
+Clustering & Clustering Algorithm & 0.5 &  & 0.7 &  \\
+Spacepoint Formation & Measurement Sorting & 1.9 &  & 2.5 &  \\
+ & Cluster Conversion & 35.9 & 1.3 & 47.1 & 1.7 \\
+Seeding & Seeding Algorithm & 85.4 & 3.0 & 138.5 & 4.9 \\
+Track Finding & Track Finding Algorithm & 236.5 & 8.3 & 336.7 & 11.8 \\
+Acts to xAOD Convers. & Conversion Algorithm & 11.7 & 0.4 & 16.1 & 0.6 \\
+GPU Transfer & Device to Host Transfers & 1.3 & 0.0 & 2.2 & 0.1 \\
+
+\midrule
+Total CPU &  & 493.0 & 17.3 & 700.8 & 24.6 \\
+Of which: GPU overhead &  & 159.3 & 5.6 & 209.5 & 7.4 \\
+Total GPU &  & 2.4 &  & 3.1 &  \\
+Accelerator Concurrency Factor &  & 0.52 &  & 0.53 &  \\
+Total GPU with Concurrency &  & 1.3 &  & 1.6 &  \\
+
+\bottomrule
+\end{tabular}
+}
+\caption{Average timing of the different steps of track reconstruction using the G-O80 pipeline for $t\bar{t}$ events at $\langle\mu\rangle=140$ and $\langle\mu\rangle=200$.}
+\label{tab:tracking_timing}
+\end{table}
 \subsection{Efficiency}
 \subsection{Summary of EF Tracking validation}
 
@@ -364,14 +433,14 @@ Using the ATLAS detectors, we target events with a SM photon, missing transverse
 \section{Data and MC samples}
 \subsection{Data samples}
 
-The data used in this analysis was collected in 2023 and 2024.
-The used Good Run List are 
+The data used in this analysis were collected in 2023 and 2024.
+The used Good Run List is 
 \begin{itemize}
     \item \texttt{data23\_13p6TeV.periodAllYear\_DetStatus-v133-pro31-11\_MERGED\_PHYS\_StandardGRL\_All\_Good\_25ns} for 2023 (25.204 \fbinv)
     \item \texttt{data24\_13p6TeV.periodsEtoO\_DetStatus-v130-pro36-08\_MERGED\_PHYS\_StandardGRL\_All\_Good\_25ns} for 2024 (109.40 \fbinv)
 \end{itemize}
 
-for a total integrated luminosity of 134.6 \fbinv, with an uncertainty of 2\%~\cite{lumi}. 
+for a total integrated luminosity of 134.6 \fbinv, with an uncertainty of 2\%~\cite{ATLASLuminosityForPhysics}. 
 
 \subsection{MC samples}
 
@@ -379,184 +448,192 @@ The MC samples were processed with p-tag p6697.
 
 The signal samples were showered from common Higgs LHE samples generated using Powheg. The decay process used in the shower was implemented with Pythia. The relevant JIRA tickets can be found at: \href{https://its.cern.ch/jira/browse/ATLMCPROD-10773}{ATLMCPROD-10733}, \href{https://its.cern.ch/jira/browse/ATLMCPROD-10819}{ATLMCPROD-10819}, \href{https://its.cern.ch/jira/browse/ATLMCPROD-10916}{ATLMCPROD-10916} and the sample validation at: \href{https://twiki.cern.ch/twiki/bin/view/AtlasProtected/MC23HLRSHyydValidation}{MC23HLRSHyydValidation}. The signal sample paths are shown in table~\ref{tab:signal-samples}. 
 
-\begin{table}[ht]
-\centering
-\scriptsize
-\caption{List of signal MCd samples used in this analysis.}
-\label{tab:signal-samples}
-\begin{tabular}{l}
-\toprule
-mc23\_13p6TeV.602403.PhPy8EG\_VBF\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.602913.PhPy8EG\_qqZH\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.602914.PhPy8EG\_WpH\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.602915.PhPy8EG\_WmH\_H125yyd.deriv.DAOD\_PHYS.e8523\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.602402.PhPy8EG\_ggH\_H125yyd.deriv.DAOD\_PHYS.e8537\_e8528\_s4159\_s4114\_r15224\_r15225\_p6320\\
-\bottomrule
-\end{tabular}
-\end{table}
-
 The primary backgrounds for the analysis include processes with a true photon in the final states and genuine \ETmiss. These samples include: $Z\gamma$ and $W\gamma$, where the vector boson can decay to a lepton that is not reconstructed or to neutrinos.
 Additional background processes originate from a fake photon due to misidentified jets or electrons, and/or fake $\ETmiss$. 
 The background due to jets or electrons misidentified as photons is mainly given by $Zjets$, $Wjets$, di-jets and $\gamma jets$ with fragmentation photon. The $Zjets$, di-jets and $\gamma(frag) jets$ events are also characterized by fake $\ETmiss$ due to mismeaured or not reconstructed jets. Finally, $\gamma jets$ with direct photon ($\gamma (direct)jets$) enter the analysis regions exclusively due to the presence of fake $\ETmiss$. \\
-The list of MC samples used in this analysis is shown in table~\ref{tab:gammajet-samples} for $\gamma(direct) jets$ and table~\ref{tab:Vy-samples} for $W\gamma/Z\gamma$, table~\ref{tab:V-samples} for $W/Z$. As detailed later, in section \ref{sec:bkg}, MC simulations are eventually employed only for true photon backgrounds (including the $\gamma(direct) jets$), while the contribution from events with fake photons are estimated through data-driven methods. The $W/Z$ MC samples are used as part of the \jfakey method and therefore listed in the following tables, while $\gamma(direct) jets$ and di-jets have been used exclusively for preliminary studies and initial optimization of the analysis selection and are not reported here.  
-
-\begin{table}[ht]
-\centering
-\scriptsize
-\caption{List of $\gamma jets$ MC23d and MC23e samples used in this analysis.}
-\label{tab:gammajet-samples}
-\begin{tabular}{l}
-\toprule
-MC23d \\
-\midrule
-mc23\_13p6TeV.801663.Py8\_gammajet\_direct\_DP8\_17\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801664.Py8\_gammajet\_direct\_DP17\_35\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801665.Py8\_gammajet\_direct\_DP35\_50\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801666.Py8\_gammajet\_direct\_DP50\_70\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801667.Py8\_gammajet\_direct\_DP70\_140\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801668.Py8\_gammajet\_direct\_DP140\_280\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801669.Py8\_gammajet\_direct\_DP280\_500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801670.Py8\_gammajet\_direct\_DP500\_800\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801671.Py8\_gammajet\_direct\_DP800\_1000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801672.Py8\_gammajet\_direct\_DP1000\_1500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801673.Py8\_gammajet\_direct\_DP1500\_2000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801674.Py8\_gammajet\_direct\_DP2000\_2500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801675.Py8\_gammajet\_direct\_DP2500\_3000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.801676.Py8\_gammajet\_direct\_DP3000\_inf\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-\midrule
-MC23e \\
-\midrule
-mc23\_13p6TeV.801663.Py8\_gammajet\_direct\_DP8\_17\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801664.Py8\_gammajet\_direct\_DP17\_35\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801665.Py8\_gammajet\_direct\_DP35\_50\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801666.Py8\_gammajet\_direct\_DP50\_70\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801667.Py8\_gammajet\_direct\_DP70\_140\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801668.Py8\_gammajet\_direct\_DP140\_280\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801669.Py8\_gammajet\_direct\_DP280\_500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801670.Py8\_gammajet\_direct\_DP500\_800\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801671.Py8\_gammajet\_direct\_DP800\_1000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801672.Py8\_gammajet\_direct\_DP1000\_1500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801673.Py8\_gammajet\_direct\_DP1500\_2000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801674.Py8\_gammajet\_direct\_DP2000\_2500\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801675.Py8\_gammajet\_direct\_DP2500\_3000\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.801676.Py8\_gammajet\_direct\_DP3000\_inf\_FullSW.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\ 
-\bottomrule
-\end{tabular}
-\end{table}
-
-
-\begin{table}[ht]
-\centering
-\scriptsize
-\caption{List of $W\gamma/Z\gamma$ MC23d and MC23e samples used in this analysis}
-\label{tab:Vy-samples}
-\begin{tabular}{l}
-\toprule
-MC23d \\
-\midrule
-mc23\_13p6TeV.700770.Sh\_2214\_eegamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.700771.Sh\_2214\_mumugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.700772.Sh\_2214\_tautaugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.700773.Sh\_2214\_enugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.700774.Sh\_2214\_munugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.700775.Sh\_2214\_taunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-mc23\_13p6TeV.700776.Sh\_2214\_nunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697\\
-\midrule
-MC23e \\
-\midrule
-mc23\_13p6TeV.700770.Sh\_2214\_eegamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.700771.Sh\_2214\_mumugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.700772.Sh\_2214\_tautaugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.700773.Sh\_2214\_enugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.700774.Sh\_2214\_munugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.700775.Sh\_2214\_taunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-mc23\_13p6TeV.700776.Sh\_2214\_nunugamma.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697\\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[ht]
-\centering
-\scriptsize
-\caption{List of $W/Z$ MC23d and MC23e samples used in this analysis.}
-\label{tab:V-samples}
-\begin{tabular}{l}
-\toprule
-MC23d \\
-\midrule
-mc23\_13p6TeV.700777.Sh\_2214\_Wenu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700778.Sh\_2214\_Wenu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700779.Sh\_2214\_Wenu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700780.Sh\_2214\_Wmunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700781.Sh\_2214\_Wmunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700782.Sh\_2214\_Wmunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700783.Sh\_2214\_Wtaunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700784.Sh\_2214\_Wtaunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700785.Sh\_2214\_Wtaunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700786.Sh\_2214\_Zee\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700787.Sh\_2214\_Zee\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700788.Sh\_2214\_Zee\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700789.Sh\_2214\_Zmumu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700790.Sh\_2214\_Zmumu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700791.Sh\_2214\_Zmumu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700792.Sh\_2214\_Ztautau\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700793.Sh\_2214\_Ztautau\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700794.Sh\_2214\_Ztautau\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700795.Sh\_2214\_Znunu\_pTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700796.Sh\_2214\_Znunu\_pTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15224\_r15225\_p6697 \\
-mc23\_13p6TeV.700797.Sh\_2214\_Znunu\_pTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-\midrule
-MC23e \\
-\midrule
-mc23\_13p6TeV.700777.Sh\_2214\_Wenu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700778.Sh\_2214\_Wenu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700779.Sh\_2214\_Wenu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700780.Sh\_2214\_Wmunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700781.Sh\_2214\_Wmunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700782.Sh\_2214\_Wmunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700783.Sh\_2214\_Wtaunu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700784.Sh\_2214\_Wtaunu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700785.Sh\_2214\_Wtaunu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700786.Sh\_2214\_Zee\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700787.Sh\_2214\_Zee\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700788.Sh\_2214\_Zee\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700789.Sh\_2214\_Zmumu\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700790.Sh\_2214\_Zmumu\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700791.Sh\_2214\_Zmumu\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700792.Sh\_2214\_Ztautau\_maxHTpTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700793.Sh\_2214\_Ztautau\_maxHTpTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700794.Sh\_2214\_Ztautau\_maxHTpTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-mc23\_13p6TeV.700795.Sh\_2214\_Znunu\_pTV2\_BFilter.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700796.Sh\_2214\_Znunu\_pTV2\_CFilterBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4369\_s4370\_r16083\_r15970\_p6697 \\
-mc23\_13p6TeV.700797.Sh\_2214\_Znunu\_pTV2\_CVetoBVeto.deriv.DAOD\_PHYS.e8514\_e8528\_s4159\_s4114\_r15530\_r15514\_p6697 \\
-\bottomrule
-\end{tabular}
-\end{table}
+The list of MC samples used in this analysis is shown in table~\ref{tab:gammajet-samples} for $\gamma(direct) jets$ and table~\ref{tab:Vy-samples} for $W\gamma/Z\gamma$, table~\ref{tab:V-samples} for $W/Z$. As detailed later, MC simulations are eventually employed only for true photon backgrounds (including the $\gamma(direct) jets$), while the contribution from events with fake photons are estimated through data-driven methods. The $W/Z$ MC samples are used as part of the \jfakey method and therefore listed in the following tables, while $\gamma(direct) jets$ and di-jets have been used exclusively for preliminary studies and initial optimization of the analysis selection and are not reported here.  
 
 
 
 
+\FloatBarrier
 \section{Physics object reconstruction and identification}
-\subsection{Photons}
-\subsection{Muons}
-\subsection{Electrons}
-\subsection{Jets}
-\subsection{Overlap removal}
-\subsection{Missing transverse momentum}
 
+Physics objects used in this analysis are reconstructed following standard ATLAS procedures. Photon candidates are reconstructed from topological clusters in the electromagnetic calorimeter and calibrated using a energy calibration chain, and are required to satisfy tight identification criteria based on shower-shape variables together with isolation requirements designed to suppress hadronic backgrounds~\cite{ATLASPhotonPerf}. Muons are reconstructed by combining tracks from the inner detector and the muon spectrometer, and are selected using quality and isolation working points that ensure high efficiency while suppressing non-prompt backgrounds~\cite{ATLASMuonPerf}. Electrons are formed by matching inner-detector tracks to electromagnetic calorimeter clusters and are identified using likelihood-based discriminants exploiting shower shapes, track quality, and track–cluster matching observables~\cite{ATLASElectronPerf}. Jets are reconstructed using the anti-$k_t$ algorithm with radius parameter $R=0.4$ applied to particle-flow or topological calorimeter inputs, and are calibrated through simulation-based and in situ corrections, with additional pile-up mitigation techniques such as jet-vertex tagging applied~\cite{ATLASJetPerf}. To avoid double counting of detector signatures, reconstructed objects are subjected to an overlap-removal procedure that resolves ambiguities among nearby photons, leptons, and jets using a fixed priority scheme~\cite{ATLASObjDef}. The missing transverse momentum, $\vec{p}_{\mathrm{T}}^{\mathrm{miss}}$, is computed as the negative vector sum of the transverse momenta of all reconstructed baseline objects, supplemented by a track-based soft term associated with the primary vertex to reduce pile-up sensitivity~\cite{ATLASMETPerf}. These definitions ensure a consistent and well-validated reconstruction of final-state objects across ATLAS analyses.
+
+
+\begin{table}[ht]
+  \caption{Electron selection criteria.}%
+  \label{tab:object:electron}
+  \centering
+  % \resizebox{\textwidth}{!}{
+  \begin{tabular}{ll}
+    \toprule
+    Feature & \multicolumn{1}{c}{Criterion} \\
+    \midrule
+    Object quality & Not from a bad calorimeter cluster (\texttt{BADCLUSELECTRON})\\ 
+    Energy calibration & \texttt{es2024\_Run3\_v0} (ESModel)\\
+    Pseudorapidity range &  $(|\eta| < 1.37) \quad || \quad (1.52 < |\eta| < 2.47)$\\
+    Transverse momentum & $p_{\mathrm{T}} >10$ GeV \\
+    \multirow{2}{*}{Track to vertex association} & $|d_{0}^{\text{BL}}(\sigma)| < 5$ \\ %\cline{2-2}
+    & $|\Delta z_{0}^{\text{BL}} \sin{\theta}| <0.5$ mm \\
+    \midrule
+ %   Energy & $E > \SI[parse-numbers=false]{XX}{\GeV}$ \\
+    %DecorrelationModel  & TOTAL \\
+    \textbf{Baseline} & \\
+    \midrule
+    Identification & \texttt{LooseAndBLayerLLH}\\
+    \midrule
+	  \textbf{Selected} & \\
+    \midrule
+    Identification & \texttt{TightLLH}\\
+    Isolation & \texttt{Tight\_VarRad} \\
+    \bottomrule
+  \end{tabular}
+  % }
+\end{table}
+
+
+\begin{table}[ht]
+  \caption{Jet reconstruction criteria.}%
+  \label{tab:object:jet1}
+  \centering
+  % \resizebox{\textwidth}{!}{
+  \begin{tabular}{ll}
+  \toprule
+  Feature & Criterion \\
+  \midrule
+  Algorithm & \texttt{Anti--kt}  \\
+  $R$-parameter & 0.4 \\
+  Input constituent & PFlow \\
+  Calibration configuration & {\tiny \texttt{AntiKt4EMPFlow\_MC23a\_PreRecR22\_Phase2\_CalibConfig\_ResPU\_EtaJES\_GSC\_241208\_InSitu.config}} \\
+  Jet cleaning & \texttt{LooseBad} \\
+  \pT & $p_{\mathrm{T}}> 20$ GeV \\
+  $|\eta|$ & $< 4.5$ \\
+  JVT Working point & \texttt{FixedEffPt} \\
+  fJVT Working point & \texttt{Loose} \\
+  \bottomrule
+  \end{tabular}
+  % }
+\end{table}
+
+\begin{table}[ht]
+  \caption{Muon selection criteria.}%
+  \label{tab:object:muon}
+  \centering
+  % \resizebox{\textwidth}{!}{
+  \begin{tabular}[ht]{ll}
+    \toprule
+    Feature & Criterion \\
+    Object quality & Bad Muon Veto \\
+    %Momentum calibration & Sagitta correction [used/not used] \\
+    $p_{\mathrm{T}}$ cut & $p_{\mathrm{T}}>10$ GeV \\
+    $|\eta|$ cut & $< 2.7$ \\
+    $d_{0}$ significance cut & 3 \\
+    $z_{0}$ cut & 0.5 mm \\
+    \midrule
+    \midrule
+    \textbf{Baseline} &\\
+    \midrule
+    Identification working point & \texttt{Medium} \\
+    \midrule
+    \textbf{Selected} &\\
+    \midrule
+    Identification working point & \texttt{Medium} \\
+    Isolation working point & \texttt{PflowLoose\_VarRad}\\
+    \bottomrule
+  \end{tabular} 
+  % }
+\end{table}
+
+
+\begin{table}[ht]
+  % \resizebox{\textwidth}{!}{
+  \caption{Overlap removal criteria.}%
+  \label{tab:or}
+  \centering 
+  \begin{tabular}{lll}
+    \toprule
+    Reject & Against & Criteria \\
+    \midrule
+    Electron	& Electron & shared track, \(p_{\text{T},1} < p_{\text{T},2}\) \\
+    Tau      	 	& Electron & \(\Delta R <\) 0.2 \\
+    Tau       	 	& Muon     & \(\Delta R <\) 0.2 \\
+    Muon     	& Electron & is Calo-Muon and shared ID track \\
+    Electron 	& Muon     & shared ID track \\
+    Photon   	& Electron & \(\Delta R < 0.4\) \\
+    Photon   	& Muon     & \(\Delta R < 0.4\) \\
+    Jet      		& Electron & \(\Delta R < 0.2\) \\
+    Electron 	& Jet      & \(0.2\ < \Delta R < 0.4\) \\
+    Jet      		& Muon     & \(\texttt{NumTrack} < 3\) and (ghost-associated or \(\Delta R < 0.2\)) \\
+                       	
+    Muon     	& Jet      & None \\
+    Jet      		& Tau      & \(\Delta R < 0.2\) \\
+    Jet   	& Photon      & \(\Delta R < 0.4\) \\
+ %   Fat-jet  		& Electron & \(\Delta R < 1.0\) \\
+  %  Jet      		& Fat-jet  & \(\Delta R < 1.0\) \\
+    \bottomrule
+  \end{tabular}
+  % }
+\end{table}
+
+\begin{table}[ht]
+  \caption{Photon selection criteria.}%
+  \label{tab:object:photon} 
+  \centering
+  % \resizebox{\textwidth}{!}{
+  \begin{tabular}{ll}
+    \toprule
+    Feature & \multicolumn{1}{c}{Criterion} \\
+    Object quality & Not from a bad calorimeter cluster (\texttt{BADCLUSPHOTON})\\ %\cline{2-2}
+    Photon cleaning & \texttt{passOQquality} \\
+    Pseudorapidity range & $(|\eta| < 1.37) \quad || \quad (1.52 < |\eta| < 2.37)$ \\
+    Energy calibration & \texttt{es2024\_Run3\_v0} (ESModel)\\
+    \midrule\midrule
+    \textbf{Baseline photons} &\\ 
+    \midrule
+ %   Energy & $E > \SI[parse-numbers=false]{XX}{\GeV}$ \\
+    Transverse energy & $p_{\mathrm{T}}>25$ GeV \\
+    Identification & \texttt{Tight} \\
+    \midrule
+    \textbf{Selected photon} &\\ 
+    \midrule
+    Transverse energy & $p_{\mathrm{T}}>50$ GeV \\
+    Identification & \texttt{Tight} \\
+    Isolation &  \texttt{TightCaloOnly} \\
+    \bottomrule
+  \end{tabular}
+  %  }
+\end{table}
+
+
+
+
+\FloatBarrier
 \section{Event selection}
 \subsection{Trigger}
-\subsection{Pre-selection}
-\subsection{Signal region}
+The analysis uses a trigger implemented in 2023, see \href{https://its.cern.ch/jira/browse/ATR-26410}{ATR-26410}. 
+The signal trigger requires a single photon with 26 GeV at L1 -- which is shared with the single electron L1 item. The HLT is a multi-object trigger that requires a 50 GeV tight ID photon (g50), 40 GeV of cell \met (xe40\_cell) and 70 GeV of ``pfopufit'' \met (xe70\_pfopufit). There transverse mass computed between the photon and the \met is defined using the expression: $m_T = \sqrt{2 E_{T}^{\gamma}\ETmiss (1-cos(\Delta \phi))}$. The trigger requires that: $m_T > 80$ GeV be applied (\texttt{80mTAC}).\\
 
-\section{Background modeling and estimation}
-\subsection{Real photon backgrounds}
-\subsection{Fake photon backgrounds}
-\subsubsection{Jets faking photons}
-\subsubsection{Electrons faking photons}
+This trigger is consistently applied in all the analysis regions, which are generally characterized by signatures allowing reasonable trigger acceptance: $1\mu+\gamma$, $2\mu+\gamma$, 1 non-isolated $\gamma+\ETmiss$, $1e+\ETmiss$. For the muon-CRs, it is possible to apply the analysis trigger taking advantage of the fact that muons are not included in the trigger-level $\ETmiss$ computation. The most critical final state is the $1e+\ETmiss$: in this case, an OR of multiple single electron trigger and of the analysis trigger is applied.
 
+\begin{table}[ht]
+\centering
+\caption{Triggers used in the analysis.}
+\label{tab:trigger-list}
+\begin{tabular}{ll}
+\toprule
+Use & Trigger name \\
+\midrule
+All regions & HLT\_g50\_tight\_xe40\_cell\_xe70\_pfopufit\_80mTAC\_L1eEM26M \\
+$1e+\ETmiss$ region &  OR of single-e triggers and HLT\_g50\_tight\_xe40\_cell\_xe70\_pfopufit\_80mTAC\_L1eEM26M \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\FloatBarrier
 \section{Signal region optimization}
-\subsection{N-1 iteration method}
+
 
 The set of rectangular cuts resulting from the previous optimization is the following:
 
@@ -584,33 +661,289 @@ z70\_fopupfit8\allowbreak
     \item $|\eta_{\gamma}| < 1.75$;
 \end{itemize}
 
+\subsection{N-1 iteration method}
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    font=\sffamily,
+    box/.style={draw, rectangle, minimum width=4.6cm, minimum height=1.05cm, align=center},
+    sbox/.style={draw, rectangle, minimum width=2.7cm, minimum height=1.05cm, align=center},
+    arrow/.style={-{Latex[length=3mm]}, thick}
+]
+
+% Title (left)
+\node[anchor=west, font=\bfseries] (title) at (-8.2,4.1) {Iteration Workflow};
+
+% Top node
+\node[box] (basic) at (0,3.6) {Preselection cuts};
+
+% Middle row: cut blocks
+\node[sbox] (dphiL)   at (-7.2,2.2) {$\Delta \phi(j_1, j_2)$\\ lower cuts};
+\node[sbox] (dphiU)   at (-4.0,2.2) {$\Delta \phi(j_1, j_2)$\\ upper cuts};
+\node[sbox] (metsigL) at (-0.6,2.2) {$E_{T}^{\text{miss}}$ significance\\lower cuts};
+\node[sbox] (metsigU) at (2.9, 2.2) {$E_{T}^{\text{miss}}$ significance\\upper cuts};
+\node[sbox] (jetaL)   at (6.3, 2.2) {$|\eta_{\gamma}|$\\lower cuts};
+
+% Optional "..." bubbles on the right
+\node[draw, circle, inner sep=1.2pt] (dot1) at (8.2,2.35) {};
+\node[draw, circle, inner sep=1.2pt] (dot2) at (8.7,2.35) {};
+\node[draw, circle, inner sep=1.2pt] (dot3) at (9.2,2.35) {};
+
+% Combined box
+\node[box, below=0.4mm of jetaL] (comb) at (0,1) {Combined $\rightarrow$ initial cuts};
+
+% Lower flow
+\node[box, minimum width=4.0cm, below=0.6mm of comb] (nm1)   at (0,-0.5) {$n\!-\!1$ cuts};
+\node[box, minimum width=6.2cm, below=1mm of nm1] (check) at (0,-1.9) {check if increase significance \&\\if it is a different cut value};
+\node[box, minimum width=5.2cm, below=1.8mm of check] (final) at (0,-3.5) {Final cut \& significance};
+
+% Fan-out lines from Basic cuts to each cut block
+\draw[arrow] (basic.south) -- (dphiL.north);
+\draw[arrow] (basic.south) -- (dphiU.north);
+\draw[arrow] (basic.south) -- (metsigL.north);
+\draw[arrow] (basic.south) -- (metsigU.north);
+\draw[arrow] (basic.south) -- (jetaL.north);
+
+% Fan-in lines from cut blocks to Combined
+\draw[arrow] (dphiL.south) -- (comb.north);
+\draw[arrow] (dphiU.south) -- (comb.north);
+\draw[arrow] (metsigL.south) -- (comb.north);
+\draw[arrow] (metsigU.south) -- (comb.north);
+\draw[arrow] (jetaL.south) -- (comb.north);
+
+% Main vertical chain
+\draw[arrow] (comb) -- (nm1);
+\draw[arrow] (nm1) -- (check);
+
+% Decision: YES to final
+\draw[arrow] (check) -- node[right, xshift=2mm] {Yes} (final);
+
+% "No" loop back to n-1 cuts (right-side loop)
+\coordinate (r1) at ($(nm1.east)+(2.2,0)$);
+\coordinate (r2) at ($(check.east)+(1.1,0)$);
+\draw[arrow] (check.east) -- (r2) -- (r1) -- (nm1.east);
+
+% Annotation text for "No" case
+\node[anchor=west, align=left] at (4.2,-1.80)
+{No, if significance is greater\\
+without this cut,\\
+\textcolor{purple}{remove the cut.}};
+
+\end{tikzpicture}
+
+\caption{Iteration workflow for optimizing the cut set using n-1 studies and significance checks.}
+\label{fig:iteration_workflow}
+\end{figure}
+
+The iteration process, demonstrated in figure ~\ref{fig:iteration_workflow}, determines the optimized cuts for the additional selections. After applying preselection cuts, it imposes lower and upper bounds on the key variables, denoted $c_i$ for clarity, based on their ROC curves. If either an upper/lower cut does not improve significance, we will skip the cut for this variable, but it will be reconsidered and iterated in a later process. Combining all the cuts becomes our initial cuts of the variables. Then it performs n-1 cuts: for each cut $c_i$, apply all the cuts except $c_i$ and calculate the n-1 significance. Choose the cut value of $c_i$ that maximizes the significance, and repeat the process for the next $c_{i+1}$. If the n-1 significance is greater without the cut, we remove the cut. In the next iteration, it will reconsider the entire list of cut variables and cut values, including those previously dropped. We finalize the optimized cuts and significance if none of the chosen cuts change, and there is no further improvement in significance in one iteration. 
+
+
 After checking n-1 plots of each variable, we optimized the cuts to:
-\noindent\textbf{Preselections:}
-\begin{itemize}[topsep=2pt, itemsep=2pt, parsep=0pt]
-    \item Analysis trigger: \texttt{HLT\_50ight\allowbreak
-z40\_eLL\allowbreak
-z70\_fopupfit8\allowbreak
-\_mTAC\_LeEM26M}
-    \item $N_{\gamma} = 1$, with $N_{\gamma}$ the number of selected photons;
-    \item $N_{\text{leptons}} = 0$, for baseline leptons;
-    \item $N_{\text{jet, central}} \leq 3$;
-    \item $p_{T}^{\gamma} > 50~\text{GeV}$;
-    \item $E_{T}^{\text{miss}} > 100~\text{GeV}$;
-    \item $140~\text{GeV} > m_T(E_{T}^{\text{miss}}, \gamma) > 100~\text{GeV}$;
-\end{itemize}
-\noindent\textbf{Additional selections:}
-\begin{itemize}[topsep=2pt, itemsep=2pt, parsep=0pt]
-    \item $\mathrm{BDT}^{\text{vertex}}_{\text{score}} > 0.1$;
-    \item $E_{T}^{\text{miss}}$ significance $> 7$;
-    \item $\Delta E_{T}^{\text{miss}} > -25~\text{GeV}$;
-    \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\gamma}) > 1.25$;
-    \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\text{jet}}) < 0.75$;
-    \item $\Delta \phi(j_1, j_2) < 2.5$;
-    \item $|\eta_{\gamma}| < 1.75$;
-    \item $balance > 0.9$;
-\end{itemize}
+% \noindent\textbf{Preselections:}
+% \begin{itemize}[nosep, leftmargin=1.7em]
+%     \item Analysis trigger: \texttt{HLT\_50ight\allowbreak
+% z40\_eLL\allowbreak
+% z70\_fopupfit8\allowbreak
+% \_mTAC\_LeEM26M}
+%     \item $N_{\gamma} = 1$, with $N_{\gamma}$ the number of selected photons;
+%     \item $N_{\text{leptons}} = 0$, for baseline leptons;
+%     \item $N_{\text{jet, central}} \leq 3$;
+%     \item $p_{T}^{\gamma} > 50~\text{GeV}$;
+%     \item $E_{T}^{\text{miss}} > 100~\text{GeV}$;
+%     \item $140~\text{GeV} > m_T(E_{T}^{\text{miss}}, \gamma) > 100~\text{GeV}$;
+% \end{itemize}
+% \noindent\textbf{Additional selections:}
+% \begin{itemize}[nosep, leftmargin=1.7em]
+%     \item $\mathrm{BDT}^{\text{vertex}}_{\text{score}} > 0.1$;
+%     \item $E_{T}^{\text{miss}}$ significance $> 7$;
+%     \item $\Delta E_{T}^{\text{miss}} > -25~\text{GeV}$;
+%     \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\gamma}) > 1.25$;
+%     \item $\Delta \phi(E_{T}^{\text{miss}}, E_{T}^{\text{jet}}) < 0.75$;
+%     \item $\Delta \phi(j_1, j_2) < 2.5$;
+%     \item $|\eta_{\gamma}| < 1.75$;
+%     \item $balance > 0.9$;
+% \end{itemize}
+% \noindent
+
+\begin{table}[t]
+\centering
+\caption{Preselections and basic-cut comparison between the Internal Note and Optimized Selections}
+\label{tab:preselection_basiccuts}
+\begin{tabular}{lcc}
+\hline
+\textbf{Selection} & \textbf{Internal Note} & \textbf{Optimized Selections} \\
+\hline
+\multicolumn{3}{c}{\textit{Preselections}} \\
+\hline
+Analysis trigger & \multicolumn{2}{c}{\texttt{HLT\_50ight\allowbreak z40\_eLL\allowbreak z70\_fopupfit8\allowbreak \_mTAC\_LeEM26M}} \\
+Number of photons $N_{\gamma}$ & \multicolumn{2}{c}{$=1$} \\
+Number of leptons $N_{\text{leptons}}$ & \multicolumn{2}{c}{$=0$ (baseline leptons)} \\
+Central jets $N_{\text{jet, central}}$ & \multicolumn{2}{c}{$\leq 3$} \\
+Photon transverse momentum $p_T^\gamma$ & \multicolumn{2}{c}{$>50~\text{GeV}$} \\
+Missing transverse energy $E_T^{\text{miss}}$ & \multicolumn{2}{c}{$>100~\text{GeV}$} \\
+% Transverse mass $m_T(E_T^{\text{miss}},\gamma)$ & {$m_T > 80~\text{GeV}$} & {$100 < m_T < 140~\text{GeV}$}\\
+Transverse mass $m_T(E_T^{\text{miss}},\gamma)$ & \multicolumn{2}{c}{$100 < m_T < 140~\text{GeV}$} \\
+\hline
+\multicolumn{3}{c}{\textit{Additional selections}} \\
+\hline
+$\mathrm{BDT}^{\text{vertex}}_{\text{score}}$ & $>0.1$ & $>0.1$\\
+$E_T^{\text{miss}}$ significance & $>6$ & $>7$ \\
+Photon pseudorapidity $|\eta_\gamma|$ & $<1.75$ & $<1.75$ \\
+$\Delta\phi(E_T^{\text{miss}}, E_T^\gamma)$ & $>1.25$ & $>1.25$ \\
+$\Delta E_T^{\text{miss}}$ & $>-10~\text{GeV}$ & $>-25~\text{GeV}$ \\
+$\Delta\phi(j_1,j_2)$ (central jets) & $<2.5$ & $<2.5$ \\
+$\Delta\phi(E_T^{\text{miss}}, \text{jet})$ & $<0.75$ & $<0.75$ \\
+balance & --- & $>0.90$ \\
+\hline
+$S/\sqrt{B}$ & $2.475$ & $2.701$ \\
+\hline
+\end{tabular}
+\end{table}
+
+The balance variable is defined as
+\begin{equation}
+\text{balance}
+\equiv
+\frac{
+E_T^{\text{miss}} + p_T^{\text{leading}\,\gamma}
+}{
+\displaystyle \sum_{\text{central jets}} p_T^{j}
+}.
+\end{equation}
+
+Compared to the internal note cuts, the lower cut of $E_{T}^{\text{miss}}$ significance change from 6 to 7, the $\Delta E_{T}^{\text{miss}}$ alters from -10 GeV to -25 GeV, and we add a lower cut of 0.90 for balance. 
 
 With the improved optimized cuts, we increased the simple significance $ \frac{S}{\sqrt{B}} $ from 2.475 to 2.701. 
+
+
+
+
+\FloatBarrier
+\subsection{Statistical method}
+\label{sec:stat_method}
+The combination presented in this section relies on a combined likelihood function defined as the product of the likelihoods from the individual channels entering the combination, which are themselves products of likelihoods computed from the final observables in various categories in a single analysis.
+
+The common parameter of interest (POI) targeted in this combination is the branching ratio of $\Htoyyd$, denoted by $\mu$.
+Systematic uncertainties are included as nuisance parameters, denoted by $\bm{\theta}$, and are constrained by Gaussian probability density functions.
+These encode information from \textit{auxiliary} measurements and measure the effect of systematic uncertainties.
+The likelihood also includes normalization factors, denoted by $\bm{\kappa}$, which are floated in the fit without constraints to adjust the agreement with data of background components in their corresponding CR(s).
+
+The combined likelihood can be written as~\cite{Cranmer:1456844}
+\begin{equation}
+    \mathcal{L}\left(\mathrm{data}\vert\mu,\bm{\kappa},\bm{\theta}\right) = \prod_{c=1}^{N_\mathrm{cats}}\mathcal{L}_c\left(\mathrm{data}\vert\mu,\bm{\kappa},\bm{\theta}\right)\prod_{k=1}^{N_\mathrm{cons}}\mathcal{G}\left(\tilde{\theta}_k\vert\theta_k\right),
+    \label{eq:combined_likelihood}
+\end{equation}
+where $N_\mathrm{cats}$ is the number of categories, $N_\mathrm{cons}$ is the number of constrained NPs, $\tilde{\theta}_k$ is the global observable corresponding to $\theta_k$, $c$ is the index for the event categories, $k$ is the index for the constrained NPs, and $\mathcal{G}$ represents a Gaussian distribution.
+
+The likelihood for a given category $\mathcal{L}_c$ can be expressed as the product of Poisson distributions, one for each bin in the histogram of the observable considered for that category, as
+\begin{equation}
+    \mathcal{L}_c\left(\mathrm{data}\vert\mu,\bm{\kappa},\bm{\theta}\right) = \prod_{i=1}^{N_c^\mathrm{bins}}\mathcal{P}\left(n^i_c\middle\vert\sum_{S} S^i_{c}(\mu,\bm{\theta}) + \sum_{B}B^i_{c}(\bm{\kappa},\bm{\theta}) \right),
+    \label{eq:cat_likelihood}
+\end{equation}
+where $N^\mathrm{bins}_c$ is the number of bins, $i$ is the bin index, $\mathcal{P}$ denotes a Poisson distribution, $n^i_c$ is the number of (observed or Asimov) data events in each bin, $S^i_{c}$ and $B^i_{c}$ are the expected yields of a given signal sample $S$ and background sample $B$, respectively, in each bin.
+
+The $\mathrm{CL_s}$ frequentist method~\cite{Read:2002hq} following the asymptotic formulae~\cite{Cowan:2010js} is used to derive the 95\% CL upper limit on the POI with the profile likelihood ratio test statistic $(q_\mu)$, defined as
+\begin{equation}
+    q_\mu = -2\ln\frac{\mathcal{L}\left(\mu,\hat{\hat{\bm{\kappa}}}(\mu), \hat{\hat{\bm{\theta}}}(\mu)\right)}{\mathcal{L}\left(\hat{\mu},{\hat{\bm{\kappa}}}, {\hat{\bm{\theta}}}\right)},
+    \label{eq:qmu}
+\end{equation}
+where the numerator indicates the values of $\bm{\kappa}$ and $\bm{\theta}$ that maximize $\mathcal{L}$ for a given value of $\mu$, and the denominator is evaluated for the values $\hat{\mu}$, ${\hat{\bm{\kappa}}}$, ${\hat{\bm{\theta}}}$ which which jointly maximize the likelihood.
+
+\begin{figure}
+    \centering
+
+    % ===== Row 1: Pre-Fit =====
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/tim/Plots/SRdavid.pdf}
+        \caption{SR Pre-Fit}
+        \label{fig:sr-prefit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/tim/Plots/OneMuCRdavid.pdf}
+        \caption{1$\mu$ CR Pre-Fit}
+        \label{fig:1mu-prefit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/tim/Plots/TwoMuCR_1bin.pdf}
+        \caption{2$\mu$ CR Pre-Fit}
+        \label{fig:2mu-prefit}
+    \end{subfigure}
+
+    \vspace{0.5cm}
+
+    % ===== Row 2: Post-Fit =====
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/tim/Plots/SRdavid_postFit.pdf}
+        \caption{SR Post-Fit}
+        \label{fig:sr-postfit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/tim/Plots/OneMuCRdavid_postFit.pdf}
+        \caption{1$\mu$ CR Post-Fit}
+        \label{fig:1mu-postfit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/tim/Plots/TwoMuCR_1bin_postFit.pdf}
+        \caption{2$\mu$ CR Post-Fit}
+        \label{fig:2mu-postfit}
+    \end{subfigure}
+
+    \caption{Generated by Tim Matthew (senior PhD at University of Oregon), pre-fit (top row) and post-fit (bottom row) $m_{T}$ distributions in the Signal Region (SR), 1$\mu$ Control Region, and 2$\mu$ Control Region. The distributions span $80$--$300$~GeV with binning (80, 110, 140, 200, 300)~GeV.}
+    \label{fig:mt-prefit-postfit}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/tim/NormFactors.pdf}
+    \caption{Normalization factors for W and Z processes and signal strength, with related statistical uncertainties}
+    \label{fig:nf}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/limit.png}
+    \caption{Observed and expected 95\% CL upper limits on the branching ratio 
+    $\mathcal{B}(H_{125} \rightarrow \gamma\gamma_D)$ obtained from the individual 
+    analysis channels and their combination. The black markers indicate the observed 
+    limits, while the dashed line represents the median expected limit under the 
+    background-only hypothesis. The green and yellow bands correspond to the 
+    $\pm 1\sigma$ and $\pm 2\sigma$ intervals on the expected limit, respectively.}
+    \label{fig:limit}
+\end{figure}
+
+
+A comparison of the $m_T$ distributions before and after the application of additional selection cuts is shown in Figure~\ref{fig:mt-prefit-postfit}. In this context, the ``pre'' distributions correspond to the baseline event selection, while the ``post'' distributions are obtained after applying the additional optimized requirements.
+
+The comparison is performed in the Signal Region (SR), the $1\mu$ Control Region (CR), and the $2\mu$ Control Region. The $m_T$ distributions span $80$--$300$~GeV with binning (80, 110, 140, 200, 300)~GeV. The additional selection requirements are designed to enhance signal sensitivity in the SR while maintaining control over the dominant background contributions in the CRs.
+
+As expected, the impact of the additional cuts is most visible in the SR, where a reduction of background yields is observed at higher $m_T$, improving the signal-to-background separation. In the control regions, the overall normalization and shapes of the dominant backgrounds remain stable, indicating that the additional requirements do not introduce significant distortions to the background modeling. In the $2\mu$ CR, where an inclusive binning scheme is used due to limited statistics, the effect of the additional cuts is primarily reflected in the overall yield.
+
+The fitted normalization factors $k_W$ and $k_Z$, together with their associated statistical uncertainties, are shown in Figure~\ref{fig:nf}. Both normalization factors are close to unity, indicating good agreement between the predicted and observed yields in the control regions. The uncertainties are at the level of $\mathcal{O}(10\%)$, reflecting the statistical precision of the control samples. No significant deviation from the nominal expectation is observed, and the fitted values remain compatible with one another within uncertainties. This confirms that the background modeling for the $W\gamma$ and $Z\gamma$ processes is well constrained by the data.
+
+Overall, the post-selection distributions show that the optimized cuts improve discrimination in the SR while preserving the integrity of the control regions.
+
+The most recent ATLAS combination~\cite{ATLAS:2024hpd} reports an observed (expected) 
+95\% confidence level (CL) upper limit on the branching ratio 
+$\mathcal{B}(H_{125} \rightarrow \gamma\gamma_D)$ of 1.3\% (1.5\%), shown in Figure~\ref{fig:limit}
+Using the optimized selection strategy described in this work, the observed 95\% CL upper limit is reduced to 0.88\%, corresponding to an improvement of approximately 32\% in the excluded branching ratio.
+This reduction reflects the enhanced background rejection achieved by the 
+additional selection requirements while maintaining signal efficiency.
+
+
+
+
+
 
 \begin{figure}[htbp]
   \centering
@@ -736,11 +1069,135 @@ With the improved optimized cuts, we increased the simple significance $ \frac{S
   
 
 
- 
+\FloatBarrier
 \subsection{Machine Learning approach}
-\subsubsection{Boosted Decision Trees (BDT)}
+\subsection{Boosted Decision Tree (BDT) training and results}
+\label{sec:bdt}
+
+To improve the separation of signal and background beyond cut-based selections, a multivariate boosted decision tree (BDT) classifier was trained using gradient boosting~\cite {FriedmanGBDT,TMVA2007,scikit-learn}. Training is performed after preselections and object definitions. The input variables were selected based on Receiver Operating Characteristic (ROC) curves, which indicated their discriminating power for cuts. If the area under the curve (AUC) of the ROC curve is close to 0.5, then the variable is excluded from the list for ML input. To ensure the ML is not biased towards the wrong vertices, $\mathrm{BDT}^{\text{vertex}}_{\text{score}} > 0.1$ is added in the preselections.
+The input variables used in the BDT training are 
+$\mathrm{BDT}^{\text{vertex}}_{\text{score}}$
+$\Delta E_T^{\text{miss}}$, 
+$\Delta\phi(j_1,j_2)$, 
+$\Delta\phi(E_T^{\text{miss}}, j_{\text{central}})$, 
+$\Delta\phi(E_T^{\text{miss}}, \gamma)$, 
+$p_{T,j,\text{central}}^{(2)}$, 
+$E_T^{\text{miss}}$ significance, 
+balance, 
+$\eta_\gamma$, 
+and $p_T^\gamma$.
+
+\paragraph{Input validation and correlations.}
+To ensure that the training is not dominated by redundant information, correlations among the input variables are inspected using the Pearson correlation matrix (Fig.~\ref{fig:bdt:corr}). Moderate correlations are expected among $E_{T}^{miss}$-related observables.
+
+\begin{figure}[htbp]
+  \centering
+  % Replace filename with your exported slide image
+  \includegraphics[width=0.85\textwidth]{figures/bdt/correlation_matrix.png}
+  \caption{Correlation matrix of the BDT input variables after the baseline selection.}
+  \label{fig:bdt:corr}
+\end{figure}
+
+\paragraph{Training strategy and hyperparameter scan.}
+The BDT is trained with gradient boosting, and a randomized hyperparameter scan is used to assess stability and optimize performance~\cite{FriedmanGBDT,scikit-learn}. The scan explores variations in tree depth, learning rate, number of estimators, subsampling, and regularization. I performed a randomized sweep of 100 BDT runs to balance performance and training stability. The parameter distribution for max depth ranged from 3 to 10; the learning rate was drawn from a uniform distribution between 0.001 and 0.1; the number of estimators was a randomized integer between 100 and 900; the subsample was sampled from a uniform distribution between 0.8 and 0.2; the gamma was drawn from between 0.1 and 1.
+
+\begin{table}[t]
+\centering
+\caption{Hyperparameter distribution in the randomized BDT sweep and the parameters for the best run}
+\label{tab:bdt_sweep}
+\begin{tabular}{lcc}
+\hline
+\textbf{Hyperparameter} & \textbf{Scan Range / Distribution} & \textbf{Best Run} \\
+\hline
+Maximum depth & $\mathrm{randint}(3, 10)$ & $7$ \\
+Learning rate & $\mathrm{uniform}(0.001, 0.1)$ & $0.08583$ \\
+Number of estimators & $\mathrm{randint}(100, 900)$ & $614$ \\
+Subsample fraction & $\mathrm{uniform}(0.2, 0.8)$ & $0.7926$ \\
+$\gamma$ (split regularization) & $\mathrm{uniform}(0.1, 1)$ & $0.1081$ \\
+\hline
+Best ROC AUC & \multicolumn{2}{c}{$0.9137$} \\
+Signal Acceptance & \multicolumn{2}{c}{$54.05\%$} \\
+BDT Score cut & \multicolumn{2}{c}{0.03} \\
+Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$3.199$} \\
+\hline
+\end{tabular}
+\end{table}
+
+Besides validation accuracy, I also loop over the cuts on the output BDT score and calculate the maximum simple significance ($S/\sqrt{B}$). The best run is determined by the maximum simple significance with a corresponding cut on the BDT score and a sufficient signal acceptance. Since there are runs that cut away ~80\% of the signal yield in exchange for $\frac{S}{\sqrt{B}} \approx 7$, for training stability, such runs would be stripped away. The best run is written in Table \ref{tab:bdt_sweep}. The nominal working point is chosen at
+\begin{equation}
+\mathrm{BDT\ score} \ge 0.03,
+\end{equation}
+which yields an expected significance of $S/\sqrt{B}=3.199$ with a signal acceptance of approximately $54.05\%$ in Fig.~\ref{fig:bdt:score_scan}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/bdt/significance_MLBDTScore_lowercut.png}
+  \caption{Significance versus BDT score threshold, with the maximum simple significance at $\mathrm{BDT\ score}\ge 0.03$. $S/\sqrt{B}$ (blue) is the simple counting significance; $S/\sqrt{S+B}$ is (orange) the poisson-aware approximation; $S/\sqrt{S+1.3B}$ (green) is the Ad-hoc systematic-aware metric, assuming 30\% background systematic; Zbi (red) is the Binomial significance.}
+  \label{fig:bdt:score_scan}
+\end{figure}
+
+\paragraph{Classifier performance and variable importance.}
+The discriminating power of the classifier is summarized by the ROC curve shown in Fig.~\ref{fig:bdt:roc_importance}. Feature-importance studies (also shown in Fig.~\ref{fig:bdt:roc_importance}) indicate that $\met$ has the strongest discriminating power.
+
+\begin{figure}[htbp]
+  \centering
+  
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/bdt/roc.png}
+    \caption{ROC curve of the trained BDT.}
+    \label{fig:bdt:roc}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/bdt/feature_importance.png}
+    \caption{Feature importance ranking from the trained model.}
+    \label{fig:bdt:importance}
+  \end{subfigure}
+
+  \caption{Performance of the BDT classifier. (Left) Receiver operating characteristic (ROC) curve. (Right) Feature importance of input variables.}
+  \label{fig:bdt:roc_importance}
+\end{figure}
+
+
+\FloatBarrier
 \subsubsection{Neural Networks (NN)}
 
 \section{Results and discussion}
+
+\begin{table}[t]
+\centering
+\caption{Hyperparameter search ranges used in the neural network Bayesian sweep and the best-performing configuration.}
+\label{tab:nn_sweep}
+\begin{tabular}{lcc}
+\hline
+\textbf{Hyperparameter} & \textbf{Scan Range / Distribution} & \textbf{Best Run} \\
+\hline
+Learning rate & $\mathrm{log\_uniform}(10^{-5}, 10^{-2})$ & $0.003883$ \\
+Batch size & $\{128, 256, 512, 768, 1024\}$ & $1024$ \\
+Dropout & $\mathrm{uniform}(0.1, 0.5)$ & $0.1677$ \\
+Layer 1 width & $\{64, 128, 192, 256\}$ & $128$ \\
+Layer 2 width & $\{128, 192, 256, 384, 512\}$ & $512$ \\
+Layer 3 width & $\{512, 768, 1024, 1536, 2048\}$ & $512$ \\
+Layer 4 width & $\{128, 256, 384, 512\}$ & $128$ \\
+Layer 5 width & $\{32, 64, 96, 128\}$ & $128$ \\
+Training epochs & Fixed ($50$) & $50$ \\
+\hline
+Best ROC AUC & \multicolumn{2}{c}{$0.901$} \\
+Signal Acceptance & \multicolumn{2}{c}{$64.04\%$} \\
+BDT Score cut & \multicolumn{2}{c}{0.03} \\
+Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$3.052$} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\textwidth]{figures/bdt/significance_nn_scores_lowercut.png}
+  \caption{Significance versus NN score lower cut with significance ($S/\sqrt{B}$) = 3.052 at $\mathrm{NN\ score}\ge 0.03$ with signal acceptance of 64.60\%}
+  \label{fig:bdt:score_scan}
+\end{figure}
+
 \section{Conclusions and Outlook}
 

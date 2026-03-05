@@ -1,0 +1,19 @@
+<!--
+This xml file created automatically on: 
+2026-1-19
+-->
+<!DOCTYPE Combination  SYSTEM 'HistFactorySchema.dtd'>
+
+<Combination OutputFilePrefix="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/RooStats/david_unblind" >
+
+
+  <Input>.//home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/RooStats//david_unblind_SRdavid.xml</Input>
+  <Input>.//home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/RooStats//david_unblind_OneMuCRdavid.xml</Input>
+  <Input>.//home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/RooStats//david_unblind_TwoMuCR_1bin.xml</Input>
+
+  <Measurement Name="david_unblind" Lumi="1" LumiRelErr="0.1" ExportOnly="True"  >
+    <POI>BRHyyd</POI>  
+    <ParamSetting Const="True">Lumi</ParamSetting>
+  </Measurement> 
+
+</Combination>

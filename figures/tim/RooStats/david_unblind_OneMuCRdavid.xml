@@ -1,0 +1,63 @@
+<!--
+This xml file created automatically on: 
+2026-1-19
+-->
+<!DOCTYPE Channel  SYSTEM 'HistFactorySchema.dtd'>  
+
+  <Channel Name="OneMuCRdavid" InputFile="" >
+
+    <Data HistoName="OneMuCRdavid_data_regBin" InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root" HistoPath="OneMuCRdavid/data/nominal/"  /> 
+
+    <StatErrorConfig RelErrorThreshold="0.001" ConstraintType="Poisson" /> 
+
+    <Sample Name="ggHyyd"  HistoPath="OneMuCRdavid/ggHyyd/nominal/"  HistoName="OneMuCRdavid_ggHyyd_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="BRHyyd"  Val="1"  High="1"  Low="-1"   /> 
+    </Sample>
+
+
+    <Sample Name="VBFHyyd"  HistoPath="OneMuCRdavid/VBFHyyd/nominal/"  HistoName="OneMuCRdavid_VBFHyyd_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="BRHyyd"  Val="1"  High="1"  Low="-1"   /> 
+    </Sample>
+
+
+    <Sample Name="ZHyyd"  HistoPath="OneMuCRdavid/ZHyyd/nominal/"  HistoName="OneMuCRdavid_ZHyyd_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="BRHyyd"  Val="1"  High="1"  Low="-1"   /> 
+    </Sample>
+
+
+    <Sample Name="Wgamma"  HistoPath="OneMuCRdavid/Wgamma/nominal/"  HistoName="OneMuCRdavid_Wgamma_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="kW"  Val="1"  High="10"  Low="0"   /> 
+    </Sample>
+
+
+    <Sample Name="jets_faking_photons"  HistoPath="OneMuCRdavid/jets_faking_photons/nominal/"  HistoName="OneMuCRdavid_jets_faking_photons_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="False" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <OverallSys Name="ff_jy"  High="1.11088"  Low="0.889116"   /> 
+    </Sample>
+
+
+    <Sample Name="electrons_faking_photons"  HistoPath="OneMuCRdavid/electrons_faking_photons/nominal/"  HistoName="OneMuCRdavid_electrons_faking_photons_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="False" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <OverallSys Name="ff_ey"  High="1.04707"  Low="0.952931"   /> 
+      <OverallSys Name="scf_syst"  High="1.05194"  Low="0.948064"   /> 
+      <HistoSys Name="scf_syst"  HistoFileLow="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  HistoNameLow="OneMuCRdavid_electrons_faking_photons_scf_syst_Shape_Down_regBin"  HistoPathLow="OneMuCRdavid/electrons_faking_photons/scf_syst/"  HistoFileHigh="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  HistoNameHigh="OneMuCRdavid_electrons_faking_photons_scf_syst_Shape_Up_regBin"  HistoPathHigh="OneMuCRdavid/electrons_faking_photons/scf_syst/"   /> 
+    </Sample>
+
+
+    <Sample Name="gammajets_direct"  HistoPath="OneMuCRdavid/gammajets_direct/nominal/"  HistoName="OneMuCRdavid_gammajets_direct_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+    </Sample>
+
+
+    <Sample Name="Zgamma"  HistoPath="OneMuCRdavid/Zgamma/nominal/"  HistoName="OneMuCRdavid_Zgamma_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_OneMuCRdavid_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="kZ"  Val="1"  High="10"  Low="0"   /> 
+    </Sample>
+
+
+
+  </Channel>  
