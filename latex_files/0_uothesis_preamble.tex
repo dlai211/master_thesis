@@ -76,12 +76,17 @@
 \usepackage{appendix}
 \usepackage{setspace}
 \usepackage[normalem]{ulem}
-\usepackage{tabularx,xspace,multirow}
+\usepackage{tabularx,xspace,multirow,siunitx}
 \usepackage{array}
 \usepackage{atlasphysics}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{xcolor}
+%\usetikzlibrary{arrows.meta,positioning,calc}
+\usetikzlibrary{positioning,calc}
 
+%\makeatletter
+%\def\pgfutil@unskip{\ifhmode\unskip\fi}
+%\makeatother
 
 % Added by Jacob L. following https://tex.stackexchange.com/questions/148314/undefined-control-sequence-in-printbibliography-biblatex to allow UTF-8 (non-ASCII) characters in the bibliography .bib file.
 \usepackage[utf8]{inputenc}
