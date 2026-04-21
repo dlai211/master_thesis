@@ -1,0 +1,93 @@
+- Region: SR
+  Samples:
+    - Sample: ggF_{dark}
+      Yield: 17680.273860545323
+      Error: 146.63448244741875
+    - Sample: VBF_{dark}
+      Yield: 4101.216441353476
+      Error: 34.030317494100416
+    - Sample: ZH_{dark}
+      Yield: 593.7384676273114
+      Error: 4.821788956295669
+    - Sample: W#gamma
+      Yield: 1556.7714767442235
+      Error: 14.188778162862986
+    - Sample: j~>#gamma
+      Yield: 1085.265000000002
+      Error: 121.60503091857368
+    - Sample: e~>#gamma
+      Yield: 3042.2872576706436
+      Error: 218.58013832448995
+    - Sample: "#gammaj (direct)"
+      Yield: 95.91059361861713
+      Error: 1.2905090862639406
+    - Sample: Z#gamma
+      Yield: 926.5185172538729
+      Error: 9.486318526330885
+    - Sample: Total
+      Yield: 29081.98161481347
+      Error: 339.203882636377
+    - Data: data
+      Yield: 7250
+- Region: 1#mu CR
+  Samples:
+    - Sample: ggF_{dark}
+      Yield: 0
+      Error: 0
+    - Sample: VBF_{dark}
+      Yield: 0
+      Error: 0
+    - Sample: ZH_{dark}
+      Yield: 0.28271739479643704
+      Error: 0.0048741548704003546
+    - Sample: W#gamma
+      Yield: 2773.1290579397905
+      Error: 26.946969641285985
+    - Sample: j~>#gamma
+      Yield: 459.9599999999998
+      Error: 51.21762424514241
+    - Sample: e~>#gamma
+      Yield: 86.63575572999989
+      Error: 6.132713948080715
+    - Sample: "#gammaj (direct)"
+      Yield: 0.037991212737642804
+      Error: 0.000601197171444597
+    - Sample: Z#gamma
+      Yield: 78.40700966910994
+      Error: 0.7775715719964726
+    - Sample: Total
+      Yield: 3398.4525319464337
+      Error: 61.11875070096964
+    - Data: data
+      Yield: 3500
+- Region: 2#mu CR
+  Samples:
+    - Sample: ggF_{dark}
+      Yield: 0
+      Error: 0
+    - Sample: VBF_{dark}
+      Yield: 0
+      Error: 0
+    - Sample: ZH_{dark}
+      Yield: 2.491196536177231
+      Error: 0.07742599769005842
+    - Sample: W#gamma
+      Yield: 0.7461259112663545
+      Error: 0.023189476319218638
+    - Sample: j~>#gamma
+      Yield: 189.97499999999985
+      Error: 24.380748228257968
+    - Sample: e~>#gamma
+      Yield: 10.92110422
+      Error: 0.8115117019763596
+    - Sample: "#gammaj (direct)"
+      Yield: 2.8802539290257352e-06
+      Error: 8.951784045016971e-08
+    - Sample: Z#gamma
+      Yield: 400.28499239132464
+      Error: 12.440794793257822
+    - Sample: Total
+      Yield: 604.418421939022
+      Error: 30.21567844188488
+    - Data: data
+      Yield: 596

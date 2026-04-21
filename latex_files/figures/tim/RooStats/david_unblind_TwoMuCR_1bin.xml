@@ -1,0 +1,62 @@
+<!--
+This xml file created automatically on: 
+2026-1-19
+-->
+<!DOCTYPE Channel  SYSTEM 'HistFactorySchema.dtd'>  
+
+  <Channel Name="TwoMuCR_1bin" InputFile="" >
+
+    <Data HistoName="TwoMuCR_1bin_data_regBin" InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root" HistoPath="TwoMuCR_1bin/data/nominal/"  /> 
+
+    <StatErrorConfig RelErrorThreshold="0.001" ConstraintType="Poisson" /> 
+
+    <Sample Name="ggHyyd"  HistoPath="TwoMuCR_1bin/ggHyyd/nominal/"  HistoName="TwoMuCR_1bin_ggHyyd_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="BRHyyd"  Val="1"  High="1"  Low="-1"   /> 
+    </Sample>
+
+
+    <Sample Name="VBFHyyd"  HistoPath="TwoMuCR_1bin/VBFHyyd/nominal/"  HistoName="TwoMuCR_1bin_VBFHyyd_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="BRHyyd"  Val="1"  High="1"  Low="-1"   /> 
+    </Sample>
+
+
+    <Sample Name="ZHyyd"  HistoPath="TwoMuCR_1bin/ZHyyd/nominal/"  HistoName="TwoMuCR_1bin_ZHyyd_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="BRHyyd"  Val="1"  High="1"  Low="-1"   /> 
+    </Sample>
+
+
+    <Sample Name="Wgamma"  HistoPath="TwoMuCR_1bin/Wgamma/nominal/"  HistoName="TwoMuCR_1bin_Wgamma_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="kW"  Val="1"  High="10"  Low="0"   /> 
+    </Sample>
+
+
+    <Sample Name="jets_faking_photons"  HistoPath="TwoMuCR_1bin/jets_faking_photons/nominal/"  HistoName="TwoMuCR_1bin_jets_faking_photons_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="False" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <OverallSys Name="ff_jy"  High="1.12452"  Low="0.875484"   /> 
+    </Sample>
+
+
+    <Sample Name="electrons_faking_photons"  HistoPath="TwoMuCR_1bin/electrons_faking_photons/nominal/"  HistoName="TwoMuCR_1bin_electrons_faking_photons_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="False" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <OverallSys Name="ff_ey"  High="1.04458"  Low="0.955422"   /> 
+      <OverallSys Name="scf_syst"  High="1.05068"  Low="0.949321"   /> 
+    </Sample>
+
+
+    <Sample Name="gammajets_direct"  HistoPath="TwoMuCR_1bin/gammajets_direct/nominal/"  HistoName="TwoMuCR_1bin_gammajets_direct_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+    </Sample>
+
+
+    <Sample Name="Zgamma"  HistoPath="TwoMuCR_1bin/Zgamma/nominal/"  HistoName="TwoMuCR_1bin_Zgamma_regBin"  InputFile="/home/tmathew/dark_photons/fit_analysis/david/statanalysis/CreateHistograms/david_unblind/Histograms/david_unblind_TwoMuCR_1bin_histos.root"  NormalizeByTheory="True" >
+      <StatError Activate="True"  InputFile=""  HistoName=""  HistoPath=""  /> 
+      <NormFactor Name="kZ"  Val="1"  High="10"  Low="0"   /> 
+    </Sample>
+
+
+
+  </Channel>  

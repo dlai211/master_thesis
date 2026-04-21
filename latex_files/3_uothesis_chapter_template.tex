@@ -10,7 +10,7 @@ This chapter introduces the components and their significance in the Standard Mo
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Standard_Model_of_Elementary_Particles.svg.png}
-    \caption{Elementary particles of the Standard Model\cite{WikiSM2018}.}
+    \caption{Elementary particles of the Standard Model \protect\cite{WikiSM2018}.}
     \label{fig:example}
 \end{figure}
 
@@ -112,7 +112,7 @@ At the LHC, the dominant production mode for Higgs bosons is gluon fusion ($gg\t
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/higgs_production_feynman_diagram.png}
-\caption{Feynman diagrams contributing to the Higgs production in (a) gluon fusion, (b) weak-boson fusion, (c) Higgs-strahlung (or associated production with a gauge boson), and (d) associated production with top quarks. From Ref.~\cite{CERNHiggs}.}
+\caption{Feynman diagrams contributing to the Higgs production in (a) gluon fusion, (b) weak-boson fusion, (c) Higgs-strahlung (or associated production with a gauge boson), and (d) associated production with top quarks~\protect\cite{CERNHiggs}.}
 \label{fig:higgs_production}
 \end{figure}
 
@@ -121,7 +121,7 @@ Once produced, the Higgs boson decays into several Standard Model final states. 
 \begin{figure}[h]
 \centering
 \includegraphics[height=0.5\textheight, width=0.5\textwidth]{figures/higgs_decay_feynman_diagram.png}
-\caption{Leading-order contributions to the decay of the Higgs boson into two photons~\cite{LHCHiggsXS4}.}
+\caption{Leading-order contributions to the decay of the Higgs boson into two photons~\protect\cite{LHCHiggsXS4}.}
 \label{fig:higgs_production}
 \end{figure}
 
@@ -206,7 +206,7 @@ The overall experimental setup integrates the detector with the LHC accelerator 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/CCC-v2019-final-white.png}
-    \caption{Schematic of CERN accelerator complex \cite{Mobs2019CERN}}
+    \caption{Schematic of CERN accelerator complex \protect\cite{Mobs2019CERN}}
     \label{fig:cern}
 \end{figure}
 
@@ -227,7 +227,7 @@ As the LHC has progressed through successive operational periods, improvements i
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/intlumivstimeRun3.png}
-    \caption{Cumulative integrated luminosity recorded by ATLAS during Run 3 \cite{ATLASRun3Luminosity}}
+    \caption{Cumulative integrated luminosity recorded by ATLAS during Run 3 \protect\cite{ATLASRun3Luminosity}}
     \label{fig:lumi}
 \end{figure}
 
@@ -260,7 +260,7 @@ By combining information from multiple tracking layers, the Inner Detector achie
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/ATLAS Detector Schematic black particles.png}
-    \caption{ATLAS detector slice with labeled subdetectors and particle visualizations \cite{Mehlhase:2770815}}
+    \caption{ATLAS detector slice with labeled subdetectors and particle visualizations \protect\cite{Mehlhase:2770815}}
     \label{fig:detector}
 \end{figure}
 
@@ -291,7 +291,7 @@ The trigger system reduces the event rate through a multi-level selection proces
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/tdaq.pdf}
-    \caption{ATLAS Trigger and Data Acquisition System in Run 3 \cite{ATLASTriggerRun3}}
+    \caption{ATLAS Trigger and Data Acquisition System in Run 3 \protect\cite{ATLASTriggerRun3}}
     \label{fig:Trigger}
 \end{figure}
 
@@ -553,14 +553,14 @@ The used Good Run List is
 
 \begin{table}[htbp]
 \centering
-\caption{Summary of the Good Run Lists (GRL) and integrated luminosities used for the Run 3 analysis.}
-\label{tab:grl_summary}
 \begin{tabular}{p{0.1\textwidth} p{0.65\textwidth} r}
 \hline
 \textbf{Year} & \textbf{GRL String} & \textbf{Lumi [\si{\ifb]}} \\ \hline
 2023 & \tiny\texttt{data23\_13p6TeV.periodAllYear\_DetStatus-v133-pro31-11\_MERGED\_PHYS\_StandardGRL\_All\_Good\_25ns} & 25.2 \\
 2024 & \tiny\texttt{data24\_13p6TeV.periodsEtoO\_DetStatus-v130-pro36-08\_MERGED\_PHYS\_StandardGRL\_All\_Good\_25ns} & 109.4 \\ \hline
 \end{tabular}
+\caption{Summary of the Good Run Lists (GRL) and integrated luminosities used for the Run 3 analysis.}
+\label{tab:grl_summary}
 \end{table}
 
 for a total integrated luminosity of 134.6~\ifb, with an uncertainty of 2\%~\cite{ATLASLuminosityForPhysics}. 
@@ -786,73 +786,8 @@ z70\_fopupfit8\allowbreak
 
 \subsection{N-1 iteration method}
 \begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[
-    font=\sffamily,
-    box/.style={draw, rectangle, minimum width=4.6cm, minimum height=1.05cm, align=center},
-    sbox/.style={draw, rectangle, minimum width=2.7cm, minimum height=1.05cm, align=center},
-    arrow/.style={-{Latex[length=3mm]}, thick}
-]
-
-% Title (left)
-\node[anchor=west, font=\bfseries] (title) at (-8.2,4.1) {Iteration Workflow};
-
-% Top node
-\node[box] (basic) at (0,3.6) {Preselection cuts};
-
-% Middle row: cut blocks
-\node[sbox] (dphiL)   at (-7.2,2.2) {$\Delta \phi(j_1, j_2)$\\ lower cuts};
-\node[sbox] (dphiU)   at (-4.0,2.2) {$\Delta \phi(j_1, j_2)$\\ upper cuts};
-\node[sbox] (metsigL) at (-0.6,2.2) {$E_{T}^{\text{miss}}$ significance\\lower cuts};
-\node[sbox] (metsigU) at (2.9, 2.2) {$E_{T}^{\text{miss}}$ significance\\upper cuts};
-\node[sbox] (jetaL)   at (6.3, 2.2) {$|\eta_{\gamma}|$\\lower cuts};
-
-% Optional "..." bubbles on the right
-\node[draw, circle, inner sep=1.2pt] (dot1) at (8.2,2.35) {};
-\node[draw, circle, inner sep=1.2pt] (dot2) at (8.7,2.35) {};
-\node[draw, circle, inner sep=1.2pt] (dot3) at (9.2,2.35) {};
-
-% Combined box
-\node[box, below=0.4mm of jetaL] (comb) at (0,1) {Combined $\rightarrow$ initial cuts};
-
-% Lower flow
-\node[box, minimum width=4.0cm, below=0.6mm of comb] (nm1)   at (0,-0.5) {$n\!-\!1$ cuts};
-\node[box, minimum width=6.2cm, below=1mm of nm1] (check) at (0,-1.9) {check if increase significance \&\\if it is a different cut value};
-\node[box, minimum width=5.2cm, below=1.8mm of check] (final) at (0,-3.5) {Final cut \& significance};
-
-% Fan-out lines from Basic cuts to each cut block
-\draw[arrow] (basic.south) -- (dphiL.north);
-\draw[arrow] (basic.south) -- (dphiU.north);
-\draw[arrow] (basic.south) -- (metsigL.north);
-\draw[arrow] (basic.south) -- (metsigU.north);
-\draw[arrow] (basic.south) -- (jetaL.north);
-
-% Fan-in lines from cut blocks to Combined
-\draw[arrow] (dphiL.south) -- (comb.north);
-\draw[arrow] (dphiU.south) -- (comb.north);
-\draw[arrow] (metsigL.south) -- (comb.north);
-\draw[arrow] (metsigU.south) -- (comb.north);
-\draw[arrow] (jetaL.south) -- (comb.north);
-
-% Main vertical chain
-\draw[arrow] (comb) -- (nm1);
-\draw[arrow] (nm1) -- (check);
-
-% Decision: YES to final
-\draw[arrow] (check) -- node[right, xshift=2mm] {Yes} (final);
-
-% "No" loop back to n-1 cuts (right-side loop)
-\coordinate (r1) at ($(nm1.east)+(2.2,0)$);
-\coordinate (r2) at ($(check.east)+(1.1,0)$);
-\draw[arrow] (check.east) -- (r2) -- (r1) -- (nm1.east);
-
-% Annotation text for "No" case
-\node[anchor=west, align=left] at (4.2,-1.80)
-{No, if significance is greater\\
-without this cut,\\
-\textcolor{purple}{remove the cut.}};
-
-\end{tikzpicture}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/df_iteration_workflow.png}
 
 \caption{Iteration workflow for optimizing the cut set using n-1 studies and significance checks.}
 \label{fig:iteration_workflow}
@@ -921,7 +856,7 @@ With the improved optimized cuts, we increased the simple significance $ \frac{S
 \label{sec:stat_method}
 The combination presented in this section relies on a combined likelihood function defined as the product of the likelihoods from the individual channels entering the combination, which are themselves products of likelihoods computed from the final observables in various categories in a single analysis.
 
-The common parameter of interest (POI) targeted in this combination is the branching ratio of $\Htoyyd$, denoted by $\mu$.
+The common parameter of interest (POI) targeted in this combination is the branching ratio of $H\to \gamma \gamma_d$, denoted by $\mu$.
 Systematic uncertainties are included as nuisance parameters, denoted by $\bm{\theta}$, and are constrained by Gaussian probability density functions.
 These encode information from \textit{auxiliary} measurements and measure the effect of systematic uncertainties.
 The likelihood also includes normalization factors, denoted by $\bm{\kappa}$, which are floated in the fit without constraints to adjust the agreement with data of background components in their corresponding CR(s).
@@ -1015,7 +950,7 @@ where the numerator indicates the values of $\bm{\kappa}$ and $\bm{\theta}$ that
     analysis channels and their combination. The black markers indicate the observed 
     limits, while the dashed line represents the median expected limit under the 
     background-only hypothesis. The green and yellow bands correspond to the 
-    $\pm 1\sigma$ and $\pm 2\sigma$ intervals on the expected limit, respectively~\cite{ATLAS:2024hpd}.}
+    $\pm 1\sigma$ and $\pm 2\sigma$ intervals on the expected limit, respectively~\protect\cite{ATLAS:2024hpd}.}
     \label{fig:limit}
 \end{figure}
 
@@ -1222,7 +1157,7 @@ Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$2.960$} \\
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.87\textheight, angle=270, keepaspectratio]{figures/bdt/WeightAndBiasesSweep.png}
-  \caption{Weight and Biases plot~\cite{wandb} for the 95 BDT Sweeps (null runs were excluded), where it records the hyperparameters (gamma, learning rate, max depth, number of estimators, subsample) and performance (test AUC of the ROC, best $\frac{S}{\sqrt{B}}$, its corresponding ML BDT Score cut and acceptance rate). The highlighted line is the chosen parameter in table~\ref{tab:bdt_sweep}.}
+  \caption{Weight and Biases plot~\protect\cite{wandb} for the 95 BDT Sweeps (null runs were excluded), where it records the hyperparameters (gamma, learning rate, max depth, number of estimators, subsample) and performance (test AUC of the ROC, best $\frac{S}{\sqrt{B}}$, its corresponding ML BDT Score cut and acceptance rate). The highlighted line is the chosen parameter in table~\protect\ref{tab:bdt_sweep}.}
   \label{fig:bdt:sweep}
 \end{figure}
 
@@ -1351,6 +1286,4 @@ The nominal working point is chosen at $\mathrm{NN\ score} \ge 0.03$, which yiel
     \bottomrule
 \end{tabular}
 \end{table}
-
-\end{document}
 

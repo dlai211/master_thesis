@@ -1,0 +1,2 @@
+ |       | ggF_{dark}      | VBF_{dark}      | ZH_{dark}      | W#gamma      | j~>#gamma      | e~>#gamma      | #gammaj (direct)      | Z#gamma |
+ | Data-driven | 0 | 0 | 0 | 0 | 0.108 | 0.0791 | 0 | 0 |

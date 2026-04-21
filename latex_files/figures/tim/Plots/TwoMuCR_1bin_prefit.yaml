@@ -1,0 +1,27 @@
+Samples:
+  - Name: ggF_{dark}
+    Yield: [0]
+  - Name: VBF_{dark}
+    Yield: [0]
+  - Name: ZH_{dark}
+    Yield: [2.491196536177231]
+  - Name: W#gamma
+    Yield: [0.7461259112663545]
+  - Name: j~>#gamma
+    Yield: [189.97499999999985]
+  - Name: e~>#gamma
+    Yield: [10.92110422]
+  - Name: "#gammaj (direct)"
+    Yield: [2.8802539290257352e-06]
+  - Name: Z#gamma
+    Yield: [400.28499239132464]
+Total:
+  - Yield: [601.9272254028448]
+    UncertaintyUp: [30.16760328853687]
+    UncertaintyDown: [-30.16760328853687]
+Data:
+  - Yield: [596]
+Figure:
+  - BinEdges: [80, 300]
+    XaxisLabel: m_{T}(gamma,E_{T}^{miss,lep-rm}) [MeV]
+    YaxisLabel: ""
