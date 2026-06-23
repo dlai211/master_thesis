@@ -3,9 +3,9 @@
 \section{The Standard Model of particle physics}
 \subsection{Brief Overview of SM particles and interactions} \label{subsec:brief}
 
-The Standard Model of particle physics is a relativistic quantum field theory that describes the elementary particles known to date that constitute matter and the four fundamental forces of nature (except gravity). At the Large Hadron Collider (LHC) in 2012, the latest particle discovery was the Higgs boson, which is responsible for electroweak symmetry breaking and mass generation~\cite{ATLAS:2023oaq}.
+The Standard Model of particle physics is a relativistic quantum field theory that describes the elementary particles known to date that constitute matter and the four fundamental forces of nature (except gravity). At the Large Hadron Collider (LHC), the most recent particle discovery was the Higgs boson in 2012, which is responsible for electroweak symmetry breaking and mass generation~\cite{ATLAS:2023oaq}.
 
-This chapter introduces the components and their significance in the Standard Model, while the next section, beyond the Standard Model, explains the limitations of the current model. 
+This chapter introduces the components of the Standard Model and their significance, while the next section, beyond the Standard Model, explains its limitations. 
 
 \begin{figure}[htb]
     \centering
@@ -15,15 +15,16 @@ This chapter introduces the components and their significance in the Standard Mo
 \end{figure}
 
 
-The Standard Model is based on the quantum field theory described by the symmetry group of
+Elementary particles in the Standard Model are described by a quantum field theory, corresponding to the symmetry group
 \[
 SU(3)_C \times SU(2)_L \times U(1)_Y.
 \]
 
 
-Particles in the Standard Model are categorized into fermions and bosons. Each particle has its own antiparticle with opposite charges, while all other properties remain the same~\cite{Griffiths_EPP}~\cite{Thomson_MPP}.
+There are two classes of particles in the Standard Model, which are fermions or bosons. Each particle has its own antiparticles: charged particles have antiparticles with opposite charge, while all other properties remain the same~\cite{Griffiths_EPP}~\cite{Thomson_MPP}.
 
-Fermions are building blocks of matter that have spin $\frac{1}{2}$ and consist of three generations of quarks and leptons. These particles obey Fermi-Dirac statistics and are subject to the Pauli exclusion principle, which states that no two fermions can occupy the same quantum state. It explains that electrons move to higher-energy states when lower-energy states are occupied, thereby forming the atomic structure we know today. 
+Fermions are the matter particles that have spin $\frac{1}{2}$. In the Standard Model, there are six different fermion flavors (three quark flavors and three lepton flavors), split into three generations, all of which follow Fermi-Dirac statistics. The Pauli Exclusion Principle, which is a direct result of the Fermi-Dirac statistics, states that no two fermions can occupy the same quantum state. This is why an electron will move up to a higher energy state in an atom if all of the lower energy states are already occupied by other electrons.
+
 The six flavors of quarks are up, down, charm, strange, top, and bottom quarks. Organized by generations, the increasing mass from left to right, the quarks are represented as:
 \[
 \begin{pmatrix} u \\ d \end{pmatrix},
@@ -36,7 +37,7 @@ The first row of the quarks possesses a fractional charge of $+\frac{2}{3}$; the
 \begin{pmatrix} \bar{c} \\ \bar{s} \end{pmatrix},
 \begin{pmatrix} \bar{t} \\ \bar{b} \end{pmatrix}
 \]
-All these quarks have a non-Abelian charge called color charge from the local gauge symmetry $SU(3)_c$ of quantum chromodynamics (QCD). Due to color confinement, they cannot exist by themselves; instead, they appear as color-neutral particles, known as hadrons. Hadrons are further categorized into mesons (quark-antiquark) and baryons (three quarks or three antiquarks). Mesons consist of a quark-antiquark pair, like the triplets of pions ($\pi^+$ , $\pi^0$ , $\pi^-$), where the color cancels out a color from the quark and its corresponding anti-color from the antiquark. Examples of baryons are protons (p) and neutrons (n), where color neutrality is from the balance of the three colors of each quark, commonly denoted as red, green, and blue.  Quarks interact through all four fundamental forces. The strong force, mediated by gluons, binds quarks into hadrons; the electromagnetic and weak interactions are responsible for charge and flavor changes; the gravitational force, due to its small magnitude, is irrelevant compared to the other three forces. 
+All these quarks have a non-Abelian charge called color charge from the local gauge symmetry $SU(3)_c$ of quantum chromodynamics (QCD). Because of color confinement, the quarks do not appear as free particles but as color-neutral bound states, called hadrons. There are two classes of hadrons: the mesons, consisting of a quark and an antiquark, and the baryons, consisting of three quarks or three antiquarks. Mesons are color neutral because the color of a quark is canceled by the anticolor of the corresponding antiquark, such as the triplets of pions ($\pi^+$, $\pi^0$, $\pi^-$).  The three quarks that make up the baryons have colors, red, green, and blue, which are balanced to give a color-neutral object. The two well-known baryons are the proton ($p$) and the neutron ($n$). Quarks interact through all four fundamental forces. The strong force, mediated by gluons, binds quarks into hadrons; the electromagnetic and weak interactions are responsible for charge and flavor changes; the gravitational force, due to its small magnitude, is irrelevant compared to the other three forces. 
 
 The leptons are the electron, muon, tau, electron neutrino, muon neutrino, and tau neutrino. Organized by generations and increasing mass from left to right, the leptons are: 
 \[
@@ -52,25 +53,53 @@ The first row of leptons has a charge of -1, and neutrinos are charge-neutral an
 \]
 The first row of anti-leptons becomes +1 charge, and anti-neutrinos are right-handed.
 
-Charged leptons interact via the electromagnetic, weak, and gravitational interactions, whereas neutrinos interact only via the weak interaction and gravity, making them weakly interacting and difficult to detect. 
+Charged leptons interact via the electromagnetic, weak, and gravitational interactions, whereas neutrinos interact only via the weak and gravitational interactions, making them weakly interacting and difficult to detect. 
+The theory predicts that the neutrinos are massless. However, neutrino oscillations are the most direct evidence that neutrinos have nonzero masses, although these masses are very small. We have yet to determine the individual neutrinos’ masses, only their upper limits. 
+\begin{equation}
+    \sum_{i=1}^{3} m_{\nu_i} \leq 1 \, \text{eV}
+\end{equation} 
+Neutrino oscillation experiments only determine the squared mass differences among the three neutrino mass eigenstates, which yield~\cite {PDG2024}
+
+\begin{equation}
+\label{mass_split}
+\begin{split}
+    \Delta m_{21}^2 &=m_2^2 - m_1^2 = (7.60 \pm 0.17) \times 10^{-5} \, \text{eV}^2 \\
+    |\Delta m_{32}^2| &=|m_3^2 - m_2^2| = (2.52 \pm 0.04) \times 10^{-3} \, \text{eV}^2 
+\end{split}
+\end{equation}
+
+Based on this information, we don't know the exact hierarchy of neutrino masses; there are two possible hierarchies: normal ($m_3 > m_2$) and inverted ($m_2 > m_3$), as shown in Fig.~\ref{fig:neutrino_mass_hierarchy}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/neutrino_mass_hierarchy.png}
+\caption{The two possible neutrino mass hierarchies, normal where $m_3 > m_2$ and inverted where $m_2 > m_3$~\protect\cite{Thomson_MPP}.}
+\label{fig:neutrino_mass_hierarchy}
+\end{figure}
 
 
-
-Lepton flavor is conserved in electromagnetic and strong processes, but can change through weak interactions, a phenomenon most strikingly observed in neutrino oscillations, which demonstrate that neutrinos have nonzero but tiny masses. The increasing masses across generations, particularly the large tau mass relative to the electron, reflect a hierarchical structure whose origin remains unexplained within the Standard Model.
-
-Bosons comprise four spin-1 gauge bosons and one spin-0 Higgs Boson. The gauge bosons are fundamental force mediators: the photon for electromagnetism, the W and Z bosons for weak interaction, and the gluons for the strong interaction. These particles mediate forces via quantum field interactions and are responsible for binding charged particles, inducing particle decays, and confining quarks within hadrons. Notice that there is no gauge boson for gravitation. Although theory predicts a massless spin-2 graviton as the force carrier, it has not yet been experimentally verified. In addition to gauge bosons, the Standard Model contains the Higgs boson, a scalar (spin-0) particle associated with the Higgs field, whose nonzero vacuum expectation value gives rise to the masses of elementary fermions and weak gauge bosons through spontaneous electroweak symmetry breaking. 
+The Bosons are four Spin-1 gauge Bosons plus one Spin-0 Higgs Boson. The four spin-1 gauge Bosons are the mediators of the four fundamental forces of nature. The massless photon is the mediator of the electromagnetic force. The $W^\pm$ and Z Bosons are the mediators of the weak force. The eight color-carrying gluons are the mediators of the strong force between the quarks. There is no gauge Boson in the Standard Model for the gravitational force. In addition to gauge bosons, the Standard Model contains the Higgs boson, a scalar (spin-0) particle associated with the Higgs field, whose nonzero vacuum expectation value gives rise to the masses of elementary fermions and weak gauge bosons through spontaneous electroweak symmetry breaking. 
 
 
 ---
 
 \subsection{Role of the Higgs boson}
-The Higgs boson is a fundamental scalar particle associated with the Higgs field, which is introduced in the Standard Model to explain the origin of mass for elementary particles while preserving gauge invariance~\cite{Thomson_MPP}. The Higgs field is a complex scalar doublet transforming under the electroweak gauge group \(SU(2)_L \times U(1)_Y\), and its dynamics are governed by the Higgs potential
+The electroweak theory unifies the electromagnetic and weak interactions; it predicts that the gauge bosons, fermions, and neutrinos are massless, whereas the experimental results suggest otherwise~\cite{Thomson_MPP}. In 1964, Brout, Englert, and Higgs proposed the Higgs mechanism that explains the origin of mass for those particles while preserving gauge invariance. The Higgs mechanism introduces a SU(2) doublet of a spin-0 complex field, namely the Higgs field, transforming under the electroweak gauge group \(SU(2)_L \times U(1)_Y\), 
 \begin{equation}
-V(\Phi) = \mu^2 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2,
+\Phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix},
 \end{equation}
-where \(\mu^2 < 0\) and \(\lambda > 0\). The negative quadratic term leads to spontaneous symmetry breaking, resulting in the Higgs field acquiring a nonzero vacuum expectation value.
+where the $\phi^0$ and $\phi^+$ are the neutral and charged components of the Higgs field accordingly.
 
-Minimizing the potential yields
+
+The Lagrangian for the Higgs field is
+\begin{equation}
+\mathcal{L} = (\partial_\mu\Phi)^\dagger(\partial^\mu\Phi) - V(\Phi),
+\end{equation}
+where the Higgs potential is 
+\begin{equation}
+V(\Phi) = \mu^2 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2.
+\end{equation}
+For \(\mu^2 < 0\) and \(\lambda > 0\), the potential has infinite number of minima at $|\Phi| = \frac{v}{\sqrt{2}} = \sqrt{\frac{-\mu^2}{2\lambda}}.$ To ensure the photon remains massless, the vacuum state must be electrically neutral so that the electromagnetic symmetry is preserved. Therefore, the vacuum expectation value (VEV) of the Higgs field is
 \begin{equation}
 \langle \Phi \rangle =
 \frac{1}{\sqrt{2}}
@@ -79,55 +108,52 @@ Minimizing the potential yields
 v
 \end{pmatrix},
 \end{equation}
-where \(v = \sqrt{-\mu^2 / \lambda} \approx 246~\text{GeV}\) is the electroweak vacuum expectation value. This vacuum configuration breaks the electroweak symmetry down to the electromagnetic subgroup \(U(1)_{\mathrm{EM}}\).
-
-As a consequence of electroweak symmetry breaking, the weak gauge bosons acquire mass through their interactions with the Higgs field. The resulting masses are given by
+where \(v = \sqrt{-\mu^2 / \lambda} \approx 246~\text{GeV}\) is determined experimentally. The $SU(2)_L \times U(1)_Y$ electroweak gauge symmetry is spontaneously broken down to the $U(1)_{EM}$ symmetry. One can choose the unitary gauge and write the Higgs doublet as 
 \begin{equation}
-m_W = \frac{1}{2} g v, \qquad
-m_Z = \frac{1}{2} \sqrt{g^2 + g'^2}\, v,
+\langle \Phi \rangle =
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+v + h(x)
+\end{pmatrix},
 \end{equation}
-while the photon remains massless. Fermions acquire mass through Yukawa interactions of the form
+which the h(x) corresponds to the fluctuation of the vacuum state. Three of the four degrees of freedom defer to the longitudinal components of $W^\pm$ and Z bosons, while the remaining degree of freedom h(x) is the physical Higgs boson. Their masses are
+\begin{equation}
+m_{W^\pm} = \frac{1}{2} g v, \qquad
+m_Z = \frac{1}{2} \sqrt{g^2 + g'^2}\, v, \qquad 
+m_H = \sqrt{2 \lambda}\, v,
+\end{equation}
+with experimentally measured values of $m_{W^\pm} = 80.3625 \pm 0.0077~\mathrm{GeV}$, $m_Z = 91.1979 \pm 0.0020~\mathrm{GeV}$, and $m_H = 125.20 \pm 0.11~\mathrm{GeV}$ as reported by the Particle Data Group~\cite{PDG2024}. 
+
+Moreover, fermions gain their mass through Yukawa interactions in the Higgs mechanism. The Lagrangian is written as
 \begin{equation}
 \mathcal{L}_{\mathrm{Yukawa}} = - y_f \bar{\psi}_L \Phi \psi_R + \mathrm{h.c.},
 \end{equation}
-leading to fermion masses
+where ${\psi}_L$ and $\psi_R$ are the left-handed and right-handed fermion fields, respectively; “h.c.” denotes the Hermitian conjugate, leading to fermion mass
 \begin{equation}
 m_f = \frac{y_f v}{\sqrt{2}},
 \end{equation}
-where \(y_f\) denotes the Yukawa coupling of fermion \(f\).
+where \(y_f\) denotes the Yukawa coupling of fermion \(f\). From the equation, fermion masses are directly related to the Yukawa coupling strength with the Higgs field. For instance, the top quark has the largest mass in the Standard Model with $m_t\approx 172.5~\mathrm{GeV}$, and its Yukawa coupling, $y_t\approx 1$. In comparison, an electron has a mass of $m_e \approx 0.5~\mathrm{MeV}$ and Yukawa couplings of $y_e \approx 2.9 \times 10^{-6}$.
 
-The Higgs boson itself arises as a physical excitation around the vacuum expectation value of the Higgs field. Its mass is determined by the curvature of the Higgs potential at the minimum,
-\begin{equation}
-m_H = \sqrt{2 \lambda}\, v,
-\end{equation}
-and has been extensively measured experimentally by ATLAS and CMS at the LHC to be
-\begin{equation}
-m_H = 125.20 \pm 0.11~\mathrm{GeV}
-\end{equation}
-as reported by the Particle Data Group~\cite{PDG2024}.
-Unlike gauge bosons, the Higgs boson does not mediate a force, but instead plays a central structural role by setting the mass scale of the Standard Model. Its couplings are proportional to particle masses, making it a unique probe of the electroweak symmetry-breaking mechanism and a sensitive window into possible physics beyond the Standard Model.
-
-At the LHC, the dominant production mode for Higgs bosons is gluon fusion ($gg\to H$), mediated by a top quark loop. Additional production mechanisms include vector boson fusion (VBF), associated production with a vector boson ($WH$ or $ZH$), and production with top quarks ($t\bar{t}H$). The Feynman diagrams are shown in Fig.~\ref{fig:higgs_production}.
-
+At the LHC, there are four primary ways to produce Higgs bosons: gluon-gluon fusion ($gg\to H$), mediated by a top-quark loop, which accounts for $\sim 88\%$ of the total Higgs production cross section, Vector Boson Fusion (VBF) at $\sim 7\%$, Higgsstrahlung (VH) at $\sim 4\%$, and Top Associated Production ($t\bar{t}H$) at $\sim 1\%$~\cite{PDG2024}. The corresponding Feynman diagrams are shown in Fig.~\ref{fig:higgs_production}. Since gluons carry approximately 48$\%$ of protons’ total momentum, gluon interaction dominates over quarks when protons collide at nearly the speed of light. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/higgs_production_feynman_diagram.png}
-\caption{Feynman diagrams contributing to the Higgs production in (a) gluon fusion, (b) weak-boson fusion, (c) Higgs-strahlung (or associated production with a gauge boson), and (d) associated production with top quarks~\protect\cite{CERNHiggs}.}
+\caption{Feynman diagrams contributing to the Higgs production in (a) Gluon-Gluon fusion, (b) Vector Boson Fusion, (c) Higgsstrahlung, and (d) Top Associated Production~\protect\cite{ParticleDataGroup:2024cfk}.}
 \label{fig:higgs_production}
 \end{figure}
 
-Once produced, the Higgs boson decays into several Standard Model final states. The dominant decay channel is $H\rightarrow b\bar{b}$, while other important channels include $H\rightarrow WW^{*}$, $H\rightarrow ZZ^{*}$, $H\rightarrow \tau^+\tau^-$, and the loop-induced decay $H\rightarrow \gamma\gamma$. A Feynman diagram of the diphoton decay channel is shown in Fig.~\ref{fig:higgs_production}.
+After being produced, the Higgs boson decays into several Standard Model final states. The dominant decay channel is $H\rightarrow b\bar{b}$ at $53\pm8\%$ of total decay yield, while other decay modes are $H\rightarrow WW^{*}$, $H\rightarrow ZZ^{*}$, $H\rightarrow \tau^+\tau^-$, and $H\rightarrow \gamma\gamma$ mediated by a W-boson or top-quark loop~\cite{PDG2024}. The Feynman diagrams for the diphoton decay channel are shown in Fig.~\ref{fig:higgs_diphoton_decay}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[height=0.5\textheight, width=0.5\textwidth]{figures/higgs_decay_feynman_diagram.png}
 \caption{Leading-order contributions to the decay of the Higgs boson into two photons~\protect\cite{LHCHiggsXS4}.}
-\label{fig:higgs_production}
+\label{fig:higgs_diphoton_decay}
 \end{figure}
 
-Because the Higgs boson couples to heavy particles and can interact with new states through loop processes, it provides a sensitive probe of physics beyond the Standard Model. For example, models with introducing the dark sector ($\gamma_D$) allow the decay $H\rightarrow\gamma\gamma_D$, where the dark photon interacts with the Standard Model through kinetic mixing. This process produces a final state containing a photon and missing transverse momentum, leading to the dark photon analysis in Section~\ref{sec:darkphoton}.
 
-% \subsection{Experimental validation at the LHC}
+Unlike the gauge bosons, the Higgs boson is not a force mediator but plays the most important role of setting the mass scale of the Standard Model. Due to its unique properties, the Higgs boson provides a sensitive gateway to potential beyond-the-Standard-Model physics. 
 
 ---
 
@@ -136,100 +162,79 @@ Because the Higgs boson couples to heavy particles and can interact with new sta
 
 The Standard Model provides a successful description of the known elementary particles and their interactions. Various experimental measurements confirm the model's predictions. However, the model has limitations that cannot explain some experimental observations, prompting researchers to search for Beyond the Standard Model (BSM) physics~\cite{PDG2024}~\cite{Thomson_MPP}.
 
-As briefly mentioned in Subsection~\ref{subsec:brief}, electromagnetic, weak, and strong interactions, with their corresponding mediator particles, are incorporated into the quantum field theoretical framework, whereas gravity is currently understood only through classical mechanics and general relativity. The theory hypothesizes a force carrier for gravity, gravition (a massless, neutral-charged, spin-2 boson), whereas it has not been experimentally observed. Mathematically, the theory of quantum gravity treats the force carrier as a point particle, leading to a non-renormalizable infinite result when calculating the graviton-graviton interaction. 
+As briefly mentioned in Subsection~\ref{subsec:brief}, electromagnetic, weak, and strong interactions, with their corresponding mediator particles, are incorporated into the quantum field theoretical framework, whereas gravity is currently understood only through classical mechanics and general relativity. The theory posits a force carrier for gravity, gravition (a massless, neutral-charged, spin-2 boson), which has not been experimentally observed. Mathematically, the theory of quantum gravity treats the force carrier as a point particle, leading to an infinite, non-renormalizable result when calculating the graviton-graviton interaction. 
 
-The Standard Model also fails to account for the existence of dark matter, which makes up around 26.8\% of the whole universe~\cite{Planck2018}. Astrophysical and cosmological observations, including galaxy rotation curves~\cite{Rubin1980}, gravitational lensing~\cite{BulletCluster}, and measurements of the cosmic microwave background~\cite{Planck2018}, provide compelling evidence for a non-luminous form of matter that constitutes a significant fraction of the energy density of the universe. However, none of the Standard Model particles satisfy the properties of dark matter. The latter Section~\ref{sec:darkphoton} proposes one of the potential solutions: the Hidden Sector hypothesis, where the dark photons can interact with SM photons through kinetic mixing.
+The Standard Model also fails to account for the existence of dark matter, which makes up around 26.8\% of the whole universe~\cite{Planck2018}. Astrophysical and cosmological observations, including galaxy rotation curves~\cite{Rubin1980}, gravitational lensing~\cite{BulletCluster}, and measurements of the cosmic microwave background~\cite{Planck2018}, provide compelling evidence for a non-luminous form of matter that constitutes a significant fraction of the universe's energy density. However, none of the Standard Model particles satisfy the properties of dark matter. For instance, in the later Section~\ref{sec:darkphoton}, we propose the potential existence of a dark photon where the Standard Model Higgs boson can decay to a SM photon and a massless dark photon via a hypothetical mediator field. 
 
-There is also the flavor problem that remains unexplained, referring to the three generations, mass hierarchy, and the mixing angles. The Standard Model organized the particles into three generations, yet there is no fundamental justification for this. Secondly, the masses of the particles are determined by the Yukawa coupling constants to the Higgs field, which are experimentally determined. The mass of the electron is approximately \qty{0.511}{\mega\electronvolt/c^2}, whereas the top quark mass is about  \qty[separate-uncertainty = true]{172.56 \pm 0.32}{\giga\electronvolt/c^2}~\cite{PDG2024}. Such a drastic mass difference means there is no symmetry or principle to predict their coupling strength. Moreover, particles can transit from one flavor to another. Quark mixing is governed by the Cabibbo-Kobayashi-Maskawa (CKM) matrix, which connects their weak and mass eigenstates. Within this framework, the mixing angles are relatively small, indicating the quarks’ tendency to stay within their generations. Nevertheless, neutrino mixing is described by the Pontecorvo–Maki–Nakagawa–Sakata (PMNS) matrix, in which the mixing angles are relatively large. As a result, the neutrinos are in flavor states that are a superposition of the mass states $(\nu_1, \nu_2, \nu_3)$. The difference in mass causes a discrepancy in travel speed and phases, forming a new combination that resembles a muon neutrino rather than an electron neutrino, for example. This is the neutrino oscillation. 
+There is also the flavor problem that remains unexplained, concerning the three generations, the mass hierarchy, and the mixing angles. The Standard Model organized the particles into three generations, yet there is no fundamental justification for this. Secondly, the masses of the particles are determined by the Yukawa coupling constants to the Higgs field, which are experimentally determined. The mass of the electron is approximately \qty{0.511}{\mega\electronvolt/c^2}, whereas the top quark mass is about  \qty[separate-uncertainty = true]{172.56 \pm 0.32}{\giga\electronvolt/c^2}~\cite{PDG2024}. Such a drastic mass difference means there is no symmetry or principle to predict their coupling strength. Moreover, particles can transit from one flavor to another. Quark mixing is governed by the Cabibbo-Kobayashi-Maskawa (CKM) matrix, which connects their weak and mass eigenstates. Within this framework, the mixing angles are relatively small, indicating the quarks’ tendency to stay within their generations. Nevertheless, neutrino mixing is described by the Pontecorvo–Maki–Nakagawa–Sakata (PMNS) matrix, in which the mixing angles are relatively large. As a result, the neutrinos are in flavor states that are a superposition of the mass states $(\nu_1, \nu_2, \nu_3)$. The difference in mass causes a discrepancy in travel speed and phases, forming a new combination that resembles a muon neutrino rather than an electron neutrino, for example. This is the neutrino oscillation. 
 
 Another unresolved issue is the neutrino masses. The Standard Model predicts that the neutrinos are exactly massless due to the absence of right-handed neutrino fields and Yukawa couplings. Nonetheless, experimental observations of neutrino oscillations demonstrate nonzero masses and flavor-state interconversions~\cite{SNO2002}~\cite{SuperK1998}. Explaining these masses requires introducing new particles, new interactions, or higher-dimensional operators beyond the Standard Model.
 
 In addition, the Standard Model does not explain the observed matter--antimatter asymmetry of the universe~\cite{Sakharov1967}. Although it contains sources of CP violation in the quark sector, these effects are insufficient to account for the baryon asymmetry generated in the early universe. Additional sources of CP violation or departures from thermal equilibrium are therefore required.
 
-Taken together, these open questions provide strong motivation for the study of physics beyond the Standard Model. Addressing these issues requires extending the particle content, symmetries, or interactions of the theory, often leading to new degrees of freedom with weak or indirect couplings to Standard Model particles. Such extensions offer concrete experimental signatures that can be tested at collider experiments and in precision measurements. 
+All in all, these open questions encourage searches for physics beyond the Standard Model both theoretically and experimentally. 
 
 ---
 
-\section{ATLAS Run 3 Detector Configuration}
+\section{Large Hadron Collider (LHC) and A Toroidal LHC Apparatus (ATLAS)}
 \subsection{Introduction}
 
-The A Toroidal LHC ApparatuS (ATLAS) detector is a general-purpose particle physics experiment located at Interaction Point 1 (IP1) of the Large Hadron Collider (LHC)~\cite{ATLASdetector}. Designed to exploit the full discovery potential of the LHC, ATLAS is capable of detecting a wide range of physics signatures, from high-precision Standard Model measurements to searches for new particles such as heavy bosons, microscopic black holes, or dark matter candidates.
+The Large Hadron Collider, or LHC for short, is a huge circular tunnel that stretches for 26.7 kilometers underground near the Swiss-French border. Inside this tunnel, protons are accelerated to nearly the speed of light and then made to collide with each other every 25 ns (40 MHz) at four interaction points: ATLAS (Interaction Point 1), CMS, LHCb, and ALICE. For this thesis, I am focusing on research in ATLAS. 
 
-The detector is forward-backward symmetric with respect to the interaction point. It measures approximately 46 meters in length, 25 meters in diameter, and weighs roughly 7,000 tonnes. ATLAS is composed of concentric layers of sub-detectors, each designed to measure specific properties of particles produced in proton-proton collisions.
+As shown in Fig.~\ref{fig:cern}, the process starts with a bottle of hydrogen gas, which is used to create H$^-$ ions with an electric field. Linac 4, commissioned to replace the older Linac 2, is a linear accelerator to bring the H$^-$ ions to an energy of  $160 \, \text{MeV}$. Then a carbon foil strips both electrons from the H$^-$ ions, leaving bare protons ($p^+$). 
 
----
+The protons are then injected into the Proton Synchrontron Booster (PSB), Proton Synchrontron (PS), and Super Proton Synchrontron (SPS), increasing protons' energy to  $2.0 \, \text{GeV}$, $26 \, \text{GeV}$, $450 \, \text{GeV}$ respectively. Once the protons are accelerated to the required speed, they are sent to the LHC via two transfer lines (TI 2 and TI 8) and collide at the four interaction points.
 
-\subsection{Timeline of LHC and ATLAS Data-Taking Runs}
-
-The physics program of the ATLAS experiment is organized into successive operational periods of the Large Hadron Collider (LHC), known as runs, which are separated by long shutdowns dedicated to accelerator consolidation and detector upgrades. These runs---Run~1, Run~2, Run~3, and the coming Run~4---correspond to distinct experimental eras with progressively increasing collision energy, luminosity, and detector performance requirements.
-
----
-
-\subsubsection{Run 1 (2010--2012)}
-
-Run~1 marked the first physics operation of the LHC, delivering proton--proton collisions at center-of-mass energies of $\sqrt{s}=7~\mathrm{TeV}$ (2010--2011) and $8~\mathrm{TeV}$ (2012). During this period, the ATLAS detector was fully commissioned, and baseline performance for tracking, calorimetry, muon reconstruction, and triggering was established.
-
-The most significant scientific achievement of Run~1 was the discovery of the Higgs boson in 2012 by the ATLAS and CMS collaborations. From an experimental perspective, Run~1 validated the overall detector design while highlighting limitations in radiation tolerance, trigger bandwidth, and tracking performance that informed later upgrades.
-
----
-
-\subsubsection{Run 2 (2015--2018)}
-
-Run~2 saw the LHC operate at a center-of-mass energy of $\sqrt{s}=13~\mathrm{TeV}$, nearly doubling the energy available in Run~1. This enabled precision measurements of Higgs boson properties, detailed studies of top-quark and electroweak processes, and extensive searches for physics beyond the Standard Model.
-
-A major ATLAS upgrade for Run~2 was the installation of the Insertable B-Layer (IBL), which significantly improved vertex reconstruction and impact-parameter resolution. Increased pile-up and higher trigger rates motivated substantial advances in reconstruction software and trigger strategies.
-
----
-
-\subsubsection{Run 3 (2022--2026)}
-
-Run~3 operates at a center-of-mass energy of $\sqrt{s}=13.6~\mathrm{TeV}$, the highest achieved at the LHC to date~\cite{LHCRun3}. Although the energy increase relative to Run~2 is modest, Run~3 is characterized by higher luminosity and more challenging pile-up conditions.
-
-This run serves as a critical transition period toward the High-Luminosity LHC (HL-LHC). Upgraded trigger architectures, real-time reconstruction techniques, and improved tracking algorithms are validated under realistic conditions, preparing for Run 4~\cite{ATLASRun3Overview}.
-
----
-
-\subsubsection{Long Shutdown 3 and Run 4 (HL-LHC Era)}
-
-Long Shutdown~3 (LS3) will enable the transformation of the LHC into the High-Luminosity LHC, with the goal of delivering an integrated luminosity of approximately $3$--$4~\mathrm{ab}^{-1}$ \cite{HLLHCDesign}. ATLAS will undergo major Phase-II upgrades, including the complete replacement of the Inner Detector with the all-silicon Inner Tracker (ITk) \cite{ATLASITkTDR}.
-
-Run~4 will define the HL-LHC era, characterized by unprecedented pile-up levels and data volumes. These conditions require fundamentally new approaches to tracking, triggering, and data processing, including increased parallelization and hardware acceleration. Physics goals include percent-level measurements of the Higgs coupling, rare Standard Model processes, and enhanced sensitivity to new physics phenomena.
-
----
-
-\subsection{The ATLAS Experimental Complex}
-
-The ATLAS experiment is one of the four major detectors located at interaction points along the Large Hadron Collider (LHC) ring at CERN, as seen in Fig.~\ref{fig:cern}. It is designed as a general-purpose detector capable of recording the products of high-energy proton--proton collisions over a wide range of final states \cite{PERF-2007-01}. The detector surrounds the interaction point and provides sufficient angular coverage for particle reconstruction. For this coverage, ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) in the center of the detector and the z-axis along the beam pipe. The x-axis points from the IP to the center of the LHC ring, and the y-axis points upwards. Cylindrical coordinates $(r,\phi)$ are used in the transverse plane, $\phi$ being the azimuthal angle around the $z$-axis. The pseudorapidity is defined in terms of the polar angle $\theta$ as $\eta = -\ln \tan(\theta/2)$.
-
-The overall experimental setup integrates the detector with the LHC accelerator infrastructure, allowing proton beams circulating in opposite directions to collide at the center of ATLAS. The detector layout is optimized to measure charged-particle trajectories, electromagnetic and hadronic energy deposits, and muon momenta, enabling precise reconstruction of collision events. This integrated design supports stable detector operation during extended data-taking periods and accommodates progressively higher collision rates across successive LHC runs.
+A Toroidal LHC ApparatuS (ATLAS) is a general-purpose particle physics experiment at Interaction Point 1 (IP1) of the LHC~\cite{ATLASdetector}. As shown in Fig.~\ref{fig:atlas_detector}, the cut view of ATLAS shows that the detectors cover almost all angular directions for proton collisions at the interaction point. Its purpose is to capture all particle information produced by the collision in each layer of the detector, tailored to each particle's properties. Then, with the collected positions and deposited energy and momentum from all detectors, algorithms can identify the particle and reconstruct its track and collision vertex. For the coordinate system, the z-axis aligns with the beam axis, the x-axis points towards the center of the LHC ring, and the y-axis points upwards. Cylindrical coordinates $(r,\phi)$ are used in the transverse plane, $\phi$ being the azimuthal angle around the $z$-axis. Pseudorapidity is defined in terms of the polar angle $\theta$ as $\eta = -\ln \tan(\theta/2)$, which is Lorentz-invariant under boosts along the beamline.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/CCC-v2019-final-white.png}
-    \caption{Schematic of CERN accelerator complex \protect\cite{Mobs2019CERN}}
+    \includegraphics[width=0.8\textwidth]{figures/cern_complex.png}
+    \caption{Schematic of CERN accelerator complex how the protons are produced and accelerated to four interaction points \protect\cite{Mobs2019CERN}.}
     \label{fig:cern}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/atlas_detector.png}
+    \caption{Cut view of the ATLAS Detector in Run 3 \protect\cite{ATLAS_Run3_Configuration}.}
+    \label{fig:atlas_detector}
 \end{figure}
 
 ---
 
 \subsubsection{Luminosity}
 
-The physics reach of the ATLAS experiment is strongly influenced by the LHC's delivered luminosity. Luminosity characterizes the rate at which proton--proton collisions occur and determines the expected number of events for a given process with a known cross section. It is defined as
+The physics reach of the ATLAS experiment is limited by the LHC-delivered luminosity. The LHC delivered luminosity, which sets the rate of proton–proton collisions, translates into the number of expected events for a given process and its production cross section. The instantaneous luminosity, $\mathcal{L}$, can be determined from the number of observed events, N, and the corresponding production cross section, $\sigma$, by the following equation:
 \begin{equation}
-\mathcal{L} = \frac{N}{\sigma},
+    N = \sigma \int \mathcal{L}(t) \, \mathrm{d}t.
 \end{equation}
-where $N$ is the number of observed events and $\sigma$ is the corresponding production cross section.
 
-The instantaneous luminosity depends on accelerator parameters such as the number of protons per bunch, the number of colliding bunches, and the transverse beam profiles at the interaction point. The total dataset collected by ATLAS is described by the integrated luminosity, obtained by integrating the instantaneous luminosity over time, shown in Fig.~\ref{fig:lumi}. Integrated luminosity is typically expressed in inverse femtobarns ($\mathrm{fb}^{-1}$) and represents the cumulative data available for physics analyses.
+The data collected by ATLAS is characterized by the integrated luminosity, L, expressed in inverse femtobarns ($fb^{-1}$), which gives the total amount of data used for a particular analysis. Fig.~\ref{fig:lumi3} shows the integrated luminosity in Run 3 recorded by ATLAS at 322 $fb^{-1}$, and Fig.~\ref{fig:lumi123} illustrates the combined Run 1, 2, 3 integrated luminosity recorded by ATLAS at 505 $fb^{-1}$.
 
-As the LHC has progressed through successive operational periods, improvements in accelerator performance have resulted in significant increases in delivered luminosity. While higher luminosity enhances sensitivity to rare processes, it also increases detector occupancy and makes reconstruction more challenging, thereby complicating the extraction of physics signals from background noise.
+Higher luminosity means more collision events, enabling more precise measurements of particle mass and coupling strength. However, the increased number of particles hitting the detectors means that signals are buried in a large background of other particles, making track reconstruction more difficult.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/intlumivstimeRun3.png}
-    \caption{Cumulative integrated luminosity recorded by ATLAS during Run 3 \protect\cite{ATLASRun3Luminosity}}
-    \label{fig:lumi}
+    % First subfigure
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/intlumivstimeRun3.png}
+        \caption{Cumulative integrated luminosity recorded by ATLAS in LHC Run 3~\protect\cite{ATLASRun3Luminosity}}
+        \label{fig:lumi3}
+    \end{subfigure}
+    \hfill % Adds spacing between the two subfigures
+    % Second subfigure
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/intlumivstimeRun123.png}
+        \caption{Cumulative integrated luminosity recorded by ATLAS in LHC Run 1, 2, 3 combined~\protect\cite{ATLASRun3Luminosity}}
+        \label{fig:lumi123}
+    \end{subfigure}
+    
 \end{figure}
+
+
 
 ---
 
@@ -237,26 +242,62 @@ As the LHC has progressed through successive operational periods, improvements i
 
 Pile-up refers to multiple proton-proton interactions occurring within a single bunch crossing. It is commonly quantified by the parameter $\mu$, which represents the average number of inelastic interactions per bunch crossing. Higher luminosity operation of the LHC directly leads to increased pile-up.
 
-Pile-up interactions contribute additional charged particles and energy deposits that are unrelated to the primary hard-scatter process and to the secondary vertex from $b$-quark decays. These additional interactions can affect track reconstruction, vertex identification, jet energy measurements, and missing transverse momentum reconstruction. As a result, pile-up represents a major experimental challenge, particularly in later LHC runs where luminosity is substantially higher.
+Pile-up interactions contribute additional charged particles and energy deposits that are unrelated to the primary hard-scatter process and to the secondary vertex from $b$-quark decays, as shown in Fig.~\ref{fig:pileup}. These additional interactions can affect track reconstruction, vertex identification, jet energy measurements, and missing transverse momentum reconstruction. As a result, pile-up represents a major experimental challenge, particularly in later LHC runs where luminosity is substantially higher.
 
-To mitigate the impact of pile-up, ATLAS employs a combination of detector design features and reconstruction techniques, including precise vertex reconstruction and pile-up-aware object definitions. Accurate modeling of pile-up in Monte Carlo simulations is also essential, requiring simulated events to be reweighted to reproduce the pile-up conditions observed in data.
+To mitigate the effects of pile-up, ATLAS uses a combination of detector design and specialized techniques to reconstruct what happened. This includes precise vertex reconstruction and pile-up-aware object definitions. It's also crucial to accurately model pile-up in Monte Carlo simulations to match real data through reweighting. By doing this, they can better understand and account for the impact of pile-up. 
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/pileup.png}
-    \caption{Vertex topologies in ATLAS, including primary, secondary and pile-up vertices}
+    \caption{Vertex topologies in ATLAS, including primary (red), secondary (blue), and pile-up (red) vertices~\protect\cite{Aaboud:2016pbc}.}
     \label{fig:pileup}
 \end{figure}
 
 ---
 
+\subsection{Timeline of LHC and ATLAS Data-Taking Runs}
+
+A brief overview of the LHC run timeline and the ATLAS data-taking is given below. Each operational period of the experiment is called a run and is characterized by higher center-of-mass collision energy, higher luminosity, and improved detector and software performance.
+
+---
+
+\subsubsection{Run 1 (2010--2012)}
+
+The first physics run of the LHC was Run 1. The LHC delivered proton-proton collisions at a center-of-mass energy of $\sqrt{s}=7~\mathrm{TeV}$ in 2010 and 2011, and $8~\mathrm{TeV}$ in 2012 with an integrated luminosity of $\sim 25~fb^{-1}$ recorded for physics. The ATLAS detector was commissioned for physics, and its performance for tracking, calorimetry, muon detection, and triggers was established.
+The Higgs boson was discovered in 2012 by the ATLAS and CMS experiments at the LHC with a statistical significance of 5$\sigma$. Run 1 has proven the basic design of the ATLAS detector and has identified limitations regarding radiation-hard components, trigger rate, and tracking performance that can be addressed in subsequent upgrades. 
+
+---
+
+\subsubsection{Run 2 (2015--2018)}
+During Run 2, the LHC was operating at a center-of-mass energy of $\sqrt{s}=13~\mathrm{TeV}$ with an integrated luminosity of $\sim 140~fb^{-1}$ recorded for physics, nearly doubling the energy available in Run~1. This allowed many physics processes to be studied in greater detail, including the Higgs boson, top quarks, electroweak processes, and searches for physics beyond the Standard Model. 
+
+A major upgrade of the ATLAS experiment for Run 2 was the installation of the Insertable B-Layer (IBL) around the beam pipe at a distance of about 50-60 mm from the interaction point. The IBL is one of the highest-pixel-density tracking detectors ever built and, together with improved vertexing, significantly improved the detector's performance. For the same reason as the increased luminosity in subsequent years, improvements to the trigger and track reconstruction software were significant. 
+
+---
+
+\subsubsection{Run 3 (2022--2026)}
+
+During Run 3, the LHC reached the center-of-mass energy of $\sqrt{s} = 13.6\,\text{ TeV}$ with an integrated luminosity of more than $300~fb^{-1}$ recorded for physics. Even though the collision energy increases only moderately, the higher luminosity (more than Run 1 and 2 combined) and more pile-up pose greater challenges.
+
+The upgraded trigger and data acquisition system was deployed for full testing in Run 3, enabling the full exploitation of the ATLAS tracking system. Sophisticated real-time reconstruction and tracking techniques in a high-pile-up environment were validated and employed, in preparation for Run4~\cite{ATLASRun3Overview}.
+
+---
+
+\subsubsection{Long Shutdown 3 and Run 4 (HL-LHC Era)}
+
+During the third long shutdown of the LHC (LS3), the collider will be upgraded to the High-Luminosity LHC (HL-LHC), with the goal of delivering an integrated luminosity of approximately $3$--$4~\mathrm{ab}^{-1}$ \cite{HLLHCDesign}, which is 10x that of Run 3. ATLAS will undergo major Phase-II upgrades, including the complete replacement of the Inner Detector with the all-silicon Inner Tracker (ITk)~\cite{ATLASITkTDR}.
+
+At HL-LHC, new aspects of tracking, triggers, and data processing have to be incorporated into the experimental analysis. In part, this will be done by more parallel computing. Also, hardware acceleration (FPGAs and GPUs) will play a role. Measurements of the Higgs coupling will have lower uncertainty. Also, rare processes in the Standard Model will be studied in detail. Eventually, new physics will also be searched with increased sensitivity. 
+
+
+---
+
+
+
 \subsection{The ATLAS Detector}
 
-\subsubsection{Inner Detector}
+The Inner Detector (ID) is the innermost tracking system in ATLAS and reconstructs the trajectories of charged particles produced in proton--proton collisions, which consists of pixel and strip detectors and Transition Radiation Tracker (TRT, which will be removed before Run 4). Operating in a 2-tesla solenoidal magnetic field enables precise measurements of charged-particle momenta via curvature. The trajectories and transverse momentum allow for accurate measurement of track parameters, particle identification, and vertex positions. The inner tracker is also used to calculate neutral-particle counts and missing transverse energy when combined with data from other detectors. 
 
-The Inner Detector is the innermost tracking system in ATLAS and reconstructs the trajectories of charged particles produced in proton--proton collisions, which consists of pixel and strip detectors and Transition Radiation Tracker (TRT, which will be removed before Run 4). It operates in a uniform solenoidal magnetic field, enabling precise measurements of charged-particle momenta via curvature. The Inner Detector provides accurate measurements of track parameters, including transverse momentum, impact parameters, and vertex positions.
-
-By combining information from multiple tracking layers, the Inner Detector achieves high efficiency for charged-particle reconstruction over a wide pseudorapidity range. Precise vertex reconstruction enables the identification of primary interaction vertices and the separation of tracks originating from pile-up interactions. The Inner Detector plays a central role in object identification, including electrons, charged hadrons, and tracks associated with jets.
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/ATLAS Detector Schematic black particles.png}
@@ -264,47 +305,45 @@ By combining information from multiple tracking layers, the Inner Detector achie
     \label{fig:detector}
 \end{figure}
 
----
 
-\subsubsection{Calorimeter System}
+The calorimeter system surrounds the Inner Detector and is designed to measure particle energies through interactions with dense absorber materials. It is divided into electromagnetic and hadronic calorimeters.
+Electrons and photons disperse their energy by creating electromagnetic showers in electromagnetic calorimeters. Electrons and photons have enough energy to undergo bremsstrahlung (emit an additional photon) and pair production (create an electron-positron pair), respectively, triggering cascades until they lose enough energy to be absorbed, and the remaining energy is detected by the detectors. While gluons and quarks, due to color confinement, tend to form bound states that produce collimated particle jets, they shower hadronically in the electromagnetic calorimeters and complete the process in the hadronization calorimeters. 
 
-The calorimeter system surrounds the Inner Detector and is designed to measure particle energies through interactions with dense absorber materials. It is divided into electromagnetic and hadronic calorimeters, each optimized for different particle types. The electromagnetic calorimeter provides high-resolution energy measurements for electrons and photons, while the hadronic calorimeter measures the energies of hadrons and jets.
+The calorimeter system provides nearly full angular coverage and is essential for jet reconstruction, electron and photon identification, and the determination of missing transverse momentum. In addition to energy measurements, calorimeter information is used for particle identification and plays a key role in the trigger system.
 
-The calorimeter system provides nearly full angular coverage and is essential for jet reconstruction, electron and photon identification, and missing transverse momentum determination. In addition to energy measurements, calorimeter information is used for particle identification and plays a key role in the trigger system.
+The Muon Spectrometer forms the outermost detector system of ATLAS and is dedicated to identifying and measuring muon momentum. Muons have minimal energy loss as they pass through all the detectors, so they are detected by ionization in the Muon Chamber, and their overall momentum and energy are calculated from data in the Inner Detector and Muon Chamber.
 
----
 
-\subsubsection{Muon Spectrometer}
-
-The Muon Spectrometer forms the outermost detector system of ATLAS and is dedicated to the identification and momentum measurement of muons. Muons traverse the inner detector and calorimeters with minimal energy loss, allowing them to be measured in a large volume surrounding the calorimeter system.
-
-The Muon Spectrometer employs large magnetic fields and multiple detector technologies to independently reconstruct muon trajectories. Momentum measurements from the Muon Spectrometer are combined with those from the Inner Detector to achieve improved resolution across a broad momentum range. The system provides robust muon identification and triggering capabilities, which are essential for many physics analyses.
+Missing transverse energy ($E_T^miss$) is calculated from the transverse 
+momentum symmetry of the initial proton collision. Since the beamline is in the z direction, any imbalance in the transverse momentum of the detected particle indicates missing transverse energy in the other direction. These are mainly contributed by SM neutrinos and BDM particles, which weakly interact with detectors. As a result, all the detector results must be included in deriving the missing transverse energy.
 
 ---
 
 \subsection{Trigger and Data Acquisition System}
 
-The high collision rate delivered by the LHC far exceeds the rate at which events can be recorded for offline analysis. To address this challenge, ATLAS employs a trigger and data acquisition system that selects potentially interesting events in real time while rejecting the majority of collisions.
+The high collision rate delivered by the LHC far exceeds the rate at which events can be recorded for offline analysis. To address this challenge, ATLAS employs a trigger and data acquisition system that selects potentially interesting events in real time while rejecting most collisions.
 
-The trigger system reduces the event rate through a multi-level selection process based on information from the detector subsystems. Trigger decisions are designed to maintain high efficiency in the physics processes of interest while operating within strict latency and bandwidth constraints. The data acquisition system then records the selected events for further processing and offline reconstruction. Together, the trigger and data acquisition systems enable ATLAS to efficiently exploit the physics potential of the LHC.
+The trigger system reduces the event rate through a multi-level selection process based on information from the detector subsystems. Trigger decisions are designed to maintain high efficiency in the physics processes of interest while operating within strict latency and bandwidth constraints. The data acquisition system then records the selected events for further processing and offline reconstruction. Together, the trigger and data acquisition systems enable ATLAS to efficiently exploit the LHC's physics potential.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/tdaq.pdf}
-    \caption{ATLAS Trigger and Data Acquisition System in Run 3 \protect\cite{ATLASTriggerRun3}}
+    \includegraphics[width=0.8\textwidth]{figures/atlas/Baseline_TDAQ_Phase-II_Architecture-1.png}
+    \caption{ATLAS Trigger and Data Acquisition System in Run 4 \protect\cite{ATLAS:TDR-TDAQ-PhaseII}}
     \label{fig:Trigger}
 \end{figure}
 
 \section{ATLAS Run 4 Upgrade}
 \label{sec:run4}
 
-In Run 4, the Large Hadron Collider will enter the High-Luminosity LHC (HL-LHC) phase, which is designed to significantly extend the physics reach of the ATLAS experiment. The HL-LHC aims to deliver an integrated luminosity of approximately $3$--$4~\mathrm{ab}^{-1}$ over its operational lifetime, corresponding to more than an order-of-magnitude increase relative to the datasets collected in earlier runs. This increase will enable precise measurements of rare Standard Model processes and enhance sensitivity to physics beyond the Standard Model.
+In Run 4, the Large Hadron Collider will enter the High-Luminosity LHC (HL-LHC) phase, which is designed to significantly extend the ATLAS experiment's physics reach. The HL-LHC aims to deliver an integrated luminosity of approximately $3$--$4~\mathrm{ab}^{-1}$ over its operational lifetime, corresponding to more than an order-of-magnitude increase relative to the datasets collected in earlier runs. This increase will enable precise measurements of rare Standard Model processes and enhance sensitivity to physics beyond the Standard Model.
 
 The higher luminosity of the HL-LHC will result in substantially more challenging experimental conditions. The instantaneous luminosity increases to an average pile-up level of up to $\langle\mu\rangle \sim 200$ interactions per bunch crossing. Such conditions will significantly increase detector occupancies, radiation exposure, and the complexity of event reconstruction. Maintaining the performance of tracking, vertexing, and triggering under these conditions requires major upgrades to the ATLAS detector systems.
 
-A key component of the Phase-II upgrade program is the complete replacement of the current Inner Detector with a new all-silicon Inner Tracker (ITk). The ITk is designed to provide increased granularity, improved radiation tolerance, and extended pseudorapidity coverage compared to the existing detector. These improvements are essential for preserving tracking efficiency, momentum resolution, and vertex reconstruction performance in the high-pile-up environment of the HL-LHC.
+A key component of the Phase-II upgrade program is the complete replacement of the current Inner Detector with a new all-silicon Inner Tracker (ITk). In Run 3, the primary tracker system of the ATLAS detector is the Inner Detector (ID), which consists of Pixel detectors, SemiConductor Trackers (SCT or strip detectors), and Transition Radiation Trackers (TRT)~\cite{GarciaAlonso:2024itk}. The Pixel and Strip detectors cover a pseudorapidity ($\eta$) range of $|\eta| < 2.5$ (TRT covers $|\eta| < 2.0$) with radiation tolerance designed for an integrated luminosity of $300\text{--}400\,\text{fb}^{-1}$.
 
-In parallel, the ATLAS trigger and data acquisition system will be upgraded to cope with the increased event rates and data volumes expected during HL-LHC operation. The upgraded trigger system is designed to support higher output rates (10 kHz compared to 3 kHz in Run 3) and more sophisticated real-time reconstruction algorithms, enabling efficient selection of physics events while operating within strict latency constraints.
+For the High-Luminosity LHC (HL-LHC) upgrade, the ID will be replaced by the ATLAS Inner Tracker (ITK), the primary tracker system, which eliminates the TRT and replaces ID Pixel and Strip with ITK pixel (Inner) and ITK strip (outer) detectors. The ITK pixel will cover the pseudorapidity ($\eta$) range of $|\eta| < 4.0$, where the ITK strip covers $|\eta| < 2.7$. The designed radiation tolerance is upgraded to withstand an integrated luminosity of $4000\,\text{fb}^{-1}$. Moreover, the number of modules will be increased from 6000 to 28000; the number of channels will be increased from $100 \times 10^6$ to more than $5 \times 10^9$ in ITK. 
+
+In parallel, the ATLAS trigger and data acquisition system will be upgraded to cope with the increased event rates and data volumes expected during HL-LHC operation, as shown in Fig.~\ref{fig:Trigger}. The upgraded trigger system adds L0-level processing for Calorimeters and the Muon System, as well as an Event Filter for Dataflow processing. The readout data rate increases from 100 kHz to 1 MHz, and the output data rate from 3 kHz to 10 kHz. 
 
 The ATLAS Phase-II upgrade program is therefore essential for sustaining detector performance and physics sensitivity throughout the HL-LHC era. The design choices and technological developments implemented during this upgrade phase directly address the challenges posed by high luminosity and pile-up~\cite{HLLHCTDR}~\cite{ATLASPhaseIITDR}.
 
@@ -313,33 +352,20 @@ The ATLAS Phase-II upgrade program is therefore essential for sustaining detecto
 \chapter{ATLAS Event Filter (EF) Tracking: Strip Clustering}
 \section{Introduction}
 
-This report presents performance studies related to the Event Filter (EF) Tracking project of the ATLAS experiment, a part of its Phase-II upgrade program for the High-Luminosity LHC (HL-LHC). The HL-LHC pile-up conditions will produce an average of 200 inelastic proton--proton collisions per bunch crossing, and a new full-silicon Inner Tracker (ITk)~\cite{itk_strip_tdr, itk_pixel_tdr}, designed to allow efficient tracking in such an environment, will be installed during the Phase-II upgrade. The high pile-up conditions represent a significant challenge to the ATLAS TDAQ system, whose architecture and physics motivations are described in the Phase-II TDAQ TDR~\cite{tdaq_tdr} and the Phase-II TDAQ TDR Amendment~\cite{tdaq_tdr_amend}. All the EF algorithms, including the EF Tracking ones, will run on a flexible, heterogeneous commercial system comprising CPU cores, possibly assisted by commodity accelerators such as GPUs or FPGAs. The rate at which events can be reconstructed for a given amount of computational hardware is a critical design factor for the EF system, with tracking historically the most computationally intensive reconstruction performed at the EF stage. The TDAQ design foresees that events are first processed by a hardware trigger (Level-0), which bases its decision on calorimeter and muon detector data. Accepted events are passed to the EF, which gathers the data from all the detector readout systems at a maximum rate of 1~MHz. Following EF processing, the event acceptance rate is reduced to 10~kHz. Track reconstruction will play a critical role in the subsequent trigger decisions, helping to keep the EF output rate at a manageable level. It can be used to refine the selection of objects identified at Level-0, improve the precision of their kinematic measurements, and suppress multi-object coincidences, for instance by requiring that associated tracks originate from the same primary vertex. Track reconstruction is, however, more challenging due to the high processing rate and the large hit density in the tracking detectors, which makes pattern recognition more computationally demanding. At the same time, the optimized layout of the ITk is expected to reduce the fake-track rate to a negligible level~\cite{itk_strip_tdr, itk_pixel_tdr}.
+This report presents performance studies for the Event Filter (EF) Tracking project of the ATLAS experiment, part of its Phase-II upgrade program for the High-Luminosity LHC (HL-LHC). The HL-LHC pile-up conditions will produce an average of 200 inelastic proton--proton collisions per bunch crossing, and a new full-silicon Inner Tracker (ITk)~\cite{itk_strip_tdr, itk_pixel_tdr}, designed to allow efficient tracking in such an environment, will be installed during the Phase-II upgrade. The high-pile-up conditions pose a significant challenge to the ATLAS TDAQ system, whose architecture and physics motivations are described in the Phase-II TDAQ TDR~\cite{tdaq_tdr} and the Phase-II TDAQ TDR Amendment~\cite{tdaq_tdr_amend}. All the EF algorithms, including the EF Tracking ones, will run on a flexible, heterogeneous commercial system comprising CPU cores, possibly assisted by commodity accelerators such as GPUs or FPGAs. The rate at which events can be reconstructed for a given amount of computational hardware is a critical design factor for the EF system, with tracking historically the most computationally intensive reconstruction performed at the EF stage. The TDAQ design foresees that events are first processed by a hardware trigger (Level-0), which bases its decision on calorimeter and muon detector data. Accepted events are passed to the EF, which collects data from all detector readout systems at a maximum rate of 1~MHz. Following EF processing, the event acceptance rate is reduced to 10~kHz. Track reconstruction will play a critical role in the subsequent trigger decisions, helping to keep the EF output rate at a manageable level. It can be used to refine the selection of objects identified at Level-0, improve the precision of their kinematic measurements, and suppress multi-object coincidences, for instance by requiring that associated tracks originate from the same primary vertex. Track reconstruction is, however, more challenging due to the high processing rate and the large hit density in the tracking detectors, which makes pattern recognition more computationally demanding. At the same time, the optimized layout of the ITk is expected to reduce the fake-track rate to a negligible level~\cite{itk_strip_tdr, itk_pixel_tdr}.
 
-To choose an EF Tracking design adapted to those challenges, the ATLAS Phase-II EF Tracking community embarked on a series of demonstrator cycles to study so-called tracking pipelines. In parallel, performance requirements for the EF tracking algorithms as well as the EF farm were produced~\cite{ef_urd, ef_req}, motivated by PPES studies aimed at the HL-LHC physics goals of ATLAS~\cite{trigger_studies_hl_lhc}. Following this, the design selection criteria and process were established~\cite{ef_tcc}. Both the requirements and criteria were reviewed and approved by a committee composed of various experts from within and outside of the ATLAS TDAQ community~\cite{ef_review_george}.
+To choose an EF Tracking design adapted to those challenges, the ATLAS Phase-II EF Tracking community embarked on a series of demonstrator cycles to study so-called tracking pipelines. In parallel, performance requirements for the EF tracking algorithms as well as the EF farm were produced, motivated by PPES studies aimed at the HL-LHC physics goals of ATLAS~\cite{trigger_studies_hl_lhc}. Following this, the design selection criteria and process were established. Both the requirements and criteria were reviewed and approved by a committee composed of various experts from within and outside of the ATLAS TDAQ community.
 
-The studies shown in this report focus on exploring a possible EF Tracking design that makes use of GPU accelerators alongside conventional CPU processing. Tracking algorithms are put together to form a tracking pipeline. The pipeline referred to as C-000 is the default ITk track reconstruction which uses the legacy implementation of the tracking algorithms in ATHENA and serves as a reference for the comparisons of the various metrics. Several pipelines are described, with varying amounts of processing performed on GPU as indicated by the first digit: from G-0XX (minimal offloading) to G-2XX (full offloading). 
+The studies presented in this report explore a possible EF Tracking design that uses GPU accelerators alongside conventional CPU processing. Tracking algorithms are put together to form a tracking pipeline. The pipeline referred to as C-000 is the default ITk track reconstruction which uses the legacy implementation of the tracking algorithms in ATHENA and serves as a reference for the comparisons of the various metrics. Several pipelines are described, with varying amounts of processing performed on GPU as indicated by the first digit: from G-0XX (minimal offloading) to G-2XX (full offloading). 
 
 \subsection{Overview of GPU-based pipelines}
 \label{sec:gpu_pipelines_overview}
 
 The framework known as A Common Tracking Software (ACTS)~\cite{acts_2017} represents a robust, high-performance solution for track reconstruction in Particle Physics, usable across multiple experiments. Designed with modularity, detector independence, and adaptability to contemporary computing architectures in mind, ACTS has been successfully integrated into the ATHENA software framework of the ATLAS experiment. It is currently slated to replace the existing offline tracking software for LHC Run 4 and subsequent operations. Furthermore, ACTS has been proposed as a key component for the Event Filter (EF) online track reconstruction, particularly within the C-100 and C-230 pipelines~\cite{c100_pipeline_report}.
 
-TRACCC~\cite{traccc_github} is a dedicated GPU-oriented research and development extension of ACTS, independently developed to address the stringent performance requirements of online track reconstruction in dense, high-rate detector environments. While TRACCC shares foundational algorithms, supporting libraries, and detector descriptions with ACTS, it is a separate piece of software designed to exploit massive parallelism inherent in GPU hardware and to achieve portability across varying GPU hardware and software frameworks. This report focuses on the deployment of TRACCC within multiple types of GPU-based processing pipelines.
+TRACCC~\cite{traccc_github} is a dedicated GPU-oriented research and development extension of ACTS, independently developed to address the stringent performance requirements of online track reconstruction in dense, high-rate detector environments. While TRACCC shares foundational algorithms, supporting libraries, and detector descriptions with ACTS, it is a separate piece of software designed to exploit the massive parallelism inherent in GPU hardware and to achieve portability across varying GPU hardware and software frameworks. This report focuses on the deployment of TRACCC within multiple types of GPU-based processing pipelines.
 
-Within the pipelines denoted G-2X0, the entire track reconstruction sequence---including clustering, space point formation, seeding, track finding, and track fitting---is executed on the GPU. The CPU is used solely for the transfer of reconstructed tracks from GPU memory to host memory and the conversion between TRACCC and ATHENA EDM. Other pipelines transition from GPU to CPU at different stages of the track reconstruction chain, executing the remaining reconstruction steps on the CPU. This GPU-CPU hybrid architecture leverages the strengths of both processing units to optimize overall performance, hypothesising that the most parallelizable and least branching stages---such as clustering and seeding---benefit most from GPU acceleration. The remaining steps use the ACTS algorithms in a workflow equivalent to that of the C-100/C-230 pipelines. The hybrid pipelines differ in which stages of track reconstruction are offloaded to the GPU: G-0X0 pipelines offload only the clustering step, G-1X0 pipelines offload both clustering and track seeding, G-2X5 offload clustering, seeding and track finding. The modularity of the track reconstruction chain and TRACCC software allows for a step-by-step integration into ATHENA/ACTS and component-by-component validation while slowly increasing the usage of GPUs in the trigger. To showcase the performance of track reconstruction on GPUs we focus the main body of this report on three flagship pipelines: G-050, G-130 and G-200.
-
-Track reconstruction is strongly affected by the quantity and quality of seeds produced in the corresponding step of the track reconstruction chain. While both TRACCC and ACTS provide a seed-finding algorithm, this report also presents an alternative algorithm known as Graph Based Track Seeding version 2 and we demonstrate its impact on the GPU based pipelines. The two different track seeding algorithms, the classical triplet seeder and graph-based seeding algorithm, are distinguished by the naming convention, namely adding 30 to the base pipeline label when the graph-based seeder is employed.
-
-\section{Overview of GPU-based pipelines}
-\label{sec:gpu_pipelines_overview}
-
-The framework known as A Common Tracking Software (ACTS)~\cite{acts_ref} represents a robust, high-performance solution for track reconstruction in Particle Physics, usable across multiple experiments. Designed with modularity, detector independence, and adaptability to contemporary computing architectures in mind, ACTS has been successfully integrated into the ATHENA software framework of the ATLAS experiment. It is currently slated to replace the existing offline tracking software for LHC Run 4 and subsequent operations. Furthermore, ACTS has been proposed as a key component for the Event Filter (EF) online track reconstruction, particularly within the C-100 and C-230 pipelines~\cite{pipeline_ref}.
-
-TRACCC~\cite{traccc_ref} is a dedicated GPU-oriented research and development extension of ACTS, independently developed to address the stringent performance requirements of online track reconstruction in dense, high-rate detector environments. While TRACCC shares foundational algorithms, supporting libraries, and detector descriptions with ACTS, it is a separate piece of software designed to exploit massive parallelism inherent in GPU hardware and to achieve portability across varying GPU hardware and software frameworks. This report focuses on the deployment of TRACCC within multiple types of GPU-based processing pipelines.
-
-Within the pipelines denoted G-2X0, the entire track reconstruction sequence---including clustering, space point formation, seeding, track finding, and track fitting---is executed on the GPU. The CPU is used solely for the transfer of reconstructed tracks from GPU memory to host memory and the conversion between TRACCC and ATHENA EDM. Other pipelines transition from GPU to CPU at different stages of the track reconstruction chain, executing the remaining reconstruction steps on the CPU. This GPU-CPU hybrid architecture leverages the strengths of both processing units to optimize overall performance, hypothesising that the most parallelizable and least branching stages---such as clustering and seeding---benefit most from GPU acceleration. The remaining steps use the ACTS algorithms in a workflow equivalent to that of the C-100/C-230 pipelines. The hybrid pipelines differ in which stages of track reconstruction are offloaded to the GPU: G-0X0 pipelines offload only the clustering step, G-1X0 pipelines offload both clustering and track seeding, G-2X5 offload clustering, seeding and track finding. The modularity of the track reconstruction chain and TRACCC software allows for a step-by-step integration into ATHENA/ACTS and component-by-component validation while slowly increasing the usage of GPUs in the trigger. To showcase the performance of track reconstruction on GPUs we focus the main body of this report on three flagship pipelines: G-050, G-130 and G-200.
-
-Track reconstruction is strongly affected by the quantity and quality of seeds produced in the corresponding step of the track reconstruction chain. While both TRACCC and ACTS provide a seed-finding algorithm, this report also presents an alternative algorithm known as Graph Based Track Seeding version 2 (GBTSv2) and we demonstrate its impact on the GPU based pipelines. The two different track seeding algorithms, the classical triplet seeder and graph-based seeding algorithm, are distinguished by the naming convention, namely adding 30 to the base pipeline label when the graph-based seeder is employed.
+Within the pipelines denoted G-2X0, the entire track reconstruction sequence---including clustering, space point formation, seeding, track finding, and track fitting---is executed on the GPU. The CPU is used solely for transferring reconstructed tracks from GPU memory to host memory and for converting between TRACCC and ATHENA EDM. Other pipelines transition from GPU to CPU at different stages of the track reconstruction chain, executing the remaining reconstruction steps on the CPU. This GPU-CPU hybrid architecture leverages the strengths of both processing units to optimize overall performance, hypothesising that the most parallelizable and least branching stages---such as clustering and seeding---benefit most from GPU acceleration. The remaining steps use the ACTS algorithms in a workflow equivalent to that of the C-100/C-230 pipelines. The hybrid pipelines differ in which stages of track reconstruction are offloaded to the GPU: G-0X0 pipelines offload only the clustering step, G-1X0 pipelines offload both clustering and track seeding, G-2X5 offload clustering, seeding and track finding. Since my study focuses on a GPU-based strip clustering algorithm, this paper will focus on performance and efficiency in the G-080 pipeline.
 
 \begin{figure}[htbp]
     \centering
@@ -347,6 +373,29 @@ Track reconstruction is strongly affected by the quantity and quality of seeds p
     \caption{Overview of the reconstruction pipelines, including the G-050, G-130, and G-200 pipelines discussed in this thesis.}
     \label{fig:pipeline}
 \end{figure}
+
+\FloatBarrier
+\subsubsection{Inner Tracker (ITK) Strip Detectors}
+For Inner Tracker (ITK) strip detectors, there are about 18,000 modules and 60 million strip channels distributed in the central region known as the Barrel, and two lateral cylinders called End-Caps (EC)~\cite{GarciaAlonso:2024itk}. 
+
+The ITK-Strip Barrel is composed of staves, each of which hosts 14 rectangular modules on each side, as shown in Fig.~\ref{fig:itk_barrel}. Each module has a geometry of 97 mm $\times$ 97 mm. There are a total of four rows (2 rows of short-strip sensors and 2 rows of long-strip sensors), each containing 1280 strips with a 75.5 $\mu$m pitch between sensors~\cite{Unno:2023sensors}. The two inner layers of short strips have a length of 24.1 mm, while the two outer layers of long strips are 48.3 mm long.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/atlas/itk_strip_barrel.png}
+\caption{Stave with 14 Short Strip modules. The sensor consists of two hybrids and one power board~\protect\cite{Haber:2023powerboard}.}
+\label{fig:itk_barrel}
+\end{figure} 
+
+The End-caps (EC) are two cylinders, each with six disks, as shown in Fig.~\ref{fig:itk_ec}. The EC modules are mounted on Petals. There will be 32 petals per disk, for a total of 384 petals and 6912 modules~\cite{Mikestikova:2022qc}. Due to its radial shape, the non-uniform strip lengths range from 15 to 60 mm, and the sensor pitch is $70\text{--}80~\mu m$ with a spatial resolution of about $20~\mu m$ and a time resolution around 3 ns. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/atlas/itk_strip_ec.png}
+\caption{A view of the end-cap petal with six silicon modules and an EoS card placed on each side~\protect\cite{GarciaAlonso:2024itk}.}
+\label{fig:itk_ec}
+\end{figure} 
+
 
 \FloatBarrier
 \subsubsection{Motivation for GPU Implementation}
@@ -364,34 +413,62 @@ The motivation for implementing strip clusterization on GPUs within \texttt{trac
 
 Demonstrating physics equivalence while achieving computational gains is essential for future integration into trigger or offline reconstruction chains.
 
-\subsection{Previous work and motivation}
-\subsection{Overview of GPU-based Pipelines}
-\subsection{\testtt{Traccc} and Athena framework}
 \subsection{Strip clustering algorithm}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/eftracking/itk_geometry.png}
+    \caption{The layout of the ATLAS ITK, where the red represents the pixel detectors, and the blue represents the strip detectors (horizontal blue lines are barrel, and vertical are annulus)~\protect\cite{ATL-PHYS-PUB-2021-024}.}
+    \label{fig:itk}
+\end{figure}
+
+The strip clusterization is performed by means of a Connected Component Analysis (CCA) algorithm. The readout of the ATLAS strip detectors is binary, i.e. hit or no-hit. A charged particle crossing a layer of a silicon sensor generates electron-hole pairs which drift to the readout strips and are collected by the adjacent readout strips. As a result, the charge generated by a charged particle is distributed among a number of adjacent readout strips. Therefore, a charged particle crossing a layer of a silicon detector is detected as a cluster of adjacent fired readout strips. A set of adjacent fired readout strips is called a cluster within this algorithm. The uncorrected cluster position, or centroid ($x_{\text{cluster}}$) of a cluster, is calculated using the following equation: \begin{equation} x_{\text{cluster}} = \frac{x_{\text{first}} + x_{\text{last}}}{2} \end{equation} where $x_{\text{first}}$ and $x_{\text{last}}$ are the local spatial coordinates of the first and last strips in the cluster. 
+
+The strip detectors in ATLAS are mounted inside a $2\,\text{T}$ solenoid, resulting in the electron-hole pairs generated by charged particles passing through the sensors being subject to the Lorentz force, $\vec{F} = q\vec{E} \times \vec{B}$. This causes the charge carriers to drift at an angle $\theta_L$, known as the Lorentz angle, relative to the electric field lines. As a result of this angled drift, the collected charge distribution is systematically shifted along the transverse plane. To recover the particle's true intersection point with the sensor, a correction must be applied to the cluster centroid. The magnitude of this Lorentz shift ($\Delta x_L$) evaluated at the mid-plane of the sensor is given by: \begin{equation} \Delta x_L = \frac{d}{2} \tan(\theta_L) \end{equation} where $d$ is the active thickness of the silicon sensor. The corrected local $x$-coordinate is thus: \begin{equation} x_{\text{corrected}} = x_{\text{cluster}} - \Delta x_L \end{equation} The sign of $\Delta x_L$ is dependent on the detector module’s orientation with respect to the magnetic field. 
+
+\begin{figure}[htbp]
+     \centering
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/eftracking/trapezoidal.png}
+         \caption{Definition of the trapezoidal modules used in the SCT endcaps~\protect\cite{hessey2013stereo}.}
+         \label{fig:trapezoidal}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{figures/eftracking/annulus.png}
+         \caption{Definition of the annulus modules used in the ITK Strip endcaps~\protect\cite{atlas2021athena}.}
+         \label{fig:annulus}
+     \end{subfigure}
+\end{figure}
+
+Once the Lorentz shift corrects for the $E \times B$ drift of charge carriers in the magnetic field, the hit coordinates are evaluated in the \textbf{Beam Frame (BF)}. For the ITk strip endcaps, which utilize annulus-shaped modules, as shown in Figure~\ref{fig:annulus}, these coordinates must subsequently be shifted into the \textbf{Strip Frame (SF)} due to its shape.
+
+The transformation shifts the origin of the coordinate system from the beamline to the specific focus point of the annulus strips ($f$). In Cartesian coordinates, this involves a translation to the module origin, a rotation by the stereo angle $\phi_s$, and a final translation to the strip focus. 
+
+Mathematically, this transformation is expressed as:
+\begin{equation}
+\begin{pmatrix} x_{SF} \\ y_{SF} \end{pmatrix} = 
+\begin{bmatrix} 
+\cos(-\phi_s) & -\sin(-\phi_s) \\ 
+\sin(-\phi_s) & \cos(-\phi_s) 
+\end{bmatrix} 
+\begin{pmatrix} x_{BF} - R \\ y_{BF} \end{pmatrix} + 
+\begin{pmatrix} R \\ 0 \end{pmatrix}
+\end{equation}
+where $R$ is the radial distance to the module origin.
 
 
-The clustering algorithm for the ITk silicon strip modules, as implemented in the \texttt{traccc} framework for the Event Filter (EF) Tracking GPU pipelines, relies on classical component analysis. This approach is highly optimized for massive parallelism on GPGPU architectures.
-
-The algorithm processes raw cell data from the detector and proceeds through the following steps:
-
-\begin{enumerate}
-    \item \textbf{Component Analysis:} The algorithm scans for contiguous activated detector cells. A cluster is formed by grouping cells that are adjacent to one another in the sensor plane, characterized by their spatial indices.
-    \item \textbf{Weighted Centroid Calculation:} Once contiguous cells are identified, the cluster center is computed as a weighted centroid:
-    \begin{equation}
-        \vec{x}_{\text{local}} = \frac{\sum_{i} w_i \vec{x}_i}{\sum_{i} w_i}
-    \end{equation}
-    where $\vec{x}_i$ represents the spatial indices of the $i$-th cell, and the weight $w_i$ corresponds to the analog information of that cell. Unlike a pixel detector, a strip detector does not provide time-over-threshold information, so it produces a binary signal.
-    \item \textbf{Coordinate Transformation:} The local cluster measurement is transformed into physical coordinates on the detector module by referencing the cell pitch size and module dimensions, which are obtained from the digitization configuration file.
-    \item \textbf{Space Point Formation:} Local measurements are subsequently transformed into global space points using the transformation matrices and local coordinate systems specified in the pre-computed detector geometry description (handled via the \texttt{detray} library).
-\end{enumerate}
-
-\subsection{Input data}
 \FloatBarrier
 \subsection{Integration with the \texttt{Traccc} framework}
+The input data include the strip ID (stripID) and the number of fired strips (nFiredStrip). For instance, if stripID is zero and nFiredStrip is 3, then the stripID is 0, 1, 2 as input to the strip clustering algorithm. For strip modules, a digitization configuration is required to log the cell information to their corresponding modules. The configuration includes the volume, layer, sensitive information, module rows and columns, width, and length. Since strip modules are one-dimensional, the barrel has only one module column, and the module rows are the number of cells in that module. For annulus modules, due to their parabolic shape, the module rows and width are recorded as the number of cells and theta relative to the center in the beam frame, where the module columns and length are one and the radius from the center. After clustering, the Lorentz shift is applied to the annulus modules, and the local positions are then transformed from the beam frame to the strip frame. 
 
 \FloatBarrier
 \section{Results and Discussion}
 \subsection{Cluster comparison with CPU}
+
+Fig.~\ref{fig:local_pos} demonstrates the residuals of local position in x, y between TRACCC and ATHENA (CPU) for both barrels and endcaps; the central bin at 0 indicates the two outcomes are consistent. The accuracy for the residual is within $\mathcal{O}(10^{-10})~mm$. After running the full reconstruction pipeline, the average times for each using the G-080 pipeline for $t\bar{t}$ events at $\langle\mu\rangle=140$ and $\langle\mu\rangle=200$ are shown in the table.~\ref{tab:tracking_timing}. Since both pixel and strip information are fed into the clustering algorithm step, the combined clustering times are 0.5 ms and 0.7 ms, respectively. For further validation, Fig.~\ref{fig:local_eta_plots} and Fig.~\ref{fig:global_coord_plots} illustrate a match in the number of strip clusters with $\eta$ dependence and global positions (in x, y, z) between TRACCC and ATHENA (CPU).
+
 \begin{table}[htbp]
 \centering
 \resizebox{\textwidth}{!}{
@@ -424,9 +501,17 @@ Total GPU with Concurrency &  & 1.3 &  & 1.6 &  \\
 \bottomrule
 \end{tabular}
 }
-\caption{Average timing of the different steps of track reconstruction using the G-O80 pipeline for $t\bar{t}$ events at $\langle\mu\rangle=140$ and $\langle\mu\rangle=200$.}
+\caption{Average timing of the different steps of track reconstruction using the G-080 pipeline for $t\bar{t}$ events at $\langle\mu\rangle=140$ and $\langle\mu\rangle=200$. Since both pixel and strip clustering were sent to the GPU, the clustering timing includes both. HS23 refers to HEPScore23, a CPU performance benchmark used to evaluate and quantify computing power.}
 \label{tab:tracking_timing}
 \end{table}
+
+\begin{figure}[htbp]
+     \centering
+     \includegraphics[width=\textwidth]{figures/strip_cluster/cluster_comparison.png}
+     \caption{Residue of Local Position (x, y) between TRACCC and ATHENA (CPU) outcome, where top and bottom plots are annulus, and the middle plots are barrel modules. The accuracy is within $\mathcal{O}(10^{-10})~mm$.}
+     \label{fig:local_pos}
+\end{figure}
+
 
 \begin{figure}[htbp]
      \centering
@@ -434,7 +519,7 @@ Total GPU with Concurrency &  & 1.3 &  & 1.6 &  \\
          \centering
          \includegraphics[width=\textwidth]{figures/strip_cluster/local_position.png}
          \caption{Local position distribution.}
-         \label{fig:local_pos}
+         \label{fig:local_pos1}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.48\textwidth}
@@ -477,54 +562,40 @@ Total GPU with Concurrency &  & 1.3 &  & 1.6 &  \\
      \caption{Global coordinate distributions for the strip clusters.}
      \label{fig:global_coord_plots}
 \end{figure}
-\FloatBarrier
-\subsection{Efficiency}
 
 \FloatBarrier
 \subsection{Summary of EF Tracking validation}
+The plots in the results show strong agreement between TRACCC and ATHENA (CPU), indicating that the strip clustering algorithm in TRACCC is functioning correctly and reliably. These results were included in the EF Tracking "technology choice" process; ATLAS has chosen a heterogeneous form using CPU + GPUs, based on the balance of risks and opportunities across the technologies.
 
 %%--- Chapter 3 ---------------------------------------------------------------%
 \chapter{ATLAS: Signal Optimization of A Search for Higgs Decays to Dark Photons using ATLAS Run 3 Data}
+\label{sec:darkphoton}
+\section{Title}
+Search for dark photons from Higgs boson decays in the gluon-gluon fusion channel in proton-proton collisions at $\sqrt{s}=13.6$ TeV with the ATLAS detector
+\section{Disclaimer}
+This chapter will be published as a co-authored paper; the credit belongs to the ATLAS Collaboration. See reference~\cite {ATLAS-HMBS-2024-50-002} for a link to the latest draft to publication.
+\section{Abstract}
+This paper presents a search for semi-visible Higgs boson decays in final states with a photon ($\gamma$) and missing transverse momentum $p_T^{miss}$.
+The analysis is optimised for the gluon-gluon fusion production channel and exploits a novel trigger deployed in 2023, with reduced thresholds down to 50 GeV on the photon transverse momentum ($p_T^{\gamma}$) and 70 GeV on the $p_T^{miss}$, in combination with a selection on the transverse mass of the $p_T^{miss}$-$\gamma$ system ($m_T$) above 80 GeV. The results are interpreted in terms of Higgs boson decays into a $\gamma$ and a dark photon $\gamma_d$ ($H \to \gamma \gamma_d$).
+The analysis is performed using 135 fb$^{-1}$ of Run 3 data collected by ATLAS in 2023 and 2024. A boosted decision tree is used to identify events with misreconstructed primary vertices, which can affect the $p_T^{miss}$ calculation. Data-driven methods are employed to estimate the backgrounds from jets and electrons misidentified as photons, while the backgrounds with genuine photons are taken from Monte Carlo simulations, normalised to data in control regions with muons. 
+A binned maximum-likelihood fit to the $m_T$ distribution is performed to evaluate the compatibility of the observed data with the Standard Model expectation. No significant excess is observed over the Standard Model prediction, and an observed (expected) upper limit on the branching ratio of $H \to \gamma \gamma_d$ of 1.4\% (1.2\%) is obtained at 95\% confidence level. Combining this result with previous Run 2 searches improves the observed (expected) upper limit to 0.9\% (0.9\%).
+
 \section{Introduction}
 
 \subsection{Motivation for Hidden Sectors}
 
-While Section~\ref{sec:bsm} gives a brief overview of the astrophysical evidence for dark matter, the Standard Model offers no viable particle candidate. This motivates the hypothesis of a Dark Section (DS), in which the dark photon ($\gamma_d$) is the gauge boson of an additional \( U(1)_D \) gauge group. Strong motivations for the search of this particle arise from its potential contribution in solving the small-scale structure formation problems \cite{Fan:2013tia} \cite{Heikinheimo:2015kra}, as well as being a possible source for the Sommerfeld enhancement of DM annihilation required to explain the PAMELA-Fermi-MS2 positron anomaly in terms of DM \cite{Arkani-Hamed:2008hhe}, or making asymmetric DM scenarios viable \cite{Zurek:2013wia}. 
+While Section~\ref{sec:bsm} gives a brief overview of the astrophysical evidence for dark matter, the Standard Model offers no viable particle candidate. This motivates the hypothesis of a Dark Section (DS), in which the dark photon ($\gamma_d$) is the gauge boson of an additional \( U(1)_D \) gauge group. Strong motivations for the search for this particle arise from its potential contribution in solving the small-scale structure formation problems \cite{Fan:2013tia} \cite{Heikinheimo:2015kra}, as well as being a possible source for the Sommerfeld enhancement of DM annihilation required to explain the PAMELA-Fermi-MS2 positron anomaly in terms of DM \cite{Arkani-Hamed:2008hhe}, or making asymmetric DM scenarios viable \cite{Zurek:2013wia}. 
 
 ---
 
-\subsection{Kinetic Mixing and the Dark Photon}
+\subsection{Dark Photon}
 
-The dark photon, denoted $A'_\mu$, is associated with a new $U(1)_D$ gauge symmetry. The most general renormalizable Lagrangian describing the interaction between the SM hypercharge gauge field $B_\mu$ and the dark photon includes a kinetic mixing term \cite{Holdom1986}:
-\begin{equation}
-\mathcal{L} \supset -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}
-- \frac{1}{4} F'_{\mu\nu} F'^{\mu\nu}
-- \frac{\epsilon}{2} F_{\mu\nu} F'^{\mu\nu},
-\end{equation}
-where $F_{\mu\nu}$ and $F'_{\mu\nu}$ are the field strength tensors of the SM electromagnetic field and the dark photon field, respectively, and $\epsilon$ is the kinetic mixing parameter.
+The dark photon, denoted $A'_\mu$, is associated with a new $U(1)_D$ gauge symmetry. 
 
-This interaction is gauge invariant and can be generated radiatively through loops of heavy particles charged under both $U(1)_Y$ and $U(1)_D$. Natural values of $\epsilon$ span a wide range, typically $10^{-12} \lesssim \epsilon \lesssim 10^{-2}$, depending on the ultraviolet completion of the theory \cite{Essig2013}.
-
-After diagonalizing the kinetic terms and performing electroweak symmetry breaking, the dark photon acquires an effective coupling to the electromagnetic current:
-\begin{equation}
-\mathcal{L}_{\text{int}} = \epsilon e A'_\mu J^\mu_{\text{EM}},
-\end{equation}
-allowing the dark photon to interact weakly with electrically charged SM particles.
-
----
-
-The decay of the Higgs boson into a photon and a dark photon, $H\to\gamma\gamma_d$, provides an interesting production channel for this BSM particle. While $\gamma_d$  searches typically target the massive $\gamma_d$ \cite{Beacham_2019,harris2022snowmasswhitepapernew,Deliyergiyev_2016}, which can couple directly to the Standard Model (SM) via kinetic mixing with the ordinary photon \cite{Fabbrichesi_2021}, this paper focuses on the massless $\gamma_d$ scenario. %\textcolor{red}{but the results remain valid also for a dark photon of mass up to around 10 GeV, as previous studies have shown that the kinematics are not sensitive to the mass of the dark photon up to these values ~\cite{EXOT-2021-17}}. 
-In this case, the kinetic mixing between the $\gamma_d$ the photon can be tuned away through a rotation of the gauge fields, and the $\gamma_d$ can interact with ordinary matter only through operators of dimension higher
+The decay of the Higgs boson into a photon and a dark photon, $H\to\gamma\gamma_d$ provides an interesting production channel for this BSM particle. The study focuses on a massless dark photon, which cannot directly couple to Standard Model (SM) particles \cite{Fabbrichesi_2021}.
+In this case, the kinetic mixing between the $\gamma_d$ and the photon can be tuned away through a rotation of the gauge fields, and the $\gamma_d$ can interact with ordinary matter only through operators of dimension higher
 than four \cite{Fabbrichesi_2021}. The Higgs boson can decay through a loop interaction involving additional (pseudo-)scalar BSM messenger fields, which couple both to the SM and the DS~\cite{Gabrielli:2014oya, Biswas:2016jsh}, as shown in 
-%Fig.~\ref{fig:Feynman-ggF}
-Fig.~\ref{fig:Feynman-all-Hyyd}. Thanks to the non-decoupling properties of the Higgs boson, and depending on the parameters of the model, a branching ratio (BR) of $H\to\gamma\gamma_d$ of few percent can be allowed ~\cite{Beauchesne2023a, Beauchesne2023b}. 
-
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[width=0.4\textwidth]{figures/Feynman_ggF.png}
-%     \caption{Feynman diagram illustrating the gluon-gluon fusion (ggF) process.}
-%     \label{fig:Feynman-ggF}
-% \end{figure}
+Fig.~\ref{fig:Feynman-all-Hyyd}. Thanks to the non-decoupling properties of the Higgs boson, and depending on the parameters of the model, a branching ratio (BR) of $H\to\gamma\gamma_d$ of a few percent can be allowed ~\cite{Beauchesne2023a, Beauchesne2023b}. 
 
 \begin{figure}[htbp]
     \centering
@@ -567,14 +638,14 @@ for a total integrated luminosity of 134.6~\ifb, with an uncertainty of 2\%~\cit
 
 \subsection{MC samples}
 
-The MC samples were processed with p-tag p6697.
+The MC samples were processed with p-tag p6697, which labels the specific ATLAS production campaign and the processing configuration used to generate the data.
 
-The signal samples were showered from common Higgs LHE samples generated using Powheg. The decay process used in the shower was implemented with Pythia. The relevant JIRA tickets can be found at: \href{https://its.cern.ch/jira/browse/ATLMCPROD-10773}{ATLMCPROD-10733}, \href{https://its.cern.ch/jira/browse/ATLMCPROD-10819}{ATLMCPROD-10819}, \href{https://its.cern.ch/jira/browse/ATLMCPROD-10916}{ATLMCPROD-10916} and the sample validation at: \href{https://twiki.cern.ch/twiki/bin/view/AtlasProtected/MC23HLRSHyydValidation}{MC23HLRSHyydValidation}. The signal sample paths are shown in table~\ref{tab:grl_summary}. 
+The signal samples were showered from common Higgs Les Houches Event (LHE) samples generated using Powheg. The decay process used in the shower was implemented with Pythia~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2010xd}. The signal sample paths are shown in table~\ref{tab:grl_summary}. 
 
 The primary backgrounds for the analysis include processes with a true photon in the final states and genuine $E_{T}^{miss}$. These samples include: $Z\gamma$ and $W\gamma$, where the vector boson can decay to a lepton that is not reconstructed or to neutrinos.
 Additional background processes arise from fake photons due to misidentified jets or electrons, and/or fake $E_{T}^{miss}$. 
-The background due to jets or electrons misidentified as photons is mainly given by $Zjets$, $Wjets$, di-jets and $\gamma jets$ with fragmentation photon. The $Zjets$, di-jets and $\gamma(frag) jets$ events are also characterized by fake $E_{T}^{miss}$ due to mis-measured or not reconstructed jets. Finally, $\gamma jets$ with direct photon ($\gamma (direct)jets$) enter the analysis regions exclusively due to the presence of fake $E_{T}^{miss}$. \\
-The list of MC samples used in this analysis is presented in the Appendix tables. As detailed later, MC simulations are eventually employed only for true photon backgrounds (including the $\gamma(direct) jets$), while the contribution from events with fake photons is estimated through data-driven methods. The $W/Z$ MC samples are used as part of the \jfakey method and therefore listed in the following tables, while $\gamma(direct) jets$ and di-jets have been used exclusively for preliminary studies and initial optimization of the analysis selection and are not reported here.  
+The background from jets or electrons misidentified as photons is mainly given by $Zjets$, $Wjets$, di-jets, and $\gamma jets$ with a fragmentation photon. The $Zjets$, di-jets, and $\gamma(frag) jets$ events are also characterized by fake $E_{T}^{miss}$ due to mis-measured or not reconstructed jets. Finally, $\gamma jets$ with direct photon ($\gamma (direct)jets$) enter the analysis regions exclusively due to the presence of fake $E_{T}^{miss}$. \\
+The list of MC samples used in this analysis is presented in the Appendix tables in Chapter~\ref{ch:chapter}. As detailed later, MC simulations are ultimately employed only for true photon backgrounds (including the $\gamma(direct) $ jets), while the contribution from events with fake photons is estimated using data-driven methods. The $W/Z$ MC samples are used as part of the \jfakey method and therefore listed in the following tables, while $\gamma(direct) jets$ and di-jets have been used exclusively for preliminary studies and initial optimization of the analysis selection and are not reported here.  
 
 
 
@@ -626,7 +697,7 @@ Physics objects used in this analysis are reconstructed following standard ATLAS
   \toprule
   Feature & Criterion \\
   \midrule
-  Algorithm & \texttt{Anti--kt}  \\
+  Algorithm & \texttt{Anti-kt}  \\
   $R$-parameter & 0.4 \\
   Input constituent & PFlow \\
   Calibration configuration & {\tiny \texttt{AntiKt4EMPFlow\_MC23a\_PreRecR22\_Phase2\_CalibConfig\_ResPU\_EtaJES\_GSC\_241208\_InSitu.config}} \\
@@ -735,24 +806,11 @@ Physics objects used in this analysis are reconstructed following standard ATLAS
 \FloatBarrier
 \section{Event selection}
 \subsection{Trigger}
-The analysis uses a trigger implemented in 2023, see \href{https://its.cern.ch/jira/browse/ATR-26410}{ATR-26410}. 
-The signal trigger requires a single photon with 26 GeV at L1 -- which is shared with the single electron L1 item. The HLT is a multi-object trigger that requires a 50 GeV tight ID photon (g50), 40 GeV of cell $E_{T}^{miss}$ (xe40\_cell) and 70 GeV of ``pfopufit'' $E_{T}^{miss}$ (xe70\_pfopufit). There transverse mass computed between the photon and the $E_{T}^{miss}$ is defined using the expression: $m_T = \sqrt{2 E_{T}^{\gamma}E_{T}^{miss} (1-cos(\Delta \phi))}$. The trigger requires that: $m_T > 80$ GeV be applied (\texttt{80mTAC}).\\
+The analysis uses a trigger implemented in 2023. 
+The trigger requires a single photon at 26 GeV at L1 -- which is shared with the single-electron L1 item. The HLT is a multi-object trigger that requires a 50 GeV tight ID photon (g50), 40 GeV of cell $E_{T}^{miss}$ (xe40\_cell) and 70 GeV of ``pfopufit'' $E_{T}^{miss}$ (xe70\_pfopufit). There transverse mass computed between the photon and the $E_{T}^{miss}$ is defined using the expression: $m_T = \sqrt{2 E_{T}^{\gamma}E_{T}^{miss} (1-cos(\Delta \phi))}$. The trigger requires that: $m_T > 80$ GeV be applied (\texttt{80mTAC}).\\
 
 This trigger is consistently applied in all the analysis regions, which are generally characterized by signatures allowing reasonable trigger acceptance: $1\mu+\gamma$, $2\mu+\gamma$, 1 non-isolated $\gamma+E_{T}^{miss}$, $1e+E_{T}^{miss}$. For the muon-CRs, it is possible to apply the analysis trigger taking advantage of the fact that muons are not included in the trigger-level $E_{T}^{miss}$ computation. The most critical final state is $1e+E_{T}^{miss}$: in this case, an OR of multiple single-electron triggers and the analysis trigger is applied.
 
-\begin{table}[ht]
-\centering
-\caption{Triggers used in the analysis.}
-\label{tab:trigger-list}
-\begin{tabular}{ll}
-\toprule
-Use & Trigger name \\
-\midrule
-All regions & HLT\_g50\_tight\_xe40\_cell\_xe70\_pfopufit\_80mTAC\_L1eEM26M \\
-$1e+E_{T}^{miss}$ region &  OR of single-e triggers and HLT\_g50\_tight\_xe40\_cell\_xe70\_pfopufit\_80mTAC\_L1eEM26M \\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \FloatBarrier
 \section{Signal region optimization}
@@ -787,7 +845,7 @@ z70\_fopupfit8\allowbreak
 \subsection{N-1 iteration method}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/df_iteration_workflow.png}
+    \includegraphics[width=0.9\textwidth]{figures/df_iteration_workflow.png}
 
 \caption{Iteration workflow for optimizing the cut set using n-1 studies and significance checks.}
 \label{fig:iteration_workflow}
@@ -854,12 +912,12 @@ With the improved optimized cuts, we increased the simple significance $ \frac{S
 \FloatBarrier
 \subsection{Statistical method}
 \label{sec:stat_method}
-The combination presented in this section relies on a combined likelihood function defined as the product of the likelihoods from the individual channels entering the combination, which are themselves products of likelihoods computed from the final observables in various categories in a single analysis.
+The combination is done using a combined likelihood function, i.e. the product of the likelihoods for the individual channels times the product of the likelihoods for the final observables in each of the analysis categories within a single analysis.
 
-The common parameter of interest (POI) targeted in this combination is the branching ratio of $H\to \gamma \gamma_d$, denoted by $\mu$.
-Systematic uncertainties are included as nuisance parameters, denoted by $\bm{\theta}$, and are constrained by Gaussian probability density functions.
-These encode information from \textit{auxiliary} measurements and measure the effect of systematic uncertainties.
-The likelihood also includes normalization factors, denoted by $\bm{\kappa}$, which are floated in the fit without constraints to adjust the agreement with data of background components in their corresponding CR(s).
+In the above combination, the common parameter of interest (POI) for all channels to be combined is the ratio $H \rightarrow \gamma \gamma_d$ branching ratio, denoted by $\mu$.
+The systematic uncertainties are modeled as nuisance parameters $\bm{\theta}$, which are treated as Gaussian variables.
+They represent information from auxiliary measurements and parameterize the uncertainty of that information, i.e. the (different) uncertainty of a systematic to mimic the signal in the current combination.
+In the fit across the various backgrounds, the corresponding normalization, $\bm{\kappa}$, is also treated as a free parameter without any constraints. This parameter is used to achieve the best possible agreement with the data in the corresponding CR(s) for the background shapes.
 
 The combined likelihood can be written as~\cite{Cranmer:1456844}
 \begin{equation}
@@ -882,63 +940,168 @@ The $\mathrm{CL_s}$ frequentist method~\cite{Read:2002hq} following the asymptot
 \end{equation}
 where the numerator indicates the values of $\bm{\kappa}$ and $\bm{\theta}$ that maximize $\mathcal{L}$ for a given value of $\mu$, and the denominator is evaluated for the values $\hat{\mu}$, ${\hat{\bm{\kappa}}}$, ${\hat{\bm{\theta}}}$ which which jointly maximize the likelihood.
 
-\begin{figure}
+
+\begin{table}[ht]
+\centering
+\caption{Final event selections. The SR uses the optimized cuts, while the control regions use the nominal cuts.}
+\label{tab:final-cuts}
+\begin{tabular}{l|c|c|c|c}
+\toprule
+Selection & SR & Low $S_{E_{\mathrm{T}}^{\mathrm{miss}}}$ CR & $1\mu$ CR & $2\mu$ CR \\
+\midrule
+
+Photon 
+& \multicolumn{4}{c}{1 selected photon with $p_{\mathrm{T}} > 50~\mathrm{GeV}$} \\
+
+$p_{\mathrm{T}}^{\mathrm{miss}}$ 
+& \multicolumn{4}{c}{$>100~\mathrm{GeV}$} \\
+
+$m_{\mathrm{T}}$ 
+& \multicolumn{4}{c}{$>80~\mathrm{GeV}$} \\
+
+BDT$_{\mathrm{vertex}}$ 
+& \multicolumn{4}{c}{$>0.1$} \\
+
+$N_{e,\tau}$ 
+& \multicolumn{4}{c}{0 baseline} \\
+
+$N_{\mathrm{b\text{-}jets}}$ 
+& \multicolumn{4}{c}{0} \\
+
+\midrule
+
+$N_{\mathrm{jet}}^{\mathrm{central}}$ 
+& $\leq 3$ 
+& \multicolumn{2}{c|}{$<3$} 
+& -- \\
+
+$N_{\mu}$ 
+& 0 baseline 
+& 0 baseline 
+& 1 selected 
+& 2 selected \\
+
+\midrule
+
+$S_{E_{\mathrm{T}}^{\mathrm{miss}}}$ 
+& $>7$ 
+& $[2,6]$ 
+& $>6$ 
+& -- \\
+
+\midrule
+
+$\left|\Delta\phi(p_{\mathrm{T}}^{\mathrm{miss}}, p_{\mathrm{T}}^{\mathrm{miss},\gamma})\right|$ 
+& \multicolumn{4}{c}{$>1.25$} \\
+
+$\Delta p_{\mathrm{T}}^{\mathrm{miss}}$ 
+& $>-25~\mathrm{GeV}$ 
+& \multicolumn{2}{c|}{$>-10~\mathrm{GeV}$} 
+& -- \\
+
+$\left|\Delta\phi(p_{\mathrm{T}}^{\mathrm{miss}}, p_{\mathrm{T}}^{\mathrm{miss,jet}})\right|$ 
+& \multicolumn{3}{c|}{$<0.75$} 
+& -- \\
+
+$\left|\Delta\phi(j_1,j_2)\right|$ 
+& \multicolumn{3}{c|}{$<2.5$} 
+& -- \\
+
+$|\eta^\gamma|$ 
+& \multicolumn{3}{c|}{$<1.75$} 
+& -- \\
+
+Balance 
+& $>0.9$ 
+& -- 
+& -- 
+& -- \\
+
+$m_{\mu\mu}$ 
+& -- 
+& -- 
+& -- 
+& $>100~\mathrm{GeV}$ \\
+
+\bottomrule
+\end{tabular}
+\caption{A table with optimized cuts on the signal region and retaining the nominal cuts on the control region for the input to TRExFitter.}
+\end{table}
+
+
+% --- FIGURE 1: SR and 1-Muon CR ---
+\begin{figure}[htbp]
     \centering
-
-    % ===== Row 1: Pre-Fit =====
-    \begin{subfigure}[t]{0.32\textwidth}
+    % Row 1: SR
+    \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/tim/Plots/SRdavid.pdf}
+        \includegraphics[width=\linewidth]{figures/tim/SR.png}
         \caption{SR Pre-Fit}
-        \label{fig:sr-prefit}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.32\textwidth}
+    \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/tim/Plots/OneMuCRdavid.pdf}
-        \caption{1$\mu$ CR Pre-Fit}
-        \label{fig:1mu-prefit}
+        \includegraphics[width=\linewidth]{figures/tim/SR_postFit.png}
+        \caption{SR Post-Fit}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/tim/Plots/TwoMuCR_1bin.pdf}
-        \caption{2$\mu$ CR Pre-Fit}
-        \label{fig:2mu-prefit}
-    \end{subfigure}
-
     \vspace{0.5cm}
 
-    % ===== Row 2: Post-Fit =====
-    \begin{subfigure}[t]{0.32\textwidth}
+    % Row 2: 1 Muon CR
+    \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/tim/Plots/SRdavid_postFit.pdf}
-        \caption{SR Post-Fit}
-        \label{fig:sr-postfit}
+        \includegraphics[width=\linewidth]{figures/bdt_fit/OneMuCR.png}
+        \caption{1$\mu$ CR Pre-Fit}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[t]{0.32\textwidth}
+    \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/tim/Plots/OneMuCRdavid_postFit.pdf}
+        \includegraphics[width=\linewidth]{figures/bdt_fit/OneMuCR_postFit.png}
         \caption{1$\mu$ CR Post-Fit}
-        \label{fig:1mu-postfit}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.32\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures/tim/Plots/TwoMuCR_1bin_postFit.pdf}
-        \caption{2$\mu$ CR Post-Fit}
-        \label{fig:2mu-postfit}
     \end{subfigure}
 
-    \caption{Generated by Tim Matthew (senior PhD at University of Oregon), pre-fit (top row) and post-fit (bottom row) $m_{T}$ distributions in the Signal Region (SR), 1$\mu$ Control Region, and 2$\mu$ Control Region. The distributions span $80$--$300$~GeV with binning (80, 110, 140, 200, 300)~GeV.}
+    \caption{Pre-fit (left) and post-fit (right) distributions for the Signal Region (SR) and the 1$\mu$ Control Region (CR).}
+    \label{fig:fit_results_part1}
+\end{figure}
+
+% --- FIGURE 2: 2-Muon CR and VR ---
+\begin{figure}[htbp]
+    \centering
+    % Row 1: 2 Muon CR
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/bdt_fit/TwoMuCR_1bin.png}
+        \caption{2$\mu$ CR Pre-Fit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/bdt_fit/TwoMuCR_1bin_postFit.png}
+        \caption{2$\mu$ CR Post-Fit}
+    \end{subfigure}
+    \vspace{0.5cm}
+
+    % Row 2: Low METsig VR
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/bdt_fit/LowMetsigVR.png}
+        \caption{LowMETsig CR Pre-Fit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/bdt_fit/LowMetsigVR_postFit.png}
+        \caption{LowMETsig CR Post-Fit}
+    \end{subfigure}
+
+    \caption{Pre-fit (left) and post-fit (right) distributions for the 2$\mu$ Control Region (CR) and the Low MET Significance Control Region (CR).
+    Generated by Tim Matthew (senior PhD at the University of Oregon). The $m_T$ distributions span $80$--$300$~GeV with binning (80, 110, 140, 200, 300)~GeV.}
     \label{fig:mt-prefit-postfit}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/tim/NormFactors.pdf}
-    \caption{Normalization factors for W and Z processes and signal strength, with related statistical uncertainties}
+    \includegraphics[width=0.7\textwidth]{figures/tim/NormFactors.png}
+    \caption{Normalization factors $k_{W_{\gamma}}$ and $k_{Z_{\gamma}}$ and branching ratio BR($H\to\gamma\gamma_d$) with their corresponding statistical uncertainties (+data-driven systematics only, no experimental or theoretical systematics) for optimized selection fitter.}
     \label{fig:nf}
 \end{figure}
 
@@ -946,7 +1109,7 @@ where the numerator indicates the values of $\bm{\kappa}$ and $\bm{\theta}$ that
     \centering
     \includegraphics[width=0.7\textwidth]{figures/limit.png}
     \caption{Observed and expected 95\% CL upper limits on the branching ratio 
-    $\mathcal{B}(H_{125} \rightarrow \gamma\gamma_D)$ obtained from the individual 
+    $\mathcal{B}(H\to\gamma\gamma_D)$ obtained from the individual 
     analysis channels and their combination. The black markers indicate the observed 
     limits, while the dashed line represents the median expected limit under the 
     background-only hypothesis. The green and yellow bands correspond to the 
@@ -954,26 +1117,24 @@ where the numerator indicates the values of $\bm{\kappa}$ and $\bm{\theta}$ that
     \label{fig:limit}
 \end{figure}
 
+A binned maximum-likelihood fit is performed simultaneously in the SR and in the CRs, using the transverse mass $m_T$ as the discriminating variable, in order to maximize the sensitivity to the Higgs boson mass peak. All regions entering the fit are binned in $m_{T}$, with the exception of the 2$\mu$ CR, which is treated as a single inclusive bin due to limited statistical precision.
 
-A comparison of the $m_T$ distributions before and after the application of additional selection cuts is shown in Figure~\ref{fig:mt-prefit-postfit}. In this context, the ``pre'' distributions correspond to the baseline event selection, while the ``post'' distributions are obtained after applying the additional optimized requirements.
+Figure~\ref{fig:mt-prefit-postfit} is the comparison of the $m_T$ distributions before and after the application of additional selection cuts. In this context, the ``pre'' distributions correspond to the baseline event selection, while the ``post'' distributions are obtained after applying the additional optimized requirements.
+The $m_T$ distributions span $80$--$300$~GeV with binning (80, 110, 140, 200, 300)~GeV, where the optimization for the selection cuts was performed in the region of $m_T$ between 100 and 140 GeV. 
 
-The comparison is performed in the Signal Region (SR), the $1\mu$ Control Region (CR), and the $2\mu$ Control Region. The $m_T$ distributions span $80$--$300$~GeV with binning (80, 110, 140, 200, 300)~GeV. The additional selection requirements are designed to enhance signal sensitivity in the SR while maintaining control over the dominant background contributions in the CRs.
+The likelihood function is constructed as the product of Poisson probability density functions describing the expected signal and background yields in each $m_T$ bin. The branching ratio BR($H\to\gamma\gamma_d$) is included in the fit as the Parameter of Interest (POI). The two normalization factors, $k_{W_{\gamma}}$ and $k_{Z_{\gamma}}$, are applied to the $W_\gamma$ and $Z_\gamma$ background processes respectively. 
 
-As expected, the impact of the additional cuts is most visible in the SR, where a reduction of background yields is observed at higher $m_T$, improving the signal-to-background separation. In the control regions, the overall normalization and shapes of the dominant backgrounds remain stable, indicating that the additional requirements do not introduce significant distortions to the background modeling. In the $2\mu$ CR, where an inclusive binning scheme is used due to limited statistics, the effect of the additional cuts is primarily reflected in the overall yield.
-
-The fitted normalization factors $k_W$ and $k_Z$, together with their associated statistical uncertainties, are shown in Figure~\ref{fig:nf}. Both normalization factors are close to unity, indicating good agreement between the predicted and observed yields in the control regions. The uncertainties are at the level of $\mathcal{O}(10\%)$, reflecting the statistical precision of the control samples. No significant deviation from the nominal expectation is observed, and the fitted values remain compatible with one another within uncertainties. This confirms that the background modeling for the $W\gamma$ and $Z\gamma$ processes is well constrained by the data.
-
-Overall, the post-selection distributions show that the optimized cuts improve discrimination in the SR while preserving the integrity of the control regions.
+With allowing the $k_{W_{\gamma}}$ and $k_{Z_{\gamma}}$ to flow in the fit, the fitted normalization factors are $k_{W\gamma} = 1.09^{+0.09}_{-0.09}$ and
+$k_{Z\gamma} = 1.05^{+0.03}_{-0.03}$ as shown in Figure~\ref{fig:nf}. 
 
 The most recent ATLAS combination~\cite{ATLAS:2024hpd} reports an observed (expected) 
 95\% confidence level (CL) upper limit on the branching ratio 
-$\mathcal{B}(H_{125} \rightarrow \gamma\gamma_D)$ of 1.3\% (1.5\%), shown in Figure~\ref{fig:limit}
-Using the optimized selection strategy described in this work, the observed 95\% CL upper limit is reduced to 0.88\%, corresponding to an improvement of approximately 32\% in the excluded branching ratio.
+$\mathcal{B}(H_{125} \rightarrow \gamma\gamma_D)$ of 1.3\% (1.5\%), shown in Figure~\ref{fig:limit}.
+Using the optimized selection strategy described in this work, the expected 95\% CL upper limit is reduced to $0.78^{+0.31}_{-0.21}\,\%$, corresponding to an improvement of approximately 67\% in the excluded branching ratio.
 This reduction reflects the enhanced background rejection achieved by the 
-additional selection requirements while maintaining signal efficiency.
+additional selection requirements while maintaining signal efficiency. 
 
-
-
+In addition, Fig.~\ref{fig:cut-all} shows the histogram distributions of each additional selection variable after the optimized cuts, and Fig.~\ref{fig:n1-all} shows N-1 plots, where all other additional selection variable cuts are applied except the variable in each plot. One can verify that the selections reject most of the background in the N-1 plots.
 
 
 
@@ -1035,7 +1196,7 @@ additional selection requirements while maintaining signal efficiency.
 
 
   \caption{Additional Selection variables distributions after the optimized rectangular cuts for the ggF $H \to \gamma\gamma_D$ analysis.}
-  \label{fig:n1-all}
+  \label{fig:cut-all}
 \end{figure}
 
 
@@ -1106,7 +1267,7 @@ additional selection requirements while maintaining signal efficiency.
 \subsubsection{Boosted Decision Tree (BDT) training and results}
 \label{sec:bdt}
 
-To improve the separation of signal and background beyond cut-based selections, a multivariate boosted decision tree (BDT) classifier was trained using gradient boosting~\cite {FriedmanGBDT,TMVA2007,scikit-learn}. Training is performed after preselections and object definitions. The input variables were selected based on Receiver Operating Characteristic (ROC) curves, which indicated their discriminating power for cuts. If the area under the curve (AUC) of the ROC curve is close to 0.5, then the variable is excluded from the list for ML input. To ensure the ML is not biased towards the wrong vertices, $\mathrm{BDT}^{\text{vertex}}_{\text{score}} > 0.1$ is added in the preselections.
+To improve the separation of signal and background beyond cut-based selections, a multivariate boosted decision tree (BDT) classifier was trained using gradient boosting~\cite {FriedmanGBDT,TMVA2007,scikit-learn}. Training is performed after preselections and object definitions. The input variables were selected based on Receiver Operating Characteristic (ROC) curves, which indicated their discriminative power for cut points. If the area under the curve (AUC) of the ROC curve is close to 0.5, then the variable is excluded from the list for ML input. To ensure the ML is not biased towards the wrong vertices, $\mathrm{BDT}^{\text{vertex}}_{\text{score}} > 0.1$ is added in the preselections.
 The input variables used in the BDT training are 
 $\mathrm{BDT}^{\text{vertex}}_{\text{score}}$
 $\Delta E_T^{\text{miss}}$, 
@@ -1140,16 +1301,16 @@ The BDT is trained with gradient boosting, and a randomized hyperparameter scan 
 \hline
 \textbf{Hyperparameter} & \textbf{Scan Range / Distribution} & \textbf{Best Run} \\
 \hline
-Maximum depth & $\mathrm{randint}(3, 10)$ & $7$ \\
-Learning rate & $\mathrm{uniform}(0.001, 0.1)$ & $0.02399$ \\
-Number of estimators & $\mathrm{randint}(100, 900)$ & $398$ \\
-Subsample fraction & $\mathrm{uniform}(0.2, 0.8)$ & $0.7805$ \\
-$\gamma$ (split regularization) & $\mathrm{uniform}(0.1, 1)$ & $0.2707$ \\
+Maximum depth & $\mathrm{randint}(3, 10)$ & $9$ \\
+Learning rate & $\mathrm{uniform}(0.001, 0.1)$ & $0.05025$ \\
+Number of estimators & $\mathrm{randint}(100, 900)$ & $602$ \\
+Subsample fraction & $\mathrm{uniform}(0.2, 0.8)$ & $0.6169$ \\
+$\gamma$ (split regularization) & $\mathrm{uniform}(0.1, 1)$ & $0.2397$ \\
 \hline
-Best ROC AUC & \multicolumn{2}{c}{$0.957$} \\
-Signal Acceptance & \multicolumn{2}{c}{$48.63\%$} \\
+Best ROC AUC & \multicolumn{2}{c}{$0.961$} \\
+Signal Acceptance & \multicolumn{2}{c}{$51.7\%$} \\
 BDT Score cut & \multicolumn{2}{c}{0.02} \\
-Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$2.960$} \\
+Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$3.021$} \\
 \hline
 \end{tabular}
 \end{table}
@@ -1162,35 +1323,21 @@ Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$2.960$} \\
 \end{figure}
 
 
-Besides validation accuracy, I also looped over the cuts on the output ML BDT score and calculated the maximum simple significance ($S/\sqrt{B}$). The full sweep is in the Figure~\ref{fig:bdt:sweep}, where every run is recorded for its maximum simple significance and its corresponding ML BDT score cut and acceptance rate. The best-performing run (also in Table~\ref{tab:bdt_sweep}) is the one with the highest simple significance, using an ML BDT score cut > 0.02, which yields an expected significance of $S/\sqrt{B}=2.960$ with a signal acceptance of approximately $48.63\%$ in Fig.~\ref{fig:bdt:score_scan}. The reason for not selecting ML BDT score cut > 0.03, despite their higher significance, is to avoid over-training and the loss of statistical sensitivity when performing the TRExFitter later.
+Besides validation accuracy, I also looped over the cuts on the output ML BDT score and calculated the maximum simple significance ($S/\sqrt{B}$). The full sweep is in the Figure~\ref{fig:bdt:sweep}, where every run is recorded for its maximum simple significance and its corresponding ML BDT score cut and acceptance rate. The best-performing run (also in Table~\ref{tab:bdt_sweep}) is the one with the highest simple significance, using an ML BDT score cut $>$ 0.02, which yields an expected significance of $S/\sqrt{B}=3.021$ with a signal acceptance of approximately $51.7\%$ in Fig.~\ref{fig:bdt:score_scan}. The reason for not selecting the ML BDT score cut at $>$ 0.03, despite their higher significance, is to avoid overtraining and the loss of statistical sensitivity when performing the TRExFitter later.
 
-The discriminating power of the BDT classifier is demonstrated by the ROC curve and the input feature importance to the classifier shown in Figure~\ref {fig:bdt:roc_importance}.
+The discriminating power of the BDT classifier is demonstrated by the ROC curve, where the area under the curve (AUC) is 0.961, and the input feature importance to the classifier, as shown in Figure~\ref {fig:bdt:roc_importance}.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\textwidth]{figures/bdt/MLBDTScoreCutPlot.png}
+  \includegraphics[width=0.85\textwidth]{figures/bdt/significance_MLBDTScore_lowercut.png}
   \caption{Significance versus BDT score threshold, with the maximum simple significance at $\mathrm{BDT\ score}\ge 0.02$. $S/\sqrt{B}$ (blue) is the simple counting significance; $S/\sqrt{S+B}$ is (orange) the poisson-aware approximation; $S/\sqrt{S+1.3B}$ (green) is the Ad-hoc systematic-aware metric, assuming 30\% background systematic; Zbi (red) is the Binomial significance.}
   \label{fig:bdt:score_scan}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  
-  \begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{figures/bdt/roc.png}
-    \caption{ROC curve of the trained BDT.}
-    \label{fig:bdt:roc}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{figures/bdt/feature_importance.png}
-    \caption{Feature importance ranking from the trained model.}
-    \label{fig:bdt:importance}
-  \end{subfigure}
-
-  \caption{Performance of the BDT classifier. (Left) Receiver operating characteristic (ROC) curve. (Right) Feature importance of input variables.}
+  \includegraphics[width=\linewidth]{figures/bdt/roc.png}
+  \caption{Receiver Operating Characteristic (ROC) curve (Left) and feature importance of input variables for the trained Boosted Decision Tree (BDT) model}
   \label{fig:bdt:roc_importance}
 \end{figure}
 
@@ -1198,13 +1345,52 @@ The discriminating power of the BDT classifier is demonstrated by the ROC curve 
 \subsubsection{TRExFitter for BDT}
 \label{sec:bdt_fit}
 
+\begin{figure}[htbp]
+    \centering
+
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/bdt_fit/SR.png}
+        \caption{SR Pre-fit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/bdt_fit/SR_postFit.png}
+        \caption{SR Post-fit}
+    \end{subfigure}
+
+    \caption{TRExFitter result for Boosted Decision Tree (BDT). $m_{T}$ distributions before and after the pre-selections and ML BDT score cut for Signal Region (SR). The $1\mu$ Control Region (CR), the $2\mu$ CR, and the Low Met significance CR are the same as~\protect\ref{fig:mt-prefit-postfit}}
+    \label{fig:bdt_plots_grid}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/bdt_fit/NormFactors.png}
+    \caption{Normalization factors $k_{W_{\gamma}}$ and $k_{Z_{\gamma}}$ and branching ratio BR($H\to\gamma\gamma_d$) with their corresponding statistical uncertainties (+data-driven systematics only, no experimental or theoretical systematics) for ML BDT score cut TRExFitter.}
+    \label{fig:bdt_nf}
+\end{figure}
+
+TRExFitter was performed for the ML BDT score cut study. Figure~\ref{fig:bdt_plots_grid} shows the comparison of the $m_T$ distributions before and after the application of ML BDT score cuts for SR only. The Control Region is the same as in the previous study. 
+The $m_T$ distributions span $80$--$300$~GeV with binning (80, 110, 140, 200, 300)~GeV, where the ML BDT training was performed with $m_T > 80 ~GeV$ and pre-selection cuts. Similar to the optimized selection study, the fitted normalization factors are $k_{W\gamma} = 1.08^{+0.07}_{-0.07}$ and
+$k_{Z\gamma} = 1.00^{+0.02}_{-0.02}$ as shown in Figure~\ref{fig:bdt_nf}. 
+
+
+Using the ML BDT, the expected 95\% CL upper limit is reduced to $0.76^{+0.30}_{-0.22}\,\%$. 
+
 
 
 \FloatBarrier
 \subsubsection{Neural Network (NN) training and results}
 \label{sec:nn}
 
-In addition to the BDT study, a 5-layer fully connected Deep Neural Network (DNN) classifier was trained to compare performance. DNN uses the same set of input variables as BDT, and then standardizes the input features, since neural networks are more sensitive to biases than BDT. The model is presented in the table~\ref{tab:nn_model}. To optimize the model with the chosen hyperparameters (number of neurons per layer, learning rate, batch size, and dropout rate), a Bayesian hyperparameter sweep with 50 runs was performed and summarized in Table~\ref{tab:nn_sweep}. Unlike the randomized sweep used in BDT, the Bayesian sweep evaluates previous performance and gradually converges to the best model. For the model, instead of having each layer contain 32 to 2048 neurons with steps of multiples of 2, the model expands the units in layers 1 to 3, allowing it to project into a higher dimension to capture corrections. After each layer, the model uses a ReLU activation function for nonlinearity and a dropout rate of 10\%-50\% to prevent overtraining. Compression following the expansion forces the abstract features learned in the middle to condense into the most important indicators of a dark photon event. Finally, a sigmoid activation function reduces each event to a single score between 0 and 1, representing the probability that it is a signal event. To address underfitting and overfitting, an early stopping criterion of 5 epochs was implemented: training stops if the model does not improve for the next 5 epochs.
+In addition to the BDT study, a fully connected Deep Neural Network (DNN) classifier was trained to compare performance. DNN uses the same set of input variables as BDT. Since DNN is more sensitive to biases than BDT, preprocessing for the input variable is needed to prevent undefined or extreme data from disrupting the model. 
+
+For DNN preprocessing, the signal weight is normalized by the background weight to prevent a disproportionate loss function due to uneven weighting, thereby slowing overall learning. In basic cuts, the number of central jets less than 3 is imposed, so there are some events with 0 or 1 jet, resulting in variables, like $\Delta\phi(j_1,j_2)$, $\Delta\phi(E_T^{\text{miss}}, j_{\text{central}})$, and balance, have empty values in events. An additional column was added for each missing-value variable, with 1 indicating a missing value and 0 for the rest.
+
+The model is presented in the table~\ref{tab:nn_model}. To optimize the model with the chosen hyperparameters (number of neurons per layer, learning rate, batch size, and dropout rate), a Bayesian hyperparameter sweep with 50 runs was performed and summarized in Table~\ref{tab:nn_sweep}. Unlike the randomized sweep used in BDT, the Bayesian sweep evaluates previous performance and gradually converges to the best model. Since the number of layers was also undetermined, we started with a 5-layer NN model, with layers 4 and 5 optionally containing zero neurons, allowing analysis of 3- and 4-layer NN models. The neurons are reduced with layers, forcing the model to condense into the most important features of a dark photon signal event. After each layer, the model uses a ReLU activation function for nonlinearity and a dropout rate of 10\%-50\% to prevent overtraining. Finally, a sigmoid activation function reduces each event to a single score between 0 and 1, representing the probability that it is a signal event. To address underfitting and overfitting, an early stopping criterion of 5 epochs was implemented: training stops if the model does not improve for the next 5 epochs.
+
 
 
 
@@ -1213,13 +1399,13 @@ In addition to the BDT study, a 5-layer fully connected Deep Neural Network (DNN
 \caption{Model of the Deep Neural Network (DNN) Classifier}
 \label{tab:nn_model}
 \begin{tabular}{@{}lll@{}}
-\toprule                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+\toprule                                                                    
 \textbf{Layer / Component} & \textbf{Configuration}  \\ \midrule
 Input Layer & \texttt{Input(shape=N)} \\
-Expansion Phase & Layers 1--3 (up to 2048) \\
+Compression & Layers 1--3 \\
 Activation & ReLU  \\
 Regularization & Dropout (5\%--25\%)  \\
-Compression Phase & Layers 4--5 (contracting)  \\
+Compression (Optional) & Layers 4--5 \\
 Output Layer & Sigmoid (1 unit)  \\
 Loss Function & Binary Cross-Entropy  \\
 Sample Weights & \texttt{w\_train} / \texttt{w\_test}  \\
@@ -1236,35 +1422,61 @@ Early Stopping & Patience = 5 \\ \bottomrule
 \hline
 \textbf{Hyperparameter} & \textbf{Scan Range / Distribution} & \textbf{Best Run} \\
 \hline
-Learning rate & $\mathrm{log\_uniform}(10^{-5}, 10^{-2})$ & $0.003883$ \\
-Batch size & $\{128, 256, 512, 768, 1024\}$ & $1024$ \\
-Dropout fraction & $\mathrm{uniform}(0.1, 0.5)$ & $0.1677$ \\
-Layer 1 width & $\{64, 128, 192, 256\}$ & $128$ \\
-Layer 2 width & $\{128, 192, 256, 384, 512\}$ & $512$ \\
-Layer 3 width & $\{512, 768, 1024, 1536, 2048\}$ & $512$ \\
-Layer 4 width & $\{128, 256, 384, 512\}$ & $128$ \\
-Layer 5 width & $\{32, 64, 96, 128\}$ & $128$ \\
+Learning rate & $\mathrm{log\_uniform}(10^{-5}, 2\times 10^{-2})$ & $0.0001148$ \\
+Batch size & $\{1024, 2048, 4096\}$ & $4096$ \\
+Dropout fraction & $\mathrm{uniform}(0.1, 0.5)$ & $0.1129$ \\
+Layer 1 width & $\{256, 512, 768, 1024\}$ & $1024$ \\
+Layer 2 width & $\{64, 128, 256, 512\}$ & $128$ \\
+Layer 3 width & $\{32, 64, 128, 256\}$ & $128$ \\
+Layer 4 width & $\{0, 32, 64, 128\}$ & $32$ \\
+Layer 5 width & $\{0, 16, 32, 64\}$ & $64$ \\
 Training epochs & Fixed ($50$) & $50$ \\
 \hline
-Best ROC AUC & \multicolumn{2}{c}{$0.901$} \\
-Signal Acceptance & \multicolumn{2}{c}{$64.04\%$} \\
-NN Score cut & \multicolumn{2}{c}{$0.03$} \\
-Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$3.052$} \\
+Best ROC AUC & \multicolumn{2}{c}{$0.961$} \\
+Signal Acceptance & \multicolumn{2}{c}{$57.68\%$} \\
+NN Score cut & \multicolumn{2}{c}{$0.91$} \\
+Maximum $S/\sqrt{B}$ & \multicolumn{2}{c}{$2.915$} \\
 \hline
 \end{tabular}
 \end{table}
 
-\paragraph{Classifier performance and working point.}
-Similar to the BDT evaluation, the performance of the best NN model is assessed by iterating over the network's output score and calculating the simple significance ($S/\sqrt{B}$). The best run is determined by finding the threshold that maximizes this significance while retaining sufficient signal. 
+Similar to the BDT study, in the sweep, the evaluation of a run is determined by the maximum simple significance across all lower cuts of the network's output score. While maintaining signal acceptance, the nominal working point is chosen at $\mathrm{NN\ score} \ge 0.91$, which yields an expected maximum significance of $S/\sqrt{B}=2.915$ with a signal acceptance of approximately $58\%$, as shown in Fig.~\ref{fig:nn:score_scan}.
 
-The nominal working point is chosen at $\mathrm{NN\ score} \ge 0.03$, which yields an expected maximum significance of $S/\sqrt{B}=3.052$ with a signal acceptance of approximately $64.04\%$, as shown in Fig.~\ref{fig:nn:score_scan}. While the maximum significance achieved by the NN is slightly lower than that of the BDT ($3.052$ versus $3.199$), the neural network retains a notably higher signal acceptance ($64.04\%$ compared to $54.05\%$).
+For the TRExFitter for the bound signal run, shown in Fig.~\ref{fig:nn_fit}, the expected limit is ($0.75^{+0.30}_{-0.21}\,\%$), a slightly more stringent limit than that of BDT. 
 
 \begin{figure}[htbp]
   \centering
   % Make sure the folder path matches where you put your NN plot
-  \includegraphics[width=0.85\textwidth]{figures/bdt/significance_nn_scores_lowercut.png}
-  \caption{Significance versus NN score threshold. The maximum simple significance ($S/\sqrt{B} = 3.052$) is achieved at $\mathrm{NN\ score}\ge 0.03$, corresponding to a signal acceptance of $64.04\%$.}
+  \includegraphics[width=0.85\textwidth]{figures/dnn/significance_nn_scores_lowercut.png}
+  \caption{Significance versus NN score threshold. The maximum simple significance ($S/\sqrt{B} = 2.915$) is achieved at $\mathrm{NN\ score}\ge 0.91$, corresponding to a signal acceptance of $58\%$.}
   \label{fig:nn:score_scan}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/dnn/SR_DNN.png}
+        \caption{SR Pre-fit}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/dnn/SR_DNN_postfit.png}
+        \caption{SR Post-fit}
+    \end{subfigure}
+
+    \caption{TRExFitter result for Deep Neural Network (DNN). $m_{T}$ distributions before and after the pre-selections and ML BDT score cut for Signal Region (SR). The $1\mu$ Control Region (CR), the $2\mu$ CR, and the Low Met significance CR are the same as~\protect\ref{fig:mt-prefit-postfit}}
+    \label{fig:nn_fit}
+\end{figure}
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.87\textheight, angle=270, keepaspectratio]{figures/dnn/WeightAndBiasesSweepDNN.png}
+  \caption{Weight and Biases plot~\protect\cite{wandb} for the 50 DNN Sweeps, where it records the hyperparameters (gamma, learning rate, max depth, number of estimators, subsample) and performance (test AUC of the ROC, best $\frac{S}{\sqrt{B}}$, its corresponding ML BDT Score cut and acceptance rate). The highlighted line is the chosen parameter in table~\protect\ref{tab:bdt_sweep}.}
+  \label{fig:bdt:sweep}
 \end{figure}
 
 \FloatBarrier
@@ -1273,17 +1485,28 @@ The nominal working point is chosen at $\mathrm{NN\ score} \ge 0.03$, which yiel
 
 \begin{table}[htbp]
 \centering
-\caption{Comparison of the four methods with their performance in observed and expected limit, significance, and significance x acceptance}
+\caption{Comparison of the four methods with their performance in observed and expected limit, significance, and significance $\times$ acceptance.}
 \label{tab:analysis_comparison}
 \begin{tabular}{lcccc}
     \toprule
-    \textbf{Nominal Analysis} & \textbf{Optimized Selection} & \textbf{BDT} & \textbf{DNN} \\
+    \textbf{Metric} & \textbf{Nominal} & \textbf{Optimized} & \textbf{BDT} & \textbf{DNN} \\
     \midrule
-    observed limit & 1.16\% & -- & -- & -- \\
-    expected limit & $(0.92^{+0.46}_{-0.28}\,\%)$ & 0.88\%  & -- & -- \\
-    significance & -- & -- & -- & -- \\
-    significance x acceptance & -- & -- & -- & -- \\
+    Observed limit & 1.06\% & -- & -- & -- \\
+    Expected limit & ($0.86^{+0.34}_{-0.24}\,\%$) & ($0.78^{+0.31}_{-0.21}\,\%$) & ($0.76^{+0.30}_{-0.22}\,\%$) & ($0.75^{+0.30}_{-0.21}\,\%$) \\
+    Significance ($\sigma$) & 2.475 & 2.701 & 3.031 & 2.915 \\
+    Acceptance & 68.5\% & 61.2\% & 52.2\% & 57.68\% \\
+    Significance * Acceptance & 1.695 & 1.653 & 1.576 & 1.681 \\
     \bottomrule
 \end{tabular}
 \end{table}
 
+
+
+In this thesis, a comprehensive search for dark photons in Higgs boson decays ($H \to \gamma\gamma_d$) is performed. For the search, four analyses have been set up, each using a different method to enhance the signal-to-background ratio: a cut-based analysis with Nominal as well as Optimized selection criteria, and two machine-learning-based analyses, using either a Boosted Decision Trees (BDT) or a Deep Neural Networks (DNN) to assign a weight to the event based on its kinematics. The performance of these methods is benchmarked using expected upper limits on the branching ratio, expected statistical significance, and the product of significance and signal acceptance.
+
+From the comparison of these four values, we found that machine learning techniques significantly improve analysis compared with traditional cut-and-count methods. The transition from the nominal cuts to the optimally selected sample of events improved the expected significance from $2.475\sigma$ to $2.701\sigma$ and the expected upper limit on the branching ratio of $H \to \gamma\gamma_d$ from $0.86\%$ to $0.78\%$. The DNN method achieved the best expected limit, although BDT has better significance than DNN (the difference is small). The DNN analysis achieved an expected significance of $2.915\sigma$ and expected upper limit of $(0.75^{+0.30}_{-0.22})\,\%$. After optimizing the selection criteria, the analysis improved the expected upper limit on the branching ratio of this process by $70\%$ (from $1.3$ to $0.75$) compared to the previous work. 
+
+The future outlook is to project all three methods to the fully integrated 
+luminosity of the LHC Run 3 dataset (approximately $300\text{ fb}^{-1}$) 
+and to study the combined Run 3 and Run 2 data to expand the search for 
+dark photons at the LHC.
